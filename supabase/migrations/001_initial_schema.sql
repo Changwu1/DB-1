@@ -152,7 +152,7 @@ create table diary_entries (
   submitted_at timestamptz,
   is_backfill boolean not null default false,
 
-  -- Computed and stored (calculated after save per D9)
+  -- Computed fields stored at save time (formulas from docs/03-diary.md section 5)
   time_in_bed_min integer,
   sleep_time_min integer,
   sleep_efficiency_pct numeric(5,2),

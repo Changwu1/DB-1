@@ -16,14 +16,17 @@ export default function DevPanel() {
   function apply() {
     if (value) {
       globalThis.__DEV_DATE__ = value
+      document.cookie = `__dev_date__=${encodeURIComponent(value)}; path=/`
     } else {
       delete globalThis.__DEV_DATE__
+      document.cookie = '__dev_date__=; path=/; max-age=0'
     }
     window.location.reload()
   }
 
   function clear() {
     delete globalThis.__DEV_DATE__
+    document.cookie = '__dev_date__=; path=/; max-age=0'
     setValue('')
     window.location.reload()
   }

@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest'
-import { getNow, toDateString, addDays, daysBetween } from '@/lib/time'
+import { getNow, getNowWithOverride, toDateString, addDays, daysBetween } from '@/lib/time'
 
 describe('getNow()', () => {
   afterEach(() => {
@@ -48,5 +48,30 @@ describe('daysBetween()', () => {
     const from = new Date('2026-11-01T00:00:00')
     const to = new Date('2026-11-29T00:00:00')
     expect(daysBetween(from, to)).toBe(28)
+  })
+})
+
+describe('getNowWithOverride()', () => {
+  it('returns current time when no override provided', () => {
+    const before = Date.now()
+    const result = getNowWithOverride()
+    const after = Date.now()
+    expect(result.getTime()).toBeGreaterThanOrEqual(before)
+    expect(result.getTime()).toBeLessThanOrEqual(after)
+  })
+
+  it('returns overridden date when override string provided in development', () => {
+    const result = getNowWithOverride('2026-11-11T08:00:00')
+    expect(result.getFullYear()).toBe(2026)
+    expect(result.getMonth()).toBe(10) // 0-indexed
+    expect(result.getDate()).toBe(11)
+  })
+
+  it('returns current time when override is empty string', () => {
+    const before = Date.now()
+    const result = getNowWithOverride('')
+    const after = Date.now()
+    expect(result.getTime()).toBeGreaterThanOrEqual(before)
+    expect(result.getTime()).toBeLessThanOrEqual(after)
   })
 })

@@ -3,10 +3,29 @@ declare global {
   var __DEV_DATE__: string | undefined
 }
 
-/** Single source of "now" for all date logic. Never call new Date() directly in feature code. */
+/** Core override logic — accepts override string directly, fully testable. */
+export function getNowWithOverride(override?: string): Date {
+  if (process.env.NODE_ENV === 'development' && override) {
+    return new Date(override)
+  }
+  return new Date()
+}
+
+/** Client-side "now" — reads globalThis.__DEV_DATE__ set by DevPanel. */
 export function getNow(): Date {
-  if (process.env.NODE_ENV === 'development' && globalThis.__DEV_DATE__) {
-    return new Date(globalThis.__DEV_DATE__)
+  return getNowWithOverride(globalThis.__DEV_DATE__)
+}
+
+/**
+ * Server-side "now" — reads __dev_date__ cookie so Server Components and
+ * API routes honour the same simulated date as the browser.
+ * Only call from Server Components / Route Handlers (requires next/headers).
+ */
+export async function getNowServer(): Promise<Date> {
+  if (process.env.NODE_ENV === 'development') {
+    const { cookies } = await import('next/headers')
+    const override = (await cookies()).get('__dev_date__')?.value
+    return getNowWithOverride(override)
   }
   return new Date()
 }
