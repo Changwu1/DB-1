@@ -12,9 +12,9 @@ type AssessmentResult = typeof VALID_RESULTS[number]
 // GO users are allowed everywhere; per-screen guards in Steps 4–8 enforce fine-grained rules.
 const BLOCKED_FEATURE_PREFIXES: Record<AssessmentResult, string[]> = {
   GO: [],
-  'NOT-FIT': ['/diary', '/suggestion', '/recap'],
-  REFER: ['/diary', '/education', '/suggestion', '/recap', '/assessment/consent'],
-  STOP: ['/diary', '/education', '/suggestion', '/recap', '/assessment/consent'],
+  'NOT-FIT': ['/diary', '/suggestion', '/recap', '/final-isi'],
+  REFER: ['/diary', '/education', '/suggestion', '/recap', '/final-isi', '/assessment/consent'],
+  STOP: ['/diary', '/education', '/suggestion', '/recap', '/final-isi', '/assessment/consent'],
 }
 
 export async function middleware(request: NextRequest) {
@@ -56,7 +56,7 @@ export async function middleware(request: NextRequest) {
 
   // D8: enforce result-based access on feature routes.
   // Only query DB for routes that could be blocked — avoids a round-trip on every asset.
-  const needsResultCheck = ['/diary', '/education', '/suggestion', '/recap', '/assessment/consent']
+  const needsResultCheck = ['/diary', '/education', '/suggestion', '/recap', '/final-isi', '/assessment/consent']
     .some(r => path.startsWith(r))
 
   if (needsResultCheck) {

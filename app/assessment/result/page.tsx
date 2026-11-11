@@ -100,7 +100,7 @@ function NotFitResult() {
         ถ้าอาการแย่ลงหรือเป็นถี่ขึ้น แนะนำให้คุยกับแพทย์
       </p>
       <Link
-        href="/education"
+        href="/education/basics"
         className="rounded-lg bg-zinc-900 py-3 text-sm font-medium text-white text-center"
       >
         ดูเคล็ดลับการนอน
