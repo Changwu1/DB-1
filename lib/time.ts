@@ -3,17 +3,25 @@ declare global {
   var __DEV_DATE__: string | undefined
 }
 
-/** Core override logic — accepts override string directly, fully testable. */
+/**
+ * Pure: returns the override date if provided and valid, otherwise real Date.
+ * No NODE_ENV guard — testable in any environment.
+ * NODE_ENV safety lives in getNow() and getNowServer() (the entry points).
+ */
 export function getNowWithOverride(override?: string): Date {
-  if (process.env.NODE_ENV === 'development' && override) {
-    return new Date(override)
+  if (override) {
+    const d = new Date(override)
+    if (!isNaN(d.getTime())) return d
   }
   return new Date()
 }
 
-/** Client-side "now" — reads globalThis.__DEV_DATE__ set by DevPanel. */
+/** Client-side "now" — reads globalThis.__DEV_DATE__ set by DevPanel. Override only in development. */
 export function getNow(): Date {
-  return getNowWithOverride(globalThis.__DEV_DATE__)
+  if (process.env.NODE_ENV === 'development' && globalThis.__DEV_DATE__) {
+    return getNowWithOverride(globalThis.__DEV_DATE__)
+  }
+  return new Date()
 }
 
 /**

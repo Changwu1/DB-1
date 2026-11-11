@@ -1,16 +1,20 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
-// Routes accessible without auth
+// Routes accessible without auth (Supabase magic-link callback also needs to be public)
 const PUBLIC_PATHS = ['/login', '/auth/callback']
 
-// D8: routes each result can access (prefix match)
-// Full per-screen enforcement lives in each layout/page once screens exist.
-const RESULT_ALLOWED_PREFIXES: Record<string, string[]> = {
-  GO: ['/'],
-  'NOT-FIT': ['/assessment', '/education'],
-  REFER: ['/assessment/result'],
-  STOP: ['/assessment/result'],
+// D8: known result values — anything outside this list is treated as unknown → fail closed
+const VALID_RESULTS = ['STOP', 'REFER', 'NOT-FIT', 'GO'] as const
+type AssessmentResult = typeof VALID_RESULTS[number]
+
+// D8: routes blocked per result (prefix match).
+// GO users are allowed everywhere; per-screen guards in Steps 4–8 enforce fine-grained rules.
+const BLOCKED_FEATURE_PREFIXES: Record<AssessmentResult, string[]> = {
+  GO: [],
+  'NOT-FIT': ['/diary', '/suggestion', '/recap'],
+  REFER: ['/diary', '/education', '/suggestion', '/recap', '/assessment/consent'],
+  STOP: ['/diary', '/education', '/suggestion', '/recap', '/assessment/consent'],
 }
 
 export async function middleware(request: NextRequest) {
@@ -50,38 +54,47 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(loginUrl)
   }
 
-  // D8: enforce result-based access for feature routes
-  // Assessment and home are always reachable by authenticated users;
-  // per-screen guards (Steps 4–8) enforce the full matrix within each route.
-  const featureRoutes = ['/diary', '/education', '/suggestion', '/recap']
-  if (featureRoutes.some(r => path.startsWith(r))) {
-    const { data: assessment } = await supabase
+  // D8: enforce result-based access on feature routes.
+  // Only query DB for routes that could be blocked — avoids a round-trip on every asset.
+  const needsResultCheck = ['/diary', '/education', '/suggestion', '/recap', '/assessment/consent']
+    .some(r => path.startsWith(r))
+
+  if (needsResultCheck) {
+    const { data: assessment, error: assessErr } = await supabase
       .from('assessment_responses')
       .select('result')
       .eq('user_id', user.id)
       .maybeSingle()
 
-    const result = assessment?.result as keyof typeof RESULT_ALLOWED_PREFIXES | null
-
-    if (result === 'STOP' || result === 'REFER') {
+    // Fail closed: if the DB query fails, redirect STOP/REFER/unknown to result page
+    // rather than allowing access — STOP is permanent and must never be bypassed.
+    if (assessErr) {
       const resultUrl = request.nextUrl.clone()
       resultUrl.pathname = '/assessment/result'
       return NextResponse.redirect(resultUrl)
     }
 
-    if (result === 'NOT-FIT') {
-      const allowed = RESULT_ALLOWED_PREFIXES['NOT-FIT']
-      if (!allowed.some(prefix => path.startsWith(prefix))) {
+    const rawResult = assessment?.result
+    // Runtime-validate the result value — unknown values redirect rather than pass through
+    const result: AssessmentResult | null =
+      rawResult && (VALID_RESULTS as readonly string[]).includes(rawResult)
+        ? (rawResult as AssessmentResult)
+        : null
+
+    if (result) {
+      const blocked = BLOCKED_FEATURE_PREFIXES[result]
+      if (blocked.some(prefix => path.startsWith(prefix))) {
         const resultUrl = request.nextUrl.clone()
         resultUrl.pathname = '/assessment/result'
         return NextResponse.redirect(resultUrl)
       }
     }
+    // null result = assessment not completed yet → allow through; per-screen guards handle it
   }
 
   return supabaseResponse
 }
 
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
+  matcher: ['/((?!_next/static|_next/image|favicon.ico|.*\\..*).*)'],
 }

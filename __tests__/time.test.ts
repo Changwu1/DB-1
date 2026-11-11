@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, afterEach } from 'vitest'
+import { describe, it, expect, afterEach } from 'vitest'
 import { getNow, getNowWithOverride, toDateString, addDays, daysBetween } from '@/lib/time'
 
 describe('getNow()', () => {
@@ -60,16 +60,25 @@ describe('getNowWithOverride()', () => {
     expect(result.getTime()).toBeLessThanOrEqual(after)
   })
 
-  it('returns overridden date when override string provided in development', () => {
-    const result = getNowWithOverride('2026-11-11T08:00:00')
-    expect(result.getFullYear()).toBe(2026)
-    expect(result.getMonth()).toBe(10) // 0-indexed
-    expect(result.getDate()).toBe(11)
+  it('returns the override date regardless of environment', () => {
+    // Uses a date clearly distinct from today (2026-11-11) to prove the override works
+    const result = getNowWithOverride('2024-01-15T10:00:00')
+    expect(result.getFullYear()).toBe(2024)
+    expect(result.getMonth()).toBe(0) // January, 0-indexed
+    expect(result.getDate()).toBe(15)
   })
 
   it('returns current time when override is empty string', () => {
     const before = Date.now()
     const result = getNowWithOverride('')
+    const after = Date.now()
+    expect(result.getTime()).toBeGreaterThanOrEqual(before)
+    expect(result.getTime()).toBeLessThanOrEqual(after)
+  })
+
+  it('returns current time when override is an invalid date string', () => {
+    const before = Date.now()
+    const result = getNowWithOverride('not-a-date')
     const after = Date.now()
     expect(result.getTime()).toBeGreaterThanOrEqual(before)
     expect(result.getTime()).toBeLessThanOrEqual(after)

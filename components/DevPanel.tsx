@@ -16,17 +16,17 @@ export default function DevPanel() {
   function apply() {
     if (value) {
       globalThis.__DEV_DATE__ = value
-      document.cookie = `__dev_date__=${encodeURIComponent(value)}; path=/`
+      document.cookie = `__dev_date__=${encodeURIComponent(value)}; path=/; SameSite=Lax`
     } else {
       delete globalThis.__DEV_DATE__
-      document.cookie = '__dev_date__=; path=/; max-age=0'
+      document.cookie = '__dev_date__=; path=/; max-age=0; SameSite=Lax'
     }
     window.location.reload()
   }
 
   function clear() {
     delete globalThis.__DEV_DATE__
-    document.cookie = '__dev_date__=; path=/; max-age=0'
+    document.cookie = '__dev_date__=; path=/; max-age=0; SameSite=Lax'
     setValue('')
     window.location.reload()
   }
