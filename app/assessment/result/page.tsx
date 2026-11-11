@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { loadAssessment } from '@/lib/assessment-db'
+import { beginProgramme } from './actions'
 
 export default async function ResultPage() {
   const row = await loadAssessment()
@@ -158,12 +159,14 @@ function GoResult({ flags }: { flags: string[] }) {
           })}
         </div>
       )}
-      <Link
-        href="/diary"
-        className="rounded-lg bg-zinc-900 py-3 text-sm font-medium text-white text-center"
-      >
-        เริ่มสัปดาห์ที่ 1
-      </Link>
+      <form action={beginProgramme}>
+        <button
+          type="submit"
+          className="w-full rounded-lg bg-zinc-900 py-3 text-sm font-medium text-white text-center"
+        >
+          เริ่มสัปดาห์ที่ 1
+        </button>
+      </form>
     </div>
   )
 }
