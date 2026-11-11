@@ -5,7 +5,8 @@
 -- ── profiles ──────────────────────────────────────────────────────────────────
 create table profiles (
   id uuid primary key references auth.users on delete cascade,
-  account_name text not null check (char_length(account_name) between 1 and 30),
+  -- account_name is set during assessment account step, not at signup
+  account_name text check (char_length(account_name) between 1 and 30),
   created_at timestamptz not null default now()
 );
 
@@ -39,7 +40,7 @@ create table assessment_responses (
   age integer check (age between 0 and 100),
   sleep_problem_types text[],
   nights_per_week integer check (nights_per_week between 0 and 7),
-  problem_duration text check (problem_duration in ('น้อยกว่า3เดือน', '3-6เดือน', 'มากกว่า6เดือน')),
+  problem_duration text check (problem_duration in ('น้อยกว่า 3 เดือน', '3–6 เดือน', 'มากกว่า 6 เดือน')),
   adequate_opportunity boolean,
 
   -- ISI (ข้อ 1–7, 0–4 each)
@@ -78,7 +79,7 @@ create table assessment_responses (
 
   -- Lifestyle flags
   shift_work boolean,
-  pregnant_postnatal text check (pregnant_postnatal in ('yes', 'no', 'not_applicable')),
+  pregnant_postnatal text check (pregnant_postnatal in ('ใช่', 'ไม่ใช่', 'ไม่เกี่ยวข้อง')),
 
   -- RLS (ข้อ 1–4; 2–4 null if ข้อ 1 = no)
   rls_q1 boolean,

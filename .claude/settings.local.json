@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git init *)",
+      "Bash(sed -n '661,1083p' /Users/changwuyue/Code/DB1/Assessment_-2.txt)",
+      "Bash(sed -n '1087,2168p' /Users/changwuyue/Code/DB1/Assessment_-2.txt)",
+      "Bash(sed -n '2169,2755p' /Users/changwuyue/Code/DB1/Assessment_-2.txt)",
+      "Bash(npx create-next-app@latest *)",
+      "Bash(npm install *)",
+      "Bash(npm test *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
+    ]
+  }
+}

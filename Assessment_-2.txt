@@ -1,0 +1,2756 @@
+﻿Spec — Assessment (CBT-I MVP)
+ร่างโดยเพชร 3 พ.ย. 2026 · อัปเดต 5 พ.ย. ตามคำตอบโก๋หมิง · อัปเดต 11 พ.ย. ตามคำถาม Yue (ISI ตอนจบ, ปุ่ม NOT-FIT, สิทธิ์เข้าแอป) · ใช้โครงจาก spec-template.md · ข้อมูลจาก 07_assessment-mvp.md (ฉบับล่าสุด) และ 2026-11-02_mvp-task-split.md · ช่องไหนไม่มีข้อมูล = [?] (ดูข้อ 9) · "(เพชรเสนอ)" = ยังไม่ได้ยืนยัน
+เช็ก 4 ข้อก่อนส่ง (สถานะตอนนี้)
+1. คนอื่นอ่านแค่ tab นี้แล้วรู้ว่าต้องสร้างอะไร → 🟡 เกือบ (เหลือคำถามในข้อ 9 · ข้อความทุกหน้าร่างแล้ว รอโก๋หมิงอ่าน)
+2. ทุก "ถ้า…" มี "ไม่งั้น…" → ✅ ข้อ 4
+3. ตัวเลขมีหน่วย + แหล่งที่มา → ✅ ข้อ 3 และ 5 (cut-off ใช้ค่าที่มีงานวิจัยรองรับตาม 07 แต่ยังไม่มีผู้เชี่ยวชาญรีวิว)
+4. test case คิดมือ → ✅ 19 ข้อในข้อ 8 (ผู้ทดสอบสมมติ ไม่ต้องเป็นนุ่น)
+ชื่อใหม่ที่ขอเพิ่มในพจนานุกรมกลาง (ต้องเพิ่มก่อนใช้ — ให้ทีมเห็น ห้ามแก้เงียบ ๆ)
+ชิ้นงาน
+	ชื่อ
+	ความหมายสั้น ๆ
+	หน่วย
+	เจ้าของ
+	assessment
+	คะแนน ISI ตอนเริ่ม
+	(มีอยู่แล้ว) ผลรวม ISI 7 ข้อ
+	คะแนน 0–28
+	โก๋หมิง
+	assessment
+	คะแนน ISI ตอนจบ
+	ผลรวม ISI 7 ข้อ ทำซ้ำตอนจบโปรแกรม = ครบ 1 เดือน (4 สัปดาห์ = 28 วัน) หลังกด [เริ่มสัปดาห์ที่ 1] (เฉพาะคนที่ได้ GO)
+	คะแนน 0–28
+	โก๋หมิง
+	บัญชี
+	ชื่อบัญชี
+	ชื่อที่ใช้ติดตามข้อมูลของผู้ใช้คนนี้
+	ข้อความ
+	Yue
+	บัญชี
+	อีเมล
+	ใช้ติดตามผลและขอความร่วมมือเพิ่ม
+	ข้อความ
+	Yue
+	assessment
+	อายุ
+	อายุผู้ใช้
+	ปี
+	โก๋หมิง
+	assessment
+	คืนที่นอนไม่หลับต่อสัปดาห์
+	จำนวนคืนที่มีปัญหาการนอน ใน 1 เดือนที่ผ่านมา
+	คืน/สัปดาห์
+	โก๋หมิง
+	assessment
+	ระยะเวลาที่มีปัญหาการนอน
+	เป็นมานานแค่ไหน
+	ตัวเลือก 3 ช่วง
+	โก๋หมิง
+	assessment
+	ประเภทปัญหาการนอน
+	หลับยาก / ตื่นกลางดึก / ตื่นเช้าเกิน (เลือกได้หลายข้อ)
+	ตัวเลือก
+	โก๋หมิง
+	assessment
+	คะแนน 9Q รวม
+	ผลรวม 9Q ข้อ 3.3–3.11
+	คะแนน 0–27
+	โก๋หมิง
+	assessment
+	คำตอบ 9Q ข้อคิดทำร้ายตนเอง
+	ข้อ 3.11
+	0–3
+	โก๋หมิง
+	assessment
+	คะแนน STOP-Bang
+	ผลรวม 8 ข้อ
+	คะแนน 0–8
+	โก๋หมิง
+	assessment
+	BMI
+	น้ำหนัก ÷ ส่วนสูง²
+	กก./ม.²
+	โก๋หมิง
+	assessment
+	ผลลัพธ์
+	STOP / REFER / NOT-FIT / GO
+	ตัวเลือก
+	โก๋หมิง
+	assessment
+	แจ้งเตือนพิเศษ (flag)
+	ข้อความ "แจ้งหมอ Surat เรื่อง…" ที่แนบกับ GO
+	รายการข้อความ
+	โก๋หมิง
+	(ชื่อของคำตอบรายข้ออื่น ๆ ใช้ชื่อตามหัวตารางข้อ 3 ถ้าทีมไม่เห็นด้วยให้แก้ที่พจนานุกรม)
+________________
+
+
+0. หัว
+หัวข้อ
+	รายละเอียด
+	ชิ้นงาน
+	Assessment (คัดกรองความเหมาะสม + baseline ISI)
+	เจ้าของ
+	โก๋หมิง
+	สถานะ
+	Draft (ยังไม่ผ่าน clinical review · ยังไม่ขอ license ISI ตามที่โก๋หมิงเลื่อนไว้ · ห้ามใช้กับคนไข้จนกว่าจะผ่าน review + เรื่อง IRB)
+	ใช้ข้อมูลจาก
+	บัญชี: ชื่อบัญชี (Yue) — ใช้ผูกคำตอบและเช็กว่าเคยทำแล้วหรือยัง · เก็บข้อมูลบน Supabase (บริการฐานข้อมูลออนไลน์)
+	ส่งข้อมูลให้
+	assessment: คะแนน ISI ตอนเริ่ม + คะแนน ISI ตอนจบ → Recap (Washi) เทียบกัน · assessment: ผลลัพธ์ + แจ้งเตือนพิเศษ → UI (Yue) · ไม่ส่งอะไรให้ suggestion (Lunn): MVP ไม่มี sleep window และไม่ถามเวลานอน-ตื่นปกติ (baseline การนอนใช้ sleep diary สัปดาห์ที่ 1)
+	1. เป้าหมาย
+* ผู้ใช้รู้ได้ในรอบเดียว (~8–10 นาที) ว่าโปรแกรม CBT-I (การบำบัดพฤติกรรมและความคิดสำหรับนอนไม่หลับ) แบบทำเองที่บ้านเหมาะกับตัวเองไหม และถ้าเหมาะ ระบบได้คะแนน ISI ตอนเริ่มไว้เทียบตอนจบ
+* ผู้ใช้คือผู้ใหญ่ 18+ ที่นอนไม่หลับแบบใดก็ได้ ทำบนมือถือที่บ้าน
+* เสร็จเมื่อ: ทุกเส้นทางคำตอบจบที่ผลลัพธ์เดียวเสมอ และ test ทั้ง 19 ข้อในข้อ 8 ได้ผลตรงที่คิดมือ
+2. ขอบเขต
+* ทำ: คัดความปลอดภัย/คุณสมบัติ · เก็บคะแนน ISI ตอนเริ่ม · บันทึกประเภทปัญหาการนอน · แสดงผลลัพธ์ 4 แบบ · แนบแจ้งเตือนพิเศษกับ GO · บันทึกคำตอบทุกหน้าเพื่อกลับมาทำต่อได้
+* ไม่ทำในรอบนี้: วินิจฉัยโรค · จัด tier/ต้นทุน/ราคา · ปรับเนื้อหาตามผู้ใช้ · GAD-7 / ESS / PTSD · 8Q (หยุดแล้วส่งต่อแทน) · ส่งผลให้หมอ Surat อัตโนมัติ · ตรวจซ้ำระหว่างโปรแกรม · ใช้ประสิทธิภาพการนอนเป็นเกณฑ์เข้า · คำถามความสนใจจ่ายเงิน (อยู่ในสรุปท้ายการทดลอง นอกแอป) · sleep window และแจ้งเตือนที่เกี่ยวกับมัน · ถามเวลานอน-ตื่นปกติ · ทำแบบประเมินซ้ำ (1 บัญชีทำได้ครั้งเดียว · ยกเว้น ISI 7 ข้อตอนจบโปรแกรม ซึ่งทำซ้ำเฉพาะ ISI)
+3. ข้อมูลเข้า-ออก
+ชื่อ
+	มาจาก
+	ชนิด
+	หน่วย
+	ค่าที่รับได้
+	บังคับ
+	assessment: ความยินยอม
+	ผู้ใช้กรอก
+	ติ๊ก
+	—
+	ติ๊ก / ไม่ติ๊ก
+	บังคับ
+	บัญชี: ชื่อบัญชี
+	ผู้ใช้กรอก (หน้าสร้างบัญชี)
+	ข้อความ
+	—
+	ชื่อเล่นได้ · 1–30 ตัวอักษร (เพชรเสนอ)
+	บังคับ
+	บัญชี: อีเมล
+	ผู้ใช้กรอก (หน้าสร้างบัญชี)
+	อีเมล
+	—
+	รูปแบบอีเมลถูกต้อง
+	บังคับ
+	assessment: อายุ
+	ผู้ใช้กรอก
+	ตัวเลข
+	ปี
+	จำนวนเต็ม 0–100
+	บังคับ
+	assessment: ประเภทปัญหาการนอน
+	ผู้ใช้กรอก
+	เลือกหลายข้อ
+	—
+	หลับยาก · ตื่นกลางดึก · ตื่นเช้าเกิน · ไม่มีปัญหาเหล่านี้
+	บังคับ
+	assessment: คืนที่นอนไม่หลับต่อสัปดาห์
+	ผู้ใช้กรอก
+	ตัวเลข
+	คืน/สัปดาห์
+	0–7
+	บังคับ
+	assessment: ระยะเวลาที่มีปัญหาการนอน
+	ผู้ใช้กรอก
+	เลือก 1
+	—
+	น้อยกว่า 3 เดือน · 3–6 เดือน · มากกว่า 6 เดือน
+	บังคับ
+	assessment: โอกาสนอนเพียงพอ
+	ผู้ใช้กรอก
+	เลือก 1
+	—
+	ใช่ · ไม่ใช่
+	บังคับ
+	assessment: ISI ข้อ 1–7
+	ผู้ใช้กรอก
+	เลือก 1 ต่อข้อ
+	คะแนน
+	0–4 ต่อข้อ (ตัวเลือกในไฟล์ 07 เรียงซ้ายไปขวา = 0→4)
+	บังคับ
+	assessment: คะแนน ISI ตอนเริ่ม
+	คำนวณ
+	ตัวเลข
+	คะแนน
+	0–28
+	—
+	assessment: 2Q ข้อ 1–2
+	ผู้ใช้กรอก
+	ใช่/ไม่ใช่
+	—
+	ใช่ · ไม่ใช่
+	บังคับ
+	assessment: 9Q ข้อ 3.3–3.11
+	ผู้ใช้กรอก
+	เลือก 1 ต่อข้อ
+	คะแนน
+	0–3 ต่อข้อ
+	บังคับ ถ้า 2Q มี "ใช่"
+	assessment: คะแนน 9Q รวม
+	คำนวณ
+	ตัวเลข
+	คะแนน
+	0–27
+	—
+	assessment: ข้อห้าม 5 ข้อ (ไบโพลาร์ · โรคจิต · ลมชัก · ละเมอ · ขับรถอาชีพ/คุมเครื่องจักร)
+	ผู้ใช้กรอก
+	ใช่/ไม่ใช่
+	—
+	ใช่ · ไม่ใช่
+	บังคับ
+	assessment: ทำงานเป็นกะ
+	ผู้ใช้กรอก
+	ใช่/ไม่ใช่
+	—
+	ใช่ · ไม่ใช่
+	บังคับ
+	assessment: ตั้งครรภ์/หลังคลอด 6 เดือน
+	ผู้ใช้กรอก
+	เลือก 1
+	—
+	ใช่ · ไม่ใช่ · ไม่เกี่ยวข้อง
+	บังคับ
+	assessment: RLS 4 ข้อ
+	ผู้ใช้กรอก
+	ใช่/ไม่ใช่
+	—
+	ถามข้อ 2–4 ต่อเมื่อข้อ 1 = ใช่
+	บังคับตามเงื่อนไข
+	assessment: STOP-Bang ข้อกรน / เหนื่อย / หยุดหายใจ
+	ผู้ใช้กรอก
+	เลือก 1
+	—
+	ใช่ · ไม่ใช่ · ไม่รู้ (ข้อเหนื่อยไม่มี "ไม่รู้")
+	บังคับ
+	assessment: ความดันโลหิตสูง
+	ผู้ใช้กรอก
+	ใช่/ไม่ใช่
+	—
+	ใช่ · ไม่ใช่
+	บังคับ
+	assessment: ส่วนสูง
+	ผู้ใช้กรอก
+	ตัวเลข
+	ซม.
+	100–200
+	บังคับ (ใช้คำนวณ BMI)
+	assessment: น้ำหนัก
+	ผู้ใช้กรอก
+	ตัวเลข
+	กก.
+	30–250
+	บังคับ (ใช้คำนวณ BMI)
+	assessment: BMI
+	คำนวณ
+	ตัวเลข ทศนิยม 2 ตำแหน่ง
+	กก./ม.²
+	—
+	—
+	assessment: รอบคอ
+	ผู้ใช้กรอก
+	ตัวเลข หรือ "ไม่รู้"
+	นิ้ว
+	8–30 (แปลงเป็นซม. ก่อนเทียบเกณฑ์)
+	ไม่บังคับ
+	assessment: เพศกำเนิด
+	ผู้ใช้กรอก
+	เลือก 1
+	—
+	ชาย · หญิง
+	บังคับ
+	assessment: การใช้สิ่งช่วยหลับ
+	ผู้ใช้กรอก
+	เลือก 1 ต่อรายการ (ยาแพทย์สั่ง · ยาซื้อเอง/แก้แพ้ · แอลกอฮอล์ · อาหารเสริม เช่น เมลาโทนิน กัมมี่)
+	—
+	ไม่เคย · บางครั้ง · 3 คืน/สัปดาห์ขึ้นไป
+	บังคับ
+	assessment: คะแนน STOP-Bang
+	คำนวณ
+	ตัวเลข
+	คะแนน
+	0–8
+	—
+	assessment: ผลลัพธ์
+	คำนวณ
+	เลือก 1
+	—
+	STOP · REFER · NOT-FIT · GO
+	—
+	assessment: แจ้งเตือนพิเศษ
+	คำนวณ
+	รายการข้อความ
+	—
+	0 ข้อขึ้นไป
+	—
+	4. กฎการทำงาน
+ลำดับความสำคัญเมื่อเข้าหลายกฎ: STOP > REFER > NOT-FIT > GO
+ถามต่อให้ครบ: ถ้าเจอ NOT-FIT หรือ REFER ระหว่างทาง ระบบจำผลไว้แล้วถามต่อจนครบทุกข้อ ค่อยแสดงผลที่สำคัญที่สุดหน้าเดียว (REFER แสดงทุกเหตุผลที่เข้า) · จบทันทีมีแค่ 3 กรณี: ไม่ยินยอม · อายุ < 18 · STOP (9Q ข้อ 3.11 > 0) · ในตารางด้านล่าง "NOT-FIT / REFER" ที่อยู่ในแถวระหว่างทาง = จำผลไว้ ไม่ได้แปลว่าจบ
+ลำดับหน้า (เพชรเสนอ): หน้ายินยอม → หน้าสร้างบัญชี (ชื่อบัญชี + อีเมล) → อายุ → คำถามที่เหลือตาม 07 · ยินยอมก่อนเพราะต้องขอความยินยอมก่อนเก็บอีเมล
+บัญชี การบันทึก และการย้อนกลับ
+เมื่อ
+	ถ้า
+	ระบบทำ
+	ไม่งั้น
+	ผู้ใช้เข้าแบบประเมิน
+	บัญชีนี้ทำแบบประเมินจนได้ผลลัพธ์แล้ว
+	แสดงหน้าผลลัพธ์เดิม ไม่ให้ทำใหม่
+	ดูแถวถัดไป
+	(ต่อ)
+	บัญชีนี้มีคำตอบค้างอยู่ (ปิดแอปกลางทาง)
+	พากลับไปหน้าแรกที่ยังไม่ได้ตอบ คำตอบเดิมยังอยู่ครบ
+	เริ่มจากหน้ายินยอม
+	ผู้ใช้ตอบแต่ละหน้า
+	—
+	บันทึกคำตอบทันที (ไม่รอจบทั้งชุด)
+	—
+	ผู้ใช้กดย้อนกลับไปแก้คำตอบ
+	เคยเจอ STOP แล้ว
+	ล็อก ไม่ให้แก้ แสดงหน้า STOP เดิม (รวมถึงตอนปิดแล้วเปิดใหม่)
+	ให้แก้ได้ แล้วคำนวณผลใหม่จากคำตอบปัจจุบันทั้งหมด
+	คัดกรอง
+เมื่อ
+	ถ้า
+	ระบบทำ
+	ไม่งั้น
+	ผู้ใช้ตอบหน้า ความยินยอม
+	assessment: ความยินยอม = ไม่ติ๊ก
+	จบ ไม่ถามต่อ
+	ไปหน้าสร้างบัญชี
+	ผู้ใช้ตอบ อายุ
+	assessment: อายุ < 18
+	จบ แสดง "โปรแกรมนี้สำหรับผู้ใหญ่อายุ 18 ปีขึ้นไป"
+	ไปบล็อกปัญหาการนอน
+	ตอบ ประเภทปัญหาการนอน
+	ไม่ได้เลือกสามข้อแรกเลย (เลือก "ไม่มีปัญหาเหล่านี้")
+	NOT-FIT
+	บันทึกประเภท ถามต่อ
+	ตอบ คืนที่นอนไม่หลับต่อสัปดาห์
+	< 3 คืน/สัปดาห์
+	NOT-FIT
+	ถามต่อ
+	ตอบ ระยะเวลาที่มีปัญหาการนอน
+	= น้อยกว่า 3 เดือน
+	NOT-FIT
+	ถามต่อ
+	ตอบ โอกาสนอนเพียงพอ
+	= ไม่ใช่
+	NOT-FIT
+	ไป ISI
+	ครบ ISI 7 ข้อ
+	คะแนน ISI ตอนเริ่ม ≤ 7
+	NOT-FIT
+	ดูแถวถัดไป
+	(ต่อ)
+	คะแนน ISI ตอนเริ่ม ≥ 22
+	REFER
+	8–21 → ผ่าน ถามต่อ
+	ตอบ 2Q
+	ทั้ง 2 ข้อ = ไม่ใช่
+	ข้าม 9Q ไปข้อห้าม
+	ถาม 9Q ครบ 9 ข้อ
+	ตอบ 9Q ข้อ 3.11
+	คำตอบ > 0
+	STOP ทันที (ก่อนรวมคะแนน) ไม่ถามต่อ
+	ถามข้อถัดไป
+	ครบ 9Q
+	คะแนน 9Q รวม ≥ 13
+	REFER
+	7–12 → แจ้งเตือน "อารมณ์เศร้าระดับเล็กน้อย" · < 7 → ไม่มีแจ้งเตือน
+	ตอบข้อห้าม 5 ข้อ
+	ข้อใดข้อหนึ่ง = ใช่
+	REFER
+	ถามต่อ
+	ตอบ ทำงานเป็นกะ
+	= ใช่
+	แจ้งเตือน "ทำงานเป็นกะ" (ไม่คัดออก)
+	ไม่มีแจ้งเตือน
+	ตอบ ตั้งครรภ์/หลังคลอด 6 เดือน
+	= ใช่
+	แจ้งเตือน "ตั้งครรภ์/หลังคลอด" (ไม่คัดออก)
+	ไม่มีแจ้งเตือน
+	ตอบ RLS ข้อ 1
+	= ไม่ใช่
+	ข้าม RLS 2–4
+	ถามข้อ 2–4
+	ครบ RLS
+	ใช่ครบ 4 ข้อ
+	REFER
+	1–3 ข้อ → ผ่าน
+	ครบ STOP-Bang
+	คะแนน STOP-Bang ≥ 5
+	REFER
+	3–4 → แจ้งเตือน "เสี่ยงหยุดหายใจขณะหลับ" (ถ้ามีข้อ "ไม่รู้" ให้ระบุในข้อความ) · 0–2 → ไม่มีแจ้งเตือน
+	ตอบ การใช้สิ่งช่วยหลับ
+	รายการใดรายการหนึ่ง (ยาแพทย์สั่ง / ยาซื้อเอง / แอลกอฮอล์ / อาหารเสริม) = 3 คืน/สัปดาห์ขึ้นไป
+	แจ้งเตือน "สิ่งช่วยหลับ" (ไม่คัดออก) · เหตุผลที่อาหารเสริมนับด้วย: ทำให้ผลการทดลองคลาดเคลื่อน
+	ไม่มีแจ้งเตือน
+	จบทุกข้อ
+	ไม่มี STOP / REFER / NOT-FIT เลย
+	GO + แจ้งเตือนทั้งหมดที่สะสมไว้
+	ผลลัพธ์ตามลำดับความสำคัญ (แจ้งเตือนแสดงเฉพาะกับ GO)
+	ส่วนสูง/น้ำหนักเป็นช่องบังคับ ว่างแล้วไปต่อไม่ได้ · รอบคอตอบ "ไม่รู้" ได้
+5. สูตร / การคำนวณ
+ชื่อ
+	สูตร
+	ตัวอย่าง
+	assessment: คะแนน ISI ตอนเริ่ม
+	ผลรวม ISI ข้อ 1–7 (แต่ละข้อ 0–4)
+	2+2+2+2+2+2+2 = 14
+	assessment: คะแนน 9Q รวม
+	ผลรวม 9Q ข้อ 3.3–3.11 (ข้อละ 0–3) · ถ้าข้าม 9Q = 0
+	2+2+2+2+2+2+1+0+0 = 13
+	assessment: BMI
+	น้ำหนัก (กก.) ÷ (ส่วนสูง (ซม.) ÷ 100)² ปัด 2 ตำแหน่ง
+	64.5 ÷ 1.70² = 22.32
+	assessment: คะแนน STOP-Bang
+	กรน + เหนื่อย + หยุดหายใจ + ความดัน (ใช่ = 1) + BMI > 35 + อายุ > 50 + รอบคอ > 40 ซม. + เพศชาย (ข้อละ 1) · "ไม่รู้" = 0 · รอบคอกรอกเป็นนิ้ว → แปลงเป็นซม. (× 2.54) แล้วค่อยเทียบ 40 ซม. (= 15.75 นิ้ว)
+	ชาย อายุ 55 รอบคอ 17 นิ้ว (43.18 ซม.) กรน เหนื่อย = 1+1+0+0+0+1+1+1 = 5
+	ปัดเศษ: BMI ปัด 2 ตำแหน่ง แล้วเทียบเกณฑ์ > 35 ด้วยค่าที่ปัดแล้ว (เพชรเสนอ) · ข้ามเที่ยงคืน: ไม่เกี่ยว (ไม่มีเวลาในชิ้นนี้) · ข้อมูลไม่ครบ: "ไม่รู้" = 0 คะแนน · ส่วนสูง/น้ำหนักห้ามว่าง
+6. Edge cases
+กรณี
+	ระบบทำ
+	คืนที่นอนไม่หลับต่อสัปดาห์ = 3 พอดี
+	ผ่าน (< 3 เท่านั้นที่ NOT-FIT)
+	คะแนน ISI ตอนเริ่ม = 7 / 8 / 21 / 22
+	7 → NOT-FIT · 8 และ 21 → ผ่าน · 22 → REFER
+	คะแนน 9Q รวม = 12 / 13
+	12 → แจ้งเตือน · 13 → REFER
+	อายุ = 18 / 50 / 51
+	18 ผ่าน · 50 ไม่ได้คะแนน STOP-Bang · 51 ได้ 1 คะแนน
+	BMI = 35.00 พอดี
+	ไม่ได้คะแนน (ต้องมากกว่า)
+	รอบคอ 15.75 นิ้ว / 16 นิ้ว
+	15.75 นิ้ว = 40.01 ซม. → ได้คะแนน · 15.7 นิ้ว = 39.88 ซม. → ไม่ได้ · 16 นิ้ว = 40.64 ซม. → ได้
+	STOP-Bang ตอบ "ไม่รู้"
+	นับ 0 · ถ้าผลรวม 3–4 และมี "ไม่รู้" ต่อท้ายแจ้งเตือน
+	เป็นปัญหามาครบ 3 เดือนพอดี
+	เลือก "3–6 เดือน" ผ่าน
+	อายุว่าง หรือนอก 0–100
+	แจ้ง error ไม่ไปต่อ
+	ส่วนสูง/น้ำหนักว่าง
+	แจ้ง error ไม่ไปต่อ
+	ส่วนสูงนอก 100–200 ซม. / น้ำหนักนอก 30–250 กก. / รอบคอนอก 8–30 นิ้ว
+	แจ้ง error ไม่ไปต่อ
+	เปลี่ยนคำตอบ 3.11 จาก 1 เป็น 0 หลังเจอ STOP
+	ทำไม่ได้ ล็อกไว้
+	แก้คำตอบอื่นย้อนหลัง (เช่น ISI จาก 6 เป็น 10)
+	คำนวณผลใหม่จากคำตอบปัจจุบัน
+	ปิดแอปกลางทาง แล้วกลับมา
+	ทำต่อจากหน้าแรกที่ยังไม่ได้ตอบ
+	ปิดแอปตอนอยู่หน้า STOP แล้วกลับมา
+	แสดงหน้า STOP เดิม
+	ทำแบบประเมินซ้ำหลังได้ผลแล้ว (ผลใดก็ตาม)
+	ทำไม่ได้ แสดงผลเดิม
+	ทั้งตั้งครรภ์ + ทำงานเป็นกะ + ใช้ยา ≥ 3 คืน
+	GO + แจ้งเตือน 3 ข้อ (แจ้งเตือนสะสมได้ไม่จำกัด)
+	7. ข้อความที่ผู้ใช้เห็น
+* ข้อความรายหน้าจอ (คำถามทุกข้อ, ตัวเลือก): ใช้ฉบับไทยในไฟล์ 07_assessment-mvp.md §3 (ฉบับล่าสุด — ไม่ใช้ Google Doc tab "assessment") ยกเว้น 2 จุดด้านล่าง ⚠️ ISI ไทยเป็นฉบับแปลชั่วคราว
+* จุดที่ 1 — ตัวเลือกระยะเวลา (แทน 07 ข้อ 1.3): ○ น้อยกว่า 3 เดือน ○ 3–6 เดือน ○ มากกว่า 6 เดือน
+* จุดที่ 2 — หน้ายินยอม (แทน 07 ข้อ 0.1): ข้อความเดิมบอกว่า "เก็บโดยไม่ระบุชื่อ" ซึ่งไม่จริงแล้วเมื่อมีชื่อบัญชีกับอีเมล ร่างใหม่ (ต้องเช็ก PDPA เพราะข้อมูลสุขภาพเป็นข้อมูลอ่อนไหว):
+แบบประเมินนี้ใช้ดูว่าโปรแกรมปรับพฤติกรรมการนอน (CBT-I) แบบทำเองที่บ้าน เหมาะกับคุณไหม ไม่ใช่การวินิจฉัยโรค ใช้เวลาประมาณ 8–10 นาที คำตอบของคุณจะผูกกับชื่อบัญชีและอีเมลที่คุณให้ไว้ มีแค่ทีมผู้พัฒนาเท่านั้นที่เห็น ใช้เพื่อติดตามผลการนอนของคุณ และทีมอาจส่งอีเมลมาขอความร่วมมือเพิ่มเติม (จะตอบหรือไม่ก็ได้) ไม่ส่งให้แพทย์โดยอัตโนมัติ คุณหยุดได้ทุกเมื่อ และขอให้ลบข้อมูลได้ [อ่านรายละเอียดการเก็บข้อมูล] ← กดแล้วเปิดหน้า "รายละเอียดการเก็บข้อมูลส่วนบุคคล" ด้านล่าง ☐ ฉันอ่านรายละเอียดแล้ว เข้าใจ และยินยอมให้เก็บและใช้ข้อมูลตามนั้น รวมถึงข้อมูลสุขภาพ
+หน้า "รายละเอียดการเก็บข้อมูลส่วนบุคคล" (ร่างโดยเพชร ตามหัวข้อที่ PDPA กำหนดให้แจ้ง · ไม่ใช่คำแนะนำทางกฎหมาย ควรให้คนที่รู้เรื่องกฎหมายอ่านก่อนใช้กับคนจริง)
+ใครเก็บข้อมูล ทีมผู้พัฒนาโครงการ CBT-I for insomnia patients ติดต่อได้ที่ mingsupavit@gmail.com
+เก็บข้อมูลอะไรบ้าง
+* ชื่อบัญชีและอีเมล
+* คำตอบในแบบประเมินนี้ ซึ่งรวมข้อมูลสุขภาพ เช่น อาการนอนไม่หลับ อารมณ์ โรคประจำตัว การใช้ยา ส่วนสูง น้ำหนัก
+* บันทึกการนอนที่คุณกรอกระหว่างโปรแกรม
+เก็บไปทำอะไร
+* ดูว่าโปรแกรมนี้เหมาะและปลอดภัยสำหรับคุณไหม
+* ติดตามผลการนอนของคุณตลอดโปรแกรม และเทียบก่อน-หลัง
+* ติดต่อคุณทางอีเมลเพื่อขอความร่วมมือเพิ่มเติม เช่น สัมภาษณ์หรือแบบสอบถาม (คุณจะตอบหรือไม่ก็ได้)
+* ปรับปรุงโปรแกรม โดยดูข้อมูลแบบรวมกลุ่ม
+ใครเห็นข้อมูล มีแค่ทีมผู้พัฒนาเท่านั้น ไม่ส่งให้แพทย์หรือคนอื่นโดยอัตโนมัติ ไม่ขาย ไม่ใช้โฆษณา ข้อมูลเก็บบน Supabase ซึ่งเป็นบริการฐานข้อมูลออนไลน์ที่ทีมใช้ [?] เซิร์ฟเวอร์อยู่ประเทศไหน
+เก็บนานแค่ไหน 1 ปีนับจากวันที่คุณยินยอม แล้วลบทิ้ง
+สิทธิ์ของคุณ คุณขอดูข้อมูลของตัวเอง ขอแก้ ขอลบ หรือถอนความยินยอมได้ทุกเมื่อ โดยติดต่อ mingsupavit@gmail.com ถ้าถอนความยินยอม เราจะหยุดใช้ข้อมูลของคุณ และคุณจะใช้โปรแกรมต่อไม่ได้
+ทำไมต้องขอความยินยอม ข้อมูลสุขภาพเป็นข้อมูลอ่อนไหวตามกฎหมายคุ้มครองข้อมูลส่วนบุคคล (PDPA) เราจึงเก็บได้ก็ต่อเมื่อคุณยินยอมอย่างชัดแจ้งเท่านั้น ปุ่ม: [กลับไปหน้ายินยอม]
+หน้าผลลัพธ์ (ร่างโดยเพชร — รอโก๋หมิงอ่าน แล้วให้ Surat ดูก่อนใช้จริง)
+หน้า "หยุดก่อน" (STOP) — จบทันที ไม่มีปุ่มไปต่อ
+ขอหยุดแบบประเมินไว้ตรงนี้ก่อนนะ ขอบคุณที่ตอบตรง ๆ เรื่องที่คุณรู้สึกตอนนี้สำคัญกว่าเรื่องการนอน คุณไม่ต้องรับมือคนเดียว โทรสายด่วนสุขภาพจิต 1323 (ฟรี 24 ชั่วโมง) ได้ทันที ถ้าอยู่ในอันตรายหรือต้องการความช่วยเหลือฉุกเฉิน โทร 1669 และลองติดต่อหมอ Surat หรือคลินิกที่คุณดูแลอยู่ได้เลย ปุ่ม: [โทร 1323] [โทร 1669]
+หน้า "ควรคุยกับหมอก่อน" (REFER)
+โปรแกรมนี้อาจยังไม่เหมาะกับคุณในตอนนี้ จากคำตอบของคุณ การปรับพฤติกรรมการนอนแบบทำเองที่บ้านอาจยังไม่ปลอดภัยหรือยังไม่พอสำหรับคุณ นี่ไม่ใช่การวินิจฉัยโรค แค่เป็นข้อควรระวังเพื่อความปลอดภัยของคุณ เหตุผลที่เจอ: (แสดงทุกข้อที่เข้า ตามตารางด้านล่าง) เราแนะนำให้คุยกับหมอ Surat หรือแพทย์ที่ดูแลคุณก่อน แล้วค่อยตัดสินใจว่าจะทำโปรแกรมนี้ไหม
+เข้ากฎ
+	ข้อความ "เหตุผลที่เจอ"
+	ISI ≥ 22
+	อาการนอนไม่หลับของคุณค่อนข้างมาก ควรได้พบแพทย์โดยตรง
+	9Q ≥ 13
+	คุณมีอาการด้านอารมณ์ที่ควรได้คุยกับแพทย์ก่อน
+	ไบโพลาร์
+	การนอนน้อยลงอาจกระทบอาการของโรคอารมณ์สองขั้ว
+	โรคจิตเภท
+	ยังไม่มีหลักฐานเพียงพอว่าโปรแกรมนี้ปลอดภัยสำหรับผู้ที่มีอาการทางจิต
+	ลมชัก
+	การนอนน้อยลงอาจกระตุ้นอาการชักได้
+	ละเมอ
+	ผู้ที่ละเมอควรให้แพทย์ประเมินก่อนปรับการนอน
+	ขับรถเป็นอาชีพ/คุมเครื่องจักร
+	ช่วงแรกที่ปรับการนอน อาจง่วงมากขึ้น เสี่ยงอุบัติเหตุในงานของคุณ
+	RLS ครบ 4 ข้อ
+	อาการที่ขาของคุณเข้าข่ายที่ควรให้แพทย์ประเมินก่อน
+	STOP-Bang ≥ 5
+	คุณมีสัญญาณที่เข้าได้กับภาวะหยุดหายใจขณะหลับ ควรให้แพทย์ตรวจก่อน
+	หน้า "ยังไม่เข้าเกณฑ์" (NOT-FIT)
+ตอนนี้ปัญหาการนอนของคุณยังไม่เข้าเกณฑ์โปรแกรมนี้ โปรแกรมนี้ออกแบบสำหรับคนที่นอนไม่หลับบ่อยและเป็นมาสักระยะแล้ว จากคำตอบของคุณยังไม่ตรงกับเกณฑ์ ซึ่งไม่ได้แปลว่าไม่มีอะไรเกิดขึ้น ระหว่างนี้ลองอ่านเคล็ดลับการนอนทั่วไปได้เลย ถ้าอาการแย่ลงหรือเป็นถี่ขึ้น แนะนำให้คุยกับแพทย์ ปุ่ม: [ดูเคล็ดลับการนอน] → บท Good & Bad habits ของ Education
+สิทธิ์เข้าแอปหลังได้ผลลัพธ์ (11 พ.ย.): GO = ทุกส่วน · NOT-FIT = Education เท่านั้น (ไม่มี Diary/Recap) · REFER และ STOP = หน้าผลลัพธ์เท่านั้น
+หน้า "เริ่มได้เลย" (GO)
+คุณเหมาะกับโปรแกรมนี้ มาเริ่มกันเลย สัปดาห์แรก คุณจะจดบันทึกการนอนทุกเช้า (Sleep Diary) และอ่านเรื่องการนอนสั้น ๆ คำแนะนำปรับพฤติกรรมจะเริ่มในสัปดาห์ที่ 2 หลังเรามีข้อมูลการนอนของคุณแล้ว ปุ่ม: [เริ่มสัปดาห์ที่ 1]
+ถ้ามีแจ้งเตือนพิเศษ เพิ่มกล่อง "เรื่องที่ควรบอกหมอ Surat" (ข้อมูลนี้ไม่ได้ถูกส่งให้ใครอัตโนมัติ):
+แจ้งเตือน
+	ข้อความ
+	อารมณ์เศร้าระดับเล็กน้อย (9Q 7–12)
+	"คุณมีอาการด้านอารมณ์ระดับเล็กน้อย ถ้ารู้สึกแย่ลงระหว่างโปรแกรม บอกหมอ Surat นะ"
+	เสี่ยงหยุดหายใจขณะหลับ (STOP-Bang 3–4)
+	"คุณมีความเสี่ยงภาวะหยุดหายใจขณะหลับ ควรแจ้งหมอ Surat" + ถ้ามี "ไม่รู้": "มีบางข้อที่คุณตอบว่าไม่รู้ ผลนี้อาจต่ำกว่าความเป็นจริง"
+	ทำงานเป็นกะ
+	"คุณทำงานเป็นกะหรือเวลางานไม่แน่นอน เวลานอนอาจไม่คงที่ ควรแจ้งหมอ Surat"
+	ตั้งครรภ์/หลังคลอด
+	"คุณอยู่ในช่วงตั้งครรภ์หรือหลังคลอด ควรปรึกษาหมอ Surat ก่อนปรับการนอน"
+	สิ่งช่วยหลับ (ยา/แอลกอฮอล์/อาหารเสริม ≥ 3 คืน/สัปดาห์)
+	"คุณใช้ตัวช่วยให้หลับเป็นประจำ อย่าหยุดหรือเปลี่ยนเอง ปรึกษาหมอ Surat ก่อน"
+	ข้อความ error / ระหว่างทาง (ร่าง)
+กรณี
+	ข้อความ
+	ไม่ยินยอม
+	"ถ้าไม่ยินยอม เราขอหยุดแบบประเมินไว้ตรงนี้ ขอบคุณที่สนใจนะ"
+	อายุ < 18
+	"โปรแกรมนี้สำหรับผู้ใหญ่อายุ 18 ปีขึ้นไป"
+	ยังไม่ได้ตอบ
+	"เลือกคำตอบก่อนไปต่อนะ"
+	ตัวเลขนอกช่วง/ว่าง
+	"ค่านี้ดูไม่ถูกต้อง ลองกรอกใหม่อีกครั้ง"
+	อายุนอก 0–100
+	"กรอกอายุเป็นตัวเลข 0–100"
+	อีเมลผิดรูปแบบ
+	"อีเมลนี้ดูไม่ถูกต้อง ลองเช็กอีกครั้ง"
+	กลับมาทำต่อ
+	"ยินดีต้อนรับกลับ ทำต่อจากข้อที่ค้างไว้ได้เลย"
+	เคยทำแล้ว
+	"คุณทำแบบประเมินนี้ไปแล้ว นี่คือผลของคุณ"
+	empty state
+	ไม่มี (แบบประเมินไม่มีหน้าที่ต้องรอข้อมูล)
+	8. Test case
+ผู้ทดสอบฐาน "ก" (สมมติ): ยินยอม · ชื่อบัญชี "ทดสอบก" · อีเมล test-a@example.com · อายุ 30 · ประเภท หลับยาก · 5 คืน/สัปดาห์ · มากกว่า 6 เดือน · โอกาสนอนเพียงพอ ใช่ · ISI ทุกข้อ 2 · 2Q ไม่ใช่ทั้งคู่ · ข้อห้าม 5 ข้อ ไม่ใช่ · ทำงานเป็นกะ ไม่ใช่ · ตั้งครรภ์ ไม่ใช่ · RLS ข้อ 1 ไม่ใช่ · กรน ไม่ใช่ · เหนื่อย ใช่ · หยุดหายใจ ไม่ใช่ · ความดัน ไม่ใช่ · สูง 170 หนัก 64.5 (BMI 22.32) · รอบคอ 14 นิ้ว (35.56 ซม.) · หญิง · สิ่งช่วยหลับ ไม่เคยทุกรายการ → ISI 14, STOP-Bang 1 → GO ไม่มีแจ้งเตือน
+#
+	Input (ต่างจากผู้ทดสอบ ก เฉพาะที่ระบุ)
+	ผลที่ต้องได้ (คิดมือ)
+	ผ่านไหม
+	1
+	ก ตามฐาน
+	GO ไม่มีแจ้งเตือน
+	
+
+	2
+	อายุ 17
+	จบ "โปรแกรมนี้สำหรับผู้ใหญ่อายุ 18 ปีขึ้นไป"
+	
+
+	3
+	คืนที่นอนไม่หลับต่อสัปดาห์ 2
+	NOT-FIT
+	
+
+	4
+	ISI = 1,1,1,1,1,1,0 (รวม 6)
+	NOT-FIT
+	
+
+	5
+	ISI = 4,3,3,3,3,3,3 (รวม 22)
+	REFER (เหตุผล ISI)
+	
+
+	6
+	2Q ข้อ 3.1 = ใช่ · 9Q 3.3–3.10 = 0 · 3.11 = 1
+	STOP
+	
+
+	7
+	2Q ข้อ 3.1 = ใช่ · 9Q 3.3–3.8 = 2 ทุกข้อ · 3.9 = 1 · 3.10 = 0 · 3.11 = 0 (รวม 13)
+	REFER (เหตุผล 9Q)
+	
+
+	8
+	เหมือน #7 แต่ 3.9 = 0 (รวม 12)
+	GO + แจ้งเตือนอารมณ์เศร้า
+	
+
+	9
+	ชาย · อายุ 55 · รอบคอ 17 นิ้ว · กรน ใช่ (STOP-Bang 5)
+	REFER (เหตุผล STOP-Bang)
+	
+
+	10
+	ชาย · อายุ 55 (STOP-Bang 3)
+	GO + แจ้งเตือนหยุดหายใจ
+	
+
+	11
+	ยาแพทย์สั่ง = 3 คืน/สัปดาห์ขึ้นไป
+	GO + แจ้งเตือนสิ่งช่วยหลับ
+	
+
+	12
+	ลมชัก = ใช่
+	REFER (เหตุผลลมชัก)
+	
+
+	13
+	ISI รวม 6 และ ลมชัก = ใช่
+	REFER (ชนะ NOT-FIT) เหตุผลลมชัก
+	
+
+	14
+	ทำงานเป็นกะ = ใช่ · ตั้งครรภ์ = ใช่ · อาหารเสริม = 3 คืน/สัปดาห์ขึ้นไป
+	GO + แจ้งเตือน 3 ข้อ (กะ, ตั้งครรภ์, สิ่งช่วยหลับ)
+	
+
+	15
+	ISI รวม 22 และ 2Q ข้อ 3.1 = ใช่ และ 9Q ข้อ 3.11 = 1
+	STOP (ชนะ REFER และจบทันที)
+	
+
+	16
+	ตอบถึง ISI ข้อ 3 แล้วปิดแอป เปิดใหม่
+	กลับมาที่ ISI ข้อ 4 คำตอบเดิมอยู่ครบ
+	
+
+	17
+	ได้ STOP (แบบ #6) แล้วกดย้อนกลับไปแก้ 3.11 เป็น 0
+	แก้ไม่ได้ ยังเป็นหน้า STOP
+	
+
+	18
+	สูง 160 · หนัก 92 (BMI 92 ÷ 1.6² = 35.94) · ชาย · อายุ 55
+	STOP-Bang = เหนื่อย 1 + BMI 1 + อายุ 1 + ชาย 1 = 4 → GO + แจ้งเตือนหยุดหายใจ
+	
+
+	19
+	ส่วนสูง 95
+	error "ค่านี้ดูไม่ถูกต้อง…" ไม่ไปต่อ
+	
+
+	9. ที่ยังไม่ชัด
+#
+	คำถาม
+	ใครตอบได้
+	ค่าตั้งต้นไปก่อน
+	ต้องผ่านผู้เชี่ยวชาญ
+	1
+	หน้า PDPA: เซิร์ฟเวอร์ Supabase อยู่ประเทศไหน (Yue ดูได้ตอนสร้างโปรเจกต์)
+	Yue
+	—
+	ควรมีคนรู้กฎหมายอ่าน
+	2
+	แจ้ง Yue: เปลี่ยนจาก localStorage เป็น Supabase (บัญชี, บันทึกทุกหน้า, กลับมาทำต่อ)
+	โก๋หมิง → Yue
+	—
+	ไม่
+	3
+	ข้อความแจ้งเตือน ทำงานเป็นกะ / ตั้งครรภ์ และข้อความ REFER ทุกข้อ
+	Surat
+	ร่างในข้อ 7
+	ใช่
+	4
+	ก่อนใช้กับคนไข้: clinical review (Surat + คนสายนอน/จิตเวช) · IRB · BMI cut-off ฉบับไทย (Banhiran 2014) · ISI license (เลื่อนไว้)
+	โก๋หมิง / Surat
+	ค่าตาม 07 ที่มีงานวิจัยรองรับ
+	ใช่
+	
+
+
+
+
+
+Sleep Education: Spec (CBT-I MVP)
+0. Header
+Field
+	Detail
+	Piece
+	Sleep Education: basics pop-up, program rules, “why it continues” cards, Myth of the day
+	Owner
+	Changwu
+	Status
+	รอ review (5 Nov 2026)
+	Uses data from
+	diary: เวลาขึ้นเตียง, diary: เวลาตื่น, diary: เวลางีบ, คำนวณ: ประสิทธิภาพการนอน, assessment: สาเหตุเริ่มต้น, suggestion: เวลาเข้านอนที่แนะนำ
+	Sends data to
+	education: ยอมรับกฎแล้ว → suggestion (Lunn), to unlock weekly guidance; “why it continues” card content → suggestion (Lunn)
+	1. Goal
+* After this piece, the user knows the 6 program rules, has committed to them once, and gets a weekly explanation of why their insomnia is still going, based on their own diary.
+* The user is persona นุ่น: newly assessed, tired, sceptical, reading on a phone in short bursts.
+* Done when the rules screen gates guidance correctly, the “why” cards fire correctly on 7 days of test diary data, Myth of the day rotates correctly for 10 simulated days, and all section 8 test cases match the hand-worked results.
+2. Scope
+In this round:
+* A. A “How sleep works” pop-up with 2 tabs (optional).
+* B. “Why it continues” cards inside weekly guidance (logic in Lunn’s piece, content here).
+* C. Program rules, confirmed once after the first diary entry, then viewable from home and the diary tab.
+* D. Myth of the day banner at the top of home.
+Not this round:
+* Quizzes, audio and video.
+* Push notifications.
+* Sleep window calculation (Lunn’s piece).
+* Content generated by AI at runtime.
+* Showing Thai and English together.
+* Night-shift workers whose wake time crosses midnight.
+3. Data in / out
+Name
+	Comes from
+	Type
+	Unit
+	Allowed values
+	Required
+	diary: เวลาขึ้นเตียง
+	user enters (Washi)
+	time
+	HH:MM
+	00:00–23:59
+	Yes
+	diary: เวลาตื่น
+	user enters (Washi)
+	time
+	HH:MM
+	00:00–23:59
+	Yes
+	diary: เวลางีบ
+	user enters (Washi)
+	number
+	minutes
+	0–600
+	Yes (0 if no nap)
+	คำนวณ: ประสิทธิภาพการนอน
+	calculated (Washi)
+	number
+	%
+	0–100
+	—
+	assessment: สาเหตุเริ่มต้น
+	other piece (โก๋หมิง)
+	list
+	—
+	stress, health, routine, environment; may be empty
+	No
+	suggestion: เวลาเข้านอนที่แนะนำ
+	other piece (Lunn)
+	time
+	HH:MM
+	00:00–23:59
+	No (empty in week 1)
+	education: ยอมรับกฎแล้ว
+	calculated
+	yes/no
+	—
+	yes, no
+	—
+	education: การ์ดล่าสุดที่อ่าน
+	calculated
+	number per tab
+	card
+	1 to that tab’s card count
+	—
+	education: ลำดับความเชื่อผิด
+	calculated
+	list
+	—
+	shuffled 1–9
+	—
+	education: ความเชื่อผิดวันนี้
+	calculated
+	number
+	—
+	1–9
+	—
+	education: วันที่แสดงความเชื่อผิด
+	calculated
+	date
+	YYYY-MM-DD, device local time
+	today or earlier
+	—
+	education: ซ่อนความเชื่อผิดวันนี้
+	calculated
+	yes/no
+	—
+	yes, no
+	—
+	4. Rules
+A. Sleep basics pop-up
+#
+	When
+	If
+	System does
+	Else
+	A1
+	User opens home
+	—
+	Show the “How sleep works” button
+	—
+	A2
+	User taps “How sleep works”
+	—
+	Open the pop-up on Tab 1 (How sleep works). Tab 2 is What is insomnia
+	—
+	A3
+	Pop-up opens on a tab
+	the saved education: การ์ดล่าสุดที่อ่าน for that tab ≤ the tab’s card count
+	Resume at that card
+	Open at card 1
+	A4
+	User taps “Why?” on a rule or a “why” card
+	—
+	Open the pop-up at the linked card (link map below)
+	—
+	Link map:
+From
+	Opens
+	Rule 1, Rule 5
+	Tab 1, card 3 (body clock)
+	Rule 2, Rule 4, Rule 6
+	Tab 1, card 2 (sleep pressure)
+	Rule 3
+	Tab 1, card 4 (when they disagree)
+	B. Why it continues (runs in suggestion, Lunn)
+This runs when weekly guidance is generated. Check the rules in order and show at most 2 cards.
+#
+	If
+	Show card
+	B0
+	คำนวณ: จำนวนคืนที่กรอก diary 7 วัน < ค่าคงที่: จำนวนคืนขั้นต่ำ
+	Skip B1–B4 and go to B5
+	B1
+	คำนวณ: จำนวนวันที่งีบ 7 วัน ≥ ค่าคงที่: เกณฑ์วันที่งีบ
+	Your fixes are backfiring
+	B2
+	คำนวณ: ช่วงห่างเวลาตื่น 7 วัน > ค่าคงที่: เกณฑ์ช่วงห่างเวลาตื่น
+	Your body clock is confused
+	B3
+	คำนวณ: ประสิทธิภาพการนอน เฉลี่ย 7 วัน < ค่าคงที่: เกณฑ์ประสิทธิภาพการนอน
+	Your bed has learned to keep you awake
+	B4
+	คำนวณ: จำนวนคืนที่ขึ้นเตียงเร็ว 7 วัน ≥ ค่าคงที่: เกณฑ์คืนที่ขึ้นเตียงเร็ว
+	Going to bed too early
+	B5
+	assessment: สาเหตุเริ่มต้น includes stress
+	Worry keeps the loop going
+	B6
+	Nothing above matched
+	The “keep going” message
+	If suggestion: เวลาเข้านอนที่แนะนำ is empty, B4 is skipped.
+C. Program rules
+#
+	When
+	If
+	System does
+	Else
+	C1
+	User saves a diary entry
+	education: ยอมรับกฎแล้ว = no
+	Save the diary first, then open the rules confirmation screen
+	Show the reminder in C5
+	C2
+	User taps “I’ll follow this”
+	all 6 rules are now confirmed
+	Set education: ยอมรับกฎแล้ว = yes and go to home
+	Move to the next unconfirmed rule
+	C3
+	User opens the app
+	education: ยอมรับกฎแล้ว = no and at least 1 diary entry exists
+	Open the rules confirmation screen; guidance stays locked
+	—
+	C4
+	User taps “My rules” (on home next to “How sleep works”, or in the diary tab)
+	education: ยอมรับกฎแล้ว = yes
+	Open the read-only rules pop-up
+	Open the confirmation screen
+	C5
+	User saves a diary entry
+	education: ยอมรับกฎแล้ว = yes and diary: เวลางีบ > 0
+	Show a one-line reminder of rule 4
+	No reminder
+	C6
+	The team edits the rule content
+	—
+	Show an “Updated” dot on both “My rules” buttons; opening either clears both; no reconfirmation
+	—
+	D. Myth of the day
+#
+	When
+	If
+	System does
+	Else
+	D1
+	User opens home
+	education: วันที่แสดงความเชื่อผิด = today
+	Show education: ความเชื่อผิดวันนี้, unless education: ซ่อนความเชื่อผิดวันนี้ = yes
+	Go to D2
+	D2
+	User opens home
+	today > education: วันที่แสดงความเชื่อผิด and unshown myths remain in education: ลำดับความเชื่อผิด
+	Take the next myth; save it and today’s date; set the hide flag to no
+	Reshuffle so the first myth ≠ the last one shown, then take the first
+	D3
+	User opens home
+	today < education: วันที่แสดงความเชื่อผิด(phone date moved back)
+	Keep showing the saved myth; don’t advance the order
+	—
+	D4
+	User taps ✕ on the banner
+	—
+	Set education: ซ่อนความเชื่อผิดวันนี้= yes until the next day
+	—
+	5. Formulas and constants
+Name
+	Formula
+	Example
+	คำนวณ: จำนวนคืนที่กรอก diary 7 วัน
+	Number of diary entries in the last 7 days
+	6 entries = 6
+	คำนวณ: จำนวนวันที่งีบ 7 วัน
+	Number of days where diary: เวลางีบ > 0
+	Naps of 0, 20, 0, 45, 30, 0, 0 = 3
+	คำนวณ: ช่วงห่างเวลาตื่น 7 วัน
+	Latest diary: เวลาตื่น − earliest diary: เวลาตื่น
+	06:00, 06:30, 07:45 = 105 minutes
+	คำนวณ: ประสิทธิภาพการนอน เฉลี่ย 7 วัน
+	Sum of คำนวณ: ประสิทธิภาพการนอน ÷ number of nights filled in, rounded to 1 decimal
+	80, 85, 90 = 85.0%
+	คำนวณ: จำนวนคืนที่ขึ้นเตียงเร็ว 7 วัน
+	Nights where suggestion: เวลาเข้านอนที่แนะนำ − diary: เวลาขึ้นเตียง ≥ ค่าคงที่: เกณฑ์ขึ้นเตียงเร็ว
+	Recommended 23:30, actual bedtime 22:45 = 45 minutes early, so it counts
+	Unfilled days are left out of every count and average. Bedtimes are compared after shifting times past midnight. For example, 00:30 counts as later than 23:30, not earlier.
+Constant
+	Value
+	Basis
+	Status
+	ค่าคงที่: เกณฑ์ประสิทธิภาพการนอน
+	85%
+	Standard CBT-I cut-off
+	Must match Lunn’s value
+	ค่าคงที่: เกณฑ์วันที่งีบ
+	3 days
+	Team assumption
+	[?]
+	ค่าคงที่: เกณฑ์ช่วงห่างเวลาตื่น
+	60 min
+	Team assumption
+	[?]
+	ค่าคงที่: เกณฑ์ขึ้นเตียงเร็ว
+	30 min
+	Team assumption
+	[?] Lunn
+	ค่าคงที่: เกณฑ์คืนที่ขึ้นเตียงเร็ว
+	3 nights
+	Team assumption
+	[?]
+	ค่าคงที่: จำนวนคืนขั้นต่ำ
+	5 nights
+	Common weekly diary minimum
+	[?] Washi
+	ค่าคงที่: เวลาลุกจากเตียงเมื่อนอนไม่หลับ
+	20 min
+	Stimulus control guidance
+	[?] clinical check
+	ค่าคงที่: เวลางีบสูงสุด
+	30 min
+	Sleep hygiene guidance
+	[?] clinical check
+	ค่าคงที่: เวลางีบช้าสุด
+	15:00
+	Team assumption
+	[?] clinical check
+	6. Edge cases
+Case
+	System does
+	User skipped the assessment
+	assessment: สาเหตุเริ่มต้น counts as empty; B5 never fires
+	User closes the rules screen after confirming 3 of 6 rules
+	Those 3 are kept; the screen reopens at rule 4 on the next app open (C3)
+	Week 1, Lunn hasn’t set a recommended bedtime yet
+	B4 is skipped
+	Fewer than 5 diary nights
+	Only B5 or B6 can show (B0)
+	More than 2 “why” cards match
+	Show the first 2 in B order
+	User opens home twice in one day
+	Same myth both times (D1)
+	App stays open across midnight
+	The myth changes on the next home open, not live
+	All 9 myths have been shown
+	Reshuffle; the first myth ≠ the last one shown (D2)
+	Phone date set back
+	Keep the saved myth (D3)
+	A pop-up tab is edited and now has fewer cards
+	Open at card 1 (A3)
+	7. User-facing copy
+English for the prototype; the Thai version is still to do.
+Pop-up, Tab 1: How sleep works
+1. Two systems run your sleep. Sleep pressure tells your body how much sleep it needs. Your body clock tells it when. Good sleep happens when both agree.
+2. Sleep pressure. The longer you’re awake, the sleepier you get. Pressure builds from the moment you wake and clears while you sleep. Naps, caffeine and going to bed early all weaken it.
+3. Your body clock. A clock in your brain runs on about 24 hours and releases melatonin in the evening to signal night. It drifts unless it’s reset every day, mainly by morning light and a fixed wake time.
+4. When they disagree. Go to bed before pressure is high, and you lie awake. Change your wake time often, and sleepiness arrives at the wrong hour.
+5. Sleep comes in cycles. Each cycle lasts about 90 minutes, several per night. Deep sleep comes mostly early. Toward morning, sleep is lighter and brief wakings are normal.
+Pop-up, Tab 2: What is insomnia
+1. Insomnia is more than one bad night. It means trouble falling asleep, staying asleep, or waking too early, even when you have the chance to sleep.
+2. When it counts as insomnia. It happens at least 3 nights a week, for 3 months or more, and it affects your day.
+3. Some people are more prone. Age, health, a tendency to worry, or a demanding schedule make insomnia easier to develop. On their own, they don’t cause it.
+4. Something starts it. Stress, illness, a new medicine, or a change in routine brings a few bad nights. Most people recover once it passes. When they don’t, something is keeping it going, and your weekly guidance shows you what.
+Program rules
+Intro: These 6 rules are your program. Follow them every day, even after a bad night. Tap “Why?” to see how each one works.
+1. Get up at the same time every day, weekends too.
+2. Go to bed only when sleepy (eyes heavy, head nodding), not just tired.
+3. If you’re awake for about 20 minutes, get up. Do something calm in dim light and come back when sleepy. Don’t check the clock. Keep a night light on so you can walk safely. Use your bed only for sleep.
+4. Skip naps. If you must nap, keep it under 30 minutes and before 15:00.
+5. Bright mornings, dim evenings. Get daylight soon after waking, and dim the lights about 30 minutes before bed.
+6. Watch caffeine, alcohol and nicotine. Have your last caffeine at least 6 hours before bed. No alcohol within 4 hours of bed. No nicotine at night.
+Button: “I’ll follow this”. After the user confirms all 6: “You’re set. Your rules are always under My rules.”
+Why it continues (inside guidance)
+* Your fixes are backfiring. Naps feel helpful, but they spend the sleep pressure you need tonight.
+* Your body clock is confused. Your wake time moved a lot this week, so your clock can’t tell when night starts.
+* Your bed has learned to keep you awake. You spent a lot of time awake in bed, and each time your body links bed with being alert.
+* Going to bed too early. You went to bed before you were sleepy, so pressure wasn’t high enough yet.
+* Worry keeps the loop going. Worrying about sleep keeps your mind switched on, even after the original stress is gone.
+* Keep going (no card matched): “Your sleep is moving in the right direction. Keep following your rules.”
+Diary reminder (C5)
+“Rule 4: skip naps, or keep them under 30 min before 15:00.”
+Myths
+The banner shows the headline plus “Tap for the fact”.
+1. Everyone needs 8 hours. Adults need 7 or more hours, and the exact need varies. Aim to wake rested.
+2. You can catch up at the weekend. Two days isn’t enough to recover, and sleeping in makes Sunday night harder.
+3. I’m used to 5–6 hours and I’m fine. In a study, people sleeping 4–6 hours for 14 nights felt only a little sleepy but performed far worse.
+4. TV or scrolling helps me sleep. Changing light and sound break up sleep, and screens in bed teach your brain that bed is for being awake.
+5. Warm milk or herbal tea makes you sleep. There’s little evidence any drink causes sleep. The calm routine may help, and some teas contain caffeine.
+6. Waking at night means my sleep is bad. Brief wakings are normal. Staying calm and not checking the clock usually lets you drift back.
+7. Alcohol helps you sleep. It may help you fall asleep, but the sleep after is broken. Avoid it within 4 hours of bed.
+8. Snoring is harmless. Frequent, loud snoring can be a sign of sleep apnea, and sleep tips won’t fix it. Button: “Talk to a doctor”.
+9. Sleeping pills are the best fix. CBT-I, with no medication, is the recommended first treatment for long-term insomnia.
+8. Test cases
+#
+	Input
+	Expected (worked by hand)
+	1
+	First diary save, education: ยอมรับกฎแล้ว = no
+	Diary saved, rules screen opens
+	2
+	3 of 6 rules confirmed, app closed and reopened
+	Rules screen reopens at rule 4; guidance locked
+	3
+	All 6 confirmed
+	education: ยอมรับกฎแล้ว = yes; user goes to home
+	4
+	Accepted = yes, user taps “My rules” on home
+	Read-only pop-up, no confirm buttons
+	5
+	Rules edited, user opens “My rules” from the diary tab
+	No “Updated” dot on either button
+	6
+	Average sleep efficiency = 85.0%
+	No B3 card
+	7
+	Average sleep efficiency = 84.9%
+	B3 card shown
+	8
+	Wake times 06:00 and 07:00 only
+	Range = 60 minutes, so no B2 card
+	9
+	Naps on 4 days, range 90 minutes, average 78%
+	B1 and B2 only (2-card cap)
+	10
+	4 nights filled in, trigger = stress
+	B5 only
+	11
+	Myth order [4, 9, 1, …], date 2026-11-05, home opened 3 times
+	Myth 4 every time
+	12
+	Same as #11, home opened on 2026-11-06
+	Myth 9
+	13
+	✕ tapped on the myth banner, home reopened the same day
+	No banner
+	14
+	All 9 myths shown, last one = 5, new day
+	New order whose first myth ≠ 5
+	15
+	User taps “Why?” on rule 3
+	Pop-up opens on Tab 1, card 4
+	9. Open before Freeze
+Decisions and checks:
+* Team decision on the constants marked [?]: nap days, wake-time range, early-bed minutes and nights, and minimum diary nights.
+* Clinical check on the 20-minute rule, the nap limits, and the insomnia definition card. Attach a source per card before Freeze.
+* Thai copy for all of section 7, using male pronouns (ครับ/ผม).
+Name confirmations:
+* Washi: diary: เวลาตื่น, diary: เวลางีบ, diary: เวลาลุกจากเตียง.
+* Lunn: suggestion: เวลาเข้านอนที่แนะนำ.
+* โก๋หมิง: assessment: สาเหตุเริ่มต้น.
+Rows to add to the dictionary:
+* Owned by Changwu: the six education: items in section 3.
+* The five คำนวณ: items in section 5.
+* The nine ค่าคงที่: items in section 5.
+
+
+
+
+พจนานุกรมชื่อกลาง
+ชิ้นงาน
+	ชื่อ
+	ความหมายสั้นๆ
+	หน่วย
+	เจ้าของ
+	diary
+	เวลาขึ้นเตียง
+	เวลาที่ผู้ใช้ขึ้นเตียง
+	HH:MM
+	Washi
+	diary
+	เวลาปิดไฟ
+	เวลาที่ตั้งใจนอน
+	HH:MM
+	Washi
+	diary
+	เวลากว่าจะหลับ
+	นาทีตั้งแต่ปิดไฟจนหลับ
+	นาที
+	Washi
+	diary
+	จำนวนครั้งที่ตื่นกลางดึก
+	ครั้งที่ตื่นระหว่างคืน ไม่นับตอนตื่นเช้า
+	ครั้ง
+	Washi
+	diary
+	เวลาตื่นกลางดึกรวม
+	นาทีรวมที่ตื่นอยู่ระหว่างคืน
+	นาที
+	Washi
+	diary
+	เวลาตื่นครั้งสุดท้าย
+	เวลาที่ตื่นแล้วไม่หลับต่ออีก
+	HH:MM
+	Washi
+	diary
+	เวลาลุกจากเตียง
+	เวลาที่ลุกจากเตียงเพื่อเริ่มวัน
+	HH:MM
+	Washi
+	diary
+	คุณภาพการนอน
+	ความรู้สึกของผู้ใช้ต่อการนอนเมื่อคืน
+	คะแนน 1–5
+	Washi
+	diary
+	วันที่ของคืน
+	วันที่ตอนเย็นก่อนนอนของคืนที่บันทึก
+	วันที่
+	Washi
+	diary
+	เวลาที่ส่งบันทึก
+	เวลาที่ผู้ใช้กดบันทึกครั้งแรก
+	วันที่ + HH:MM
+	Washi
+	diary
+	กรอกย้อนหลัง
+	ส่งบันทึกช้ากว่าเวลาลุกจากเตียงเกินเกณฑ์
+	ใช่ / ไม่ใช่
+	Washi
+	lesson
+	เวลาเป้าหมายที่จะตื่น
+	เวลาตื่นที่ผู้ใช้เลือกในบทเรียนวัน 2
+	HH:MM
+	[?]
+	คำนวณ
+	เวลาบนเตียง
+	เวลาขึ้นเตียง ถึง เวลาลุกจากเตียง
+	นาที
+	Washi
+	คำนวณ
+	เวลาหลับจริง
+	ช่วงปิดไฟถึงตื่นครั้งสุดท้าย หักเวลากว่าจะหลับและเวลาตื่นกลางดึกรวม
+	นาที
+	Washi
+	คำนวณ
+	ประสิทธิภาพการนอน
+	เวลาหลับจริง ÷ เวลาบนเตียง × 100
+	%
+	Washi
+	คำนวณ
+	ลุกตรงเวลาเป้าหมาย
+	เวลาลุกจากเตียงห่างจากเวลาเป้าหมายที่จะตื่นไม่เกินเกณฑ์
+	ใช่ / ไม่ใช่ / ไม่นับ
+	Washi
+	คำนวณ
+	จำนวนคืนที่ใช้ได้
+	จำนวนคืนในสัปดาห์ที่บันทึกสำเร็จ
+	คืน
+	Washi
+	คำนวณ
+	เวลาหลับจริงเฉลี่ยรายสัปดาห์
+	ค่าเฉลี่ยเวลาหลับจริงของคืนที่ใช้ได้
+	นาที
+	Washi
+	คำนวณ
+	เวลาบนเตียงเฉลี่ยรายสัปดาห์
+	ค่าเฉลี่ยเวลาบนเตียงของคืนที่ใช้ได้
+	นาที
+	Washi
+	คำนวณ
+	ประสิทธิภาพการนอนรายสัปดาห์
+	เวลาหลับจริงรวม ÷ เวลาบนเตียงรวม × 100
+	%
+	Washi
+	คำนวณ
+	เวลากว่าจะหลับเฉลี่ยรายสัปดาห์
+	ค่าเฉลี่ยเวลากว่าจะหลับของคืนที่ใช้ได้
+	นาที
+	Washi
+	คำนวณ
+	จำนวนเช้าที่ลุกตรงเวลาเป้าหมาย
+	จำนวนเช้าที่ลุกตรงเวลาเป้าหมาย = ใช่
+	เช้า
+	Washi
+	checklist
+	จำนวนวันที่รับแสงหลังตื่น
+	วันที่เจอแสงแดดภายในชั่วโมงแรกหลังตื่น
+	วัน
+	Washi
+	checklist
+	จำนวนวันที่ดื่มคาเฟอีนใกล้นอน
+	วันที่ดื่มกาแฟ ชา หรือเครื่องดื่มชูกำลังภายใน 6 ชม. ก่อนนอน
+	วัน
+	Washi
+	checklist
+	จำนวนวันที่งีบกลางวัน
+	วันที่งีบเกิน 30 นาที หรืองีบหลังบ่ายต้นๆ
+	วัน
+	Washi
+	checklist
+	จำนวนวันที่ออกกำลังกาย
+	วันที่ได้ขยับร่างกายหรือออกกำลังกาย
+	วัน
+	Washi
+	checklist
+	จำนวนวันที่ดื่มแอลกอฮอล์ใกล้นอน
+	วันที่ดื่มแอลกอฮอล์ภายใน 4 ชม. ก่อนนอน
+	วัน
+	Washi
+	checklist
+	จำนวนวันที่กินมื้อหนักหรือออกกำลังหนักใกล้นอน
+	วันที่กินมื้อใหญ่หรือออกกำลังหนักใกล้เวลานอน
+	วัน
+	Washi
+	checklist
+	จำนวนวันที่หรี่ไฟก่อนนอน
+	วันที่หรี่ไฟและทำอะไรสบายๆ ประมาณ 30 นาทีก่อนนอน
+	วัน
+	Washi
+	checklist
+	จำนวนวันที่ใช้จอบนเตียง
+	วันที่ใช้มือถือ แท็บเล็ต หรือดูทีวีบนเตียง
+	วัน
+	Washi
+	checklist
+	ความถี่ที่ดูนาฬิกาตอนตื่น
+	ความถี่ที่ดูนาฬิกาหรือมือถือตอนตื่นกลางดึก
+	ไม่เลย / บางครั้ง / บ่อย
+	Washi
+	2. ขอบเขต
+ทำ
+* หน้าบันทึกการนอนตอนเช้า 8 ข้อตามตาราง Daily Input กรอกทุกวันตลอดโปรแกรม รวมหลังวัน 14
+* คำนวณค่ารายคืนและรายสัปดาห์ตามข้อ 5 แล้วส่งให้ suggestion และ recap
+* Weekly checklist 9 ข้อ ทุกวันที่ 7 ของแต่ละสัปดาห์ในโปรแกรม [?]
+* กฎกรอกซ้ำ กรอกย้อนหลัง แก้ไข และเตือนให้กรอก
+ไม่ทำในรอบนี้
+* หน้าต่างการนอน: เอกสารทีมระบุว่ายังไม่ตัดสินสำหรับ MVP
+* คำถามเรื่องงีบในหน้า diary และคำถาม "ตื่นเร็วกว่าที่ตั้งใจไหม"
+* พฤติกรรมก่อนนอนรายคืน (ถามใน Weekly checklist แทน)
+* คำถามวัด "คิดมากก่อนนอน" [?] (รอตัดสินว่าจะเพิ่มเป็นข้อ 10 ของ checklist หรือไม่)
+* การวัดว่าผู้ใช้ทำตามคำแนะนำหรือไม่ [?]
+* หน้าตาและข้อความของหน้า recap วันที่ 14 นอกจาก empty state [?]
+* การเตือนผ่าน notification นอกแอป (เตือนเป็นแบนเนอร์ในแอปเท่านั้น)
+3. ข้อมูลเข้า-ออก (เพิ่มต่อจากตาราง Daily Input)
+ค่าจากชิ้นอื่นและค่าที่ระบบเก็บเอง
+ชื่อ
+	มาจาก
+	ชนิด
+	หน่วย
+	ค่าที่รับได้
+	บังคับไหม
+	lesson: เวลาเป้าหมายที่จะตื่น
+	ชิ้นอื่น (บทเรียนวัน 2)
+	เวลา
+	HH:MM
+	00:00–23:59
+	—
+	diary: วันที่ของคืน
+	ระบบ (ผู้ใช้เปลี่ยนได้)
+	วันที่
+	วันที่
+	ไม่เกินเมื่อวาน
+	บังคับ
+	diary: เวลาที่ส่งบันทึก
+	ระบบ
+	วันที่ + เวลา
+	วันที่ + HH:MM
+	—
+	—
+	diary: กรอกย้อนหลัง
+	ระบบ (ตาม D12)
+	ใช่ / ไม่ใช่
+	—
+	—
+	—
+	ค่าที่คำนวณออก
+ชื่อ
+	มาจาก
+	ชนิด
+	หน่วย
+	ค่าที่รับได้
+	บังคับไหม
+	คำนวณ: เวลาบนเตียง
+	คำนวณ
+	ตัวเลข
+	นาที
+	มากกว่า 0
+	—
+	คำนวณ: เวลาหลับจริง
+	คำนวณ
+	ตัวเลข
+	นาที
+	0 ถึง เวลาบนเตียง
+	—
+	คำนวณ: ประสิทธิภาพการนอน
+	คำนวณ
+	ตัวเลข
+	%
+	0–100
+	—
+	คำนวณ: ลุกตรงเวลาเป้าหมาย
+	คำนวณ
+	ตัวเลือก
+	—
+	ใช่ / ไม่ใช่ / ไม่นับ
+	—
+	คำนวณ: จำนวนคืนที่ใช้ได้
+	คำนวณ
+	ตัวเลข
+	คืน
+	0–7
+	—
+	คำนวณ: เวลาหลับจริงเฉลี่ยรายสัปดาห์
+	คำนวณ
+	ตัวเลข
+	นาที
+	≥ 0
+	—
+	คำนวณ: เวลาบนเตียงเฉลี่ยรายสัปดาห์
+	คำนวณ
+	ตัวเลข
+	นาที
+	> 0
+	—
+	คำนวณ: ประสิทธิภาพการนอนรายสัปดาห์
+	คำนวณ
+	ตัวเลข
+	%
+	0–100
+	—
+	คำนวณ: เวลากว่าจะหลับเฉลี่ยรายสัปดาห์
+	คำนวณ
+	ตัวเลข
+	นาที
+	0–120
+	—
+	คำนวณ: จำนวนเช้าที่ลุกตรงเวลาเป้าหมาย
+	คำนวณ
+	ตัวเลข
+	เช้า
+	0–7
+	—
+	Weekly checklist
+ชื่อ
+	มาจาก
+	ชนิด
+	หน่วย
+	ค่าที่รับได้
+	บังคับไหม
+	checklist: จำนวนวันที่รับแสงหลังตื่น
+	ผู้ใช้กรอก
+	ตัวเลือก
+	วัน
+	0–7
+	บังคับ [?]
+	checklist: จำนวนวันที่ดื่มคาเฟอีนใกล้นอน
+	ผู้ใช้กรอก
+	ตัวเลือก
+	วัน
+	0–7
+	บังคับ [?]
+	checklist: จำนวนวันที่งีบกลางวัน
+	ผู้ใช้กรอก
+	ตัวเลือก
+	วัน
+	0–7
+	บังคับ [?]
+	checklist: จำนวนวันที่ออกกำลังกาย
+	ผู้ใช้กรอก
+	ตัวเลือก
+	วัน
+	0–7
+	บังคับ [?]
+	checklist: จำนวนวันที่ดื่มแอลกอฮอล์ใกล้นอน
+	ผู้ใช้กรอก
+	ตัวเลือก
+	วัน
+	0–7
+	บังคับ [?]
+	checklist: จำนวนวันที่กินมื้อหนักหรือออกกำลังหนักใกล้นอน
+	ผู้ใช้กรอก
+	ตัวเลือก
+	วัน
+	0–7
+	บังคับ [?]
+	checklist: จำนวนวันที่หรี่ไฟก่อนนอน
+	ผู้ใช้กรอก
+	ตัวเลือก
+	วัน
+	0–7
+	บังคับ [?]
+	checklist: จำนวนวันที่ใช้จอบนเตียง
+	ผู้ใช้กรอก
+	ตัวเลือก
+	วัน
+	0–7
+	บังคับ [?]
+	checklist: ความถี่ที่ดูนาฬิกาตอนตื่น
+	ผู้ใช้กรอก
+	ตัวเลือก
+	—
+	ไม่เลย / บางครั้ง / บ่อย
+	บังคับ [?]
+	4. กฎการทำงาน (เพิ่ม)
+แก้ D8 ให้ต่อกับกฎใหม่: ในช่อง "ระบบทำ" ตอบ "ใช่" → ตรวจ D15 (เดิม: บันทึก แล้วทำ D9) และช่อง "ไม่งั้น" → ตรวจ D15 (เดิม: บันทึก แล้วทำ D9)
+4.2 ต่อ: ตรวจก่อนบันทึก
+#
+	เมื่อ
+	ถ้า
+	ระบบทำ
+	ไม่งั้น
+	D15
+	ผ่าน D8 แล้ว
+	diary: เวลาตื่นครั้งสุดท้าย หรือ diary: เวลาลุกจากเตียง อยู่หลังเวลาปัจจุบัน
+	ไม่บันทึก แจ้งว่าเวลายังมาไม่ถึง
+	ตรวจ D16
+	D16
+	ผ่าน D15 แล้ว
+	คำนวณ: เวลาบนเตียง > 960 นาที (16 ชม.) [?]
+	ถามยืนยัน ตอบ "ถูกแล้ว" → บันทึก แล้วทำ D9 · ตอบ "แก้เวลา" → ไม่บันทึก กลับไปหน้าเวลา
+	บันทึก แล้วทำ D9
+	4.4 วันที่ การกรอกซ้ำ ย้อนหลัง แก้ไข และเตือน
+#
+	เมื่อ
+	ถ้า
+	ระบบทำ
+	ไม่งั้น
+	D11
+	ผู้ใช้เปิดหน้าบันทึกการนอนตอนเช้า
+	diary: วันที่ของคืน นั้นมีบันทึกแล้ว
+	เปิดบันทึกเดิมให้แก้ ไม่สร้างใหม่ (1 คืน = 1 บันทึก)
+	สร้างบันทึกใหม่ ค่าเริ่มต้นของ diary: วันที่ของคืน = เมื่อวาน
+	D12
+	ผู้ใช้บันทึกคืนที่ผ่านมาแล้ว
+	diary: เวลาที่ส่งบันทึก ช้ากว่า diary: เวลาลุกจากเตียง ไม่เกิน 48 ชม. [?]
+	รับ และตั้ง diary: กรอกย้อนหลัง = ใช่ ถ้าช้ากว่า 12 ชม. [?]
+	ไม่ให้บันทึกคืนนั้น นับเป็นคืนที่ขาด
+	D13
+	ถึง 12:00 [?]
+	ยังไม่มีบันทึกของเมื่อคืน
+	แสดงแบนเนอร์เตือนในแอป วันละ 1 ครั้ง
+	ไม่เตือน
+	D14
+	ระบบคำนวณค่ารายสัปดาห์
+	คำนวณ: จำนวนคืนที่ใช้ได้ ≥ 5 [?]
+	คำนวณค่ารายสัปดาห์ทุกตัวในข้อ 5.3
+	ไม่คำนวณ แสดง empty state ของหน้าสรุปประจำสัปดาห์
+	D17
+	ผู้ใช้แก้บันทึกเดิม
+	ยังไม่เกิน 48 ชม. หลัง diary: เวลาที่ส่งบันทึก [?]
+	ตรวจ D3–D8, D15, D16 ใหม่ ผ่านแล้วคำนวณใหม่ทั้งรายคืนและรายสัปดาห์ ไม่ผ่าน → เก็บค่าเดิมไว้
+	ไม่ให้แก้
+	D18
+	ผู้ใช้กดกลับหรือปิดแอประหว่างกรอก
+	กลับมาภายในวันเดียวกัน
+	เปิดค่าที่กรอกค้างไว้ให้กรอกต่อ [?]
+	เริ่มใหม่
+	4.5 Weekly checklist
+#
+	เมื่อ
+	ถ้า
+	ระบบทำ
+	ไม่งั้น
+	W1
+	ถึงวันที่ 7, 14, 21, 28 ของโปรแกรม [?]
+	ยังไม่ได้ทำ checklist ของสัปดาห์นั้น
+	แสดงหน้า Weekly checklist
+	ไม่แสดง
+	W2
+	ผู้ใช้กดส่ง checklist
+	ตอบครบ 9 ข้อ [?]
+	บันทึก 1 รายการต่อสัปดาห์ พร้อมเลขสัปดาห์ ไม่เขียนทับสัปดาห์ก่อน
+	ไม่ส่ง ไฮไลต์ข้อที่ยังไม่ตอบ
+	W3
+	ผู้ใช้แก้ checklist
+	ยังอยู่ในสัปดาห์เดียวกับที่ส่ง [?]
+	แก้ได้ แล้วส่งค่าใหม่ให้ suggestion
+	ไม่ให้แก้
+	W4
+	แสดง checklist ไปแล้ว
+	ผ่านไป 3 วัน [?] ยังไม่ทำ
+	ข้ามสัปดาห์นั้น ไม่ส่งข้อมูลให้ suggestion
+	เตือนอีกครั้งวันถัดไป
+	W5
+	ส่ง checklist ข้อพฤติกรรมที่รบกวนการนอน (คาเฟอีน, งีบกลางวัน, แอลกอฮอล์, มื้อหนักหรือออกกำลังหนัก, จอบนเตียง)
+	จำนวนวัน ≥ 3 [?]
+	ส่งให้ suggestion (Lunn) ว่าพฤติกรรมนั้นควรปรับ
+	ไม่ส่ง
+	W6
+	ส่ง checklist ข้อพฤติกรรมที่ช่วยการนอน (รับแสงหลังตื่น, ออกกำลังกาย, หรี่ไฟก่อนนอน)
+	จำนวนวัน ≤ 3 [?]
+	ส่งให้ suggestion ว่าพฤติกรรมนั้นควรปรับ
+	ไม่ส่ง
+	W7
+	ส่ง checklist: ความถี่ที่ดูนาฬิกาตอนตื่น
+	= บ่อย
+	ส่งให้ suggestion ว่าควรปรับ (ตาม Tab 1 ช่วง 4)
+	ไม่ส่ง
+	5. สูตร (เติมตัวอย่างและเงื่อนไข)
+ตัวอย่างใช้คืนแรกของนุ่น: ขึ้นเตียง 23:30, ปิดไฟ 23:45, กว่าจะหลับ 50, ตื่นกลางดึกรวม 10, ตื่นครั้งสุดท้าย 07:00, ลุกจากเตียง 07:10
+5.1 สูตรรายคืน
+ชื่อ
+	สูตร
+	ตัวอย่าง
+	คำนวณ: เวลาบนเตียง
+	diary: เวลาลุกจากเตียง − diary: เวลาขึ้นเตียง
+	23:30 → 07:10 = 460 นาที
+	คำนวณ: เวลาหลับจริง
+	(diary: เวลาตื่นครั้งสุดท้าย − diary: เวลาปิดไฟ) − diary: เวลากว่าจะหลับ − diary: เวลาตื่นกลางดึกรวม
+	(23:45 → 07:00 = 435) − 50 − 10 = 375 นาที
+	คำนวณ: ประสิทธิภาพการนอน
+	คำนวณ: เวลาหลับจริง ÷ คำนวณ: เวลาบนเตียง × 100
+	375 ÷ 460 × 100 = 81.5%
+	คำนวณ: ลุกตรงเวลาเป้าหมาย
+	ใช่ ถ้า diary: เวลาลุกจากเตียง ห่างจาก lesson: เวลาเป้าหมายที่จะตื่น ไม่เกิน 30 นาที [?] · ไม่นับ ถ้ายังไม่มีเวลาเป้าหมาย
+	ลุก 07:10 เป้า 07:00 ห่าง 10 นาที → ใช่
+	5.2 การนับข้ามเที่ยงคืน
+1. ถ้า diary: เวลาขึ้นเตียง ≥ 12:00 ให้ใช้ diary: วันที่ของคืน ไม่งั้นใช้วันถัดไป [?] ตัวอย่าง: ขึ้นเตียง 00:15 คืนวันศุกร์ = เช้ามืดวันเสาร์
+2. เวลาอื่นนับเดินหน้าจากเวลาก่อนหน้าตาม D4–D6 ตัวอย่าง: ขึ้นเตียง 23:45 ปิดไฟ 00:10 = ห่าง 25 นาที
+5.3 สูตรรายสัปดาห์
+สัปดาห์นับตามวันของโปรแกรม (วัน 1–7, 8–14) ไม่ใช่สัปดาห์ปฏิทิน และนับคืนเข้าสัปดาห์ตาม diary: วันที่ของคืน ไม่ใช่วันที่กรอก
+ชื่อ
+	สูตร
+	ตัวอย่าง (สัปดาห์แรกของนุ่น ข้อ 8)
+	คำนวณ: จำนวนคืนที่ใช้ได้
+	จำนวนคืนที่บันทึกสำเร็จ (ผ่าน D3–D8, D15, D16 รวมคืนที่ยืนยันว่าไม่ได้หลับ)
+	7
+	คำนวณ: เวลาหลับจริงเฉลี่ยรายสัปดาห์
+	ผลรวม คำนวณ: เวลาหลับจริง ÷ คำนวณ: จำนวนคืนที่ใช้ได้
+	2,710 ÷ 7 = 387 นาที
+	คำนวณ: เวลาบนเตียงเฉลี่ยรายสัปดาห์
+	ผลรวม คำนวณ: เวลาบนเตียง ÷ คำนวณ: จำนวนคืนที่ใช้ได้
+	3,260 ÷ 7 = 466 นาที
+	คำนวณ: ประสิทธิภาพการนอนรายสัปดาห์
+	ผลรวม คำนวณ: เวลาหลับจริง ÷ ผลรวม คำนวณ: เวลาบนเตียง × 100 [?]
+	2,710 ÷ 3,260 × 100 = 83.1%
+	คำนวณ: เวลากว่าจะหลับเฉลี่ยรายสัปดาห์
+	ผลรวม diary: เวลากว่าจะหลับ ÷ คำนวณ: จำนวนคืนที่ใช้ได้
+	315 ÷ 7 = 45 นาที
+	คำนวณ: จำนวนเช้าที่ลุกตรงเวลาเป้าหมาย
+	นับ คำนวณ: ลุกตรงเวลาเป้าหมาย = ใช่ / จำนวนเช้าที่ไม่ใช่ "ไม่นับ"
+	3 / 5
+	5.4 การปัดเศษ
+* นาทีเป็นจำนวนเต็มเสมอ ค่าเฉลี่ยรายสัปดาห์ปัดเป็นนาทีเต็มตอนแสดงผล
+* ประสิทธิภาพการนอนเก็บค่าเต็ม ปัด 1 ตำแหน่งตอนแสดงผลเท่านั้น
+5.5 กรณีข้อมูลไม่ครบ
+* คืนที่บันทึกไม่สำเร็จไม่มีอยู่ในระบบ ไม่ต้องคำนวณ
+* คืนที่ขาดไม่เติมค่าแทน
+* ถ้า คำนวณ: จำนวนคืนที่ใช้ได้ < 5 ไม่คำนวณค่ารายสัปดาห์ (D14)
+6. Edge cases (เพิ่ม 4 หมวด)
+แก้แถวสุดท้ายของหมวดค่าที่เป็นไปไม่ได้: ช่อง "ระบบทำ" ของ "ส่งค่าเข้าระบบโดยไม่ผ่านหน้าจอ" ยังว่าง ให้เติมว่า "ไม่บันทึก ปฏิเสธที่ระบบหลังบ้าน (D10)"
+ข้ามเที่ยงคืน
+กรณี
+	ระบบทำ
+	ขึ้นเตียง 23:45 ปิดไฟ 00:10
+	นับปิดไฟเป็นวันถัดไป ห่าง 25 นาที (D4)
+	ขึ้นเตียง 00:15 ของคืนวันศุกร์
+	นับเป็นเช้ามืดวันเสาร์ แต่ยังเป็นบันทึกของคืนวันศุกร์ (ข้อ 5.2)
+	ผู้ใช้เลือก 11:30 แทน 23:30 ปิดไฟ 11:45 ตื่น 07:00 ลุก 07:10
+	คำนวณ: เวลาบนเตียง = 1,180 นาที เกิน 960 → ถามยืนยัน (D16)
+	กรอกย้อนหลัง
+กรณี
+	ระบบทำ
+	คืน จ. 9 พ.ย. ลุก อ. 10 พ.ย. 07:00 ส่ง อ. 10 พ.ย. 20:00 (ช้า 13 ชม.)
+	รับ diary: กรอกย้อนหลัง = ใช่ (D12)
+	คืนเดียวกัน ส่ง พฤ. 12 พ.ย. 08:00 (ช้า 49 ชม.)
+	ไม่ให้บันทึก นับเป็นคืนที่ขาด (D12)
+	ส่ง 06:30 แต่ใส่ลุกจากเตียง 07:10 ของเช้าเดียวกัน
+	ไม่บันทึก เวลายังมาไม่ถึง (D15)
+	คืนวันที่ 7 ของโปรแกรม กรอกย้อนหลังในวันที่ 8
+	นับเข้าสัปดาห์ 1 ตามวันที่ของคืน (ข้อ 5.3)
+	ไม่ได้บันทึกเมื่อคืน ถึง 12:00
+	แสดงแบนเนอร์เตือน 1 ครั้ง (D13)
+	กดกลับหรือแก้ไขทีหลัง
+กรณี
+	ระบบทำ
+	เปิดหน้าบันทึกของคืนที่บันทึกแล้ว หรือกดบันทึก 2 ครั้ง
+	เปิดบันทึกเดิมให้แก้ ไม่สร้างใหม่ (D11)
+	แก้ diary: เวลากว่าจะหลับ ของเมื่อวานจาก 50 เป็น 40
+	ตรวจใหม่ คำนวณใหม่ทั้งรายคืนและรายสัปดาห์ (D17)
+	แก้แล้วเวลาหลับจริงติดลบ
+	ไม่บันทึกการแก้ เก็บค่าเดิมไว้ (D17, D7)
+	แก้บันทึกที่ส่งมาแล้ว 3 วัน
+	ไม่ให้แก้ (D17)
+	กรอกถึงข้อ 5 แล้วปิดแอป กลับมาในวันเดียวกัน
+	เปิดค่าที่กรอกค้างไว้ (D18)
+	แก้ checklist หลังส่ง ในสัปดาห์เดียวกัน
+	แก้ได้ ส่งค่าใหม่ให้ suggestion (W3)
+	ข้อมูลน้อยกว่าที่กฎต้องการ
+กรณี
+	ระบบทำ
+	สัปดาห์มีบันทึก 4 คืน
+	ไม่คำนวณค่ารายสัปดาห์ แสดง empty state (D14)
+	สัปดาห์มีบันทึก 5 คืนพอดี
+	คำนวณค่ารายสัปดาห์ (D14)
+	5 คืน แต่ 1 คืนยืนยันว่าไม่ได้หลับเลย
+	นับครบ 5 คืน คืนนั้นเวลาหลับจริง = 0 (D8, D14)
+	เช้าวัน 1 และวัน 2 ยังไม่มีเวลาเป้าหมายที่จะตื่น
+	คำนวณ: ลุกตรงเวลาเป้าหมาย = ไม่นับ (ข้อ 5.1)
+	ไม่ทำ checklist 3 วันหลังแสดง
+	ข้ามสัปดาห์นั้น ไม่ส่งให้ suggestion (W4)
+	ตอบ checklist 8 จาก 9 ข้อแล้วกดส่ง
+	ไม่ส่ง ไฮไลต์ข้อที่ยังไม่ตอบ (W2)
+	7. ข้อความที่ผู้ใช้เห็น
+หน้าบันทึกการนอนตอนเช้า
+ข้อ
+	ชื่อ
+	ข้อความ
+	ตัวเลือก
+	หัวหน้า
+	diary: วันที่ของคืน
+	"คืนวัน{วัน} {วันที่}" เช่น "คืนวันจันทร์ 9 พ.ย."
+	แตะเพื่อเปลี่ยนวัน
+	1
+	diary: เวลาขึ้นเตียง
+	เมื่อคืนคุณขึ้นเตียงกี่โมง?
+	เลือกเวลา
+	2
+	diary: เวลาปิดไฟ
+	ตั้งใจเริ่มนอน (ปิดไฟ วางมือถือ) กี่โมง?
+	เลือกเวลา
+	3
+	diary: เวลากว่าจะหลับ
+	หลังจากนั้น กว่าจะหลับประมาณกี่นาที?
+	เลื่อน 0–120 นาที
+	4
+	diary: จำนวนครั้งที่ตื่นกลางดึก
+	ตื่นกลางดึกกี่ครั้ง (ไม่นับตอนตื่นเช้า)?
+	0 / 1 / 2 / 3 ขึ้นไป
+	5
+	diary: เวลาตื่นกลางดึกรวม
+	รวมแล้วตื่นอยู่ประมาณกี่นาที?
+	เลื่อน 0–[?] นาที
+	6
+	diary: เวลาตื่นครั้งสุดท้าย
+	เช้านี้ตื่นครั้งสุดท้ายกี่โมง?
+	เลือกเวลา
+	7
+	diary: เวลาลุกจากเตียง
+	แล้วลุกจากเตียงกี่โมง?
+	เลือกเวลา
+	8
+	diary: คุณภาพการนอน
+	โดยรวมเมื่อคืนนอนเป็นอย่างไร?
+	ไม่ดีเลย (1) / ไม่ค่อยดี (2) / พอใช้ (3) / ดี (4) / ดีมาก (5)
+	บันทึกสำเร็จ
+	—
+	"บันทึกแล้ว ขอบคุณที่มาเล่าให้ฟังนะ"
+	—
+	ข้อความ error และยืนยัน
+กฎ
+	ข้อความ
+	ปุ่ม
+	D3
+	"ยังขาดอีกนิด ช่วยกรอกช่องที่ไฮไลต์ไว้นะ"
+	—
+	D4
+	"เวลาตั้งใจนอนอยู่ก่อนเวลาขึ้นเตียง ลองเช็กอีกครั้ง"
+	[แก้เวลา]
+	D5
+	"เวลาตื่นตรงกับเวลาตั้งใจนอนพอดี ลองเช็กอีกครั้ง"
+	[แก้เวลา]
+	D6
+	"เวลาลุกจากเตียงอยู่ก่อนเวลาตื่น ลองเช็กอีกครั้ง"
+	[แก้เวลา]
+	D7
+	"กว่าจะหลับรวมกับตื่นกลางดึก ({x} นาที) มากกว่าช่วงตั้งแต่ตั้งใจนอนถึงตื่น ({y} นาที) ลองแก้สองช่องที่ไฮไลต์"
+	—
+	D8
+	"เมื่อคืนไม่ได้หลับเลยใช่ไหม?"
+	[ใช่] [ไม่ใช่ ขอแก้]
+	D10
+	"บันทึกไม่สำเร็จ ลองใหม่อีกครั้งนะ"
+	[ลองใหม่]
+	D11
+	"คืนนี้บันทึกไว้แล้ว แก้ได้เลย"
+	—
+	D12 รับ
+	"ใส่ค่าประมาณได้เลย ไม่ต้องเป๊ะ"
+	—
+	D12 ไม่รับ
+	"คืนนั้นผ่านมานานแล้ว ไม่เป็นไร มาบันทึกคืนล่าสุดกันดีกว่า"
+	[บันทึกเมื่อคืน]
+	D13
+	"เมื่อคืนเป็นอย่างไรบ้าง? บันทึกได้ใน 1 นาที"
+	[บันทึกเลย]
+	D15
+	"เวลานี้ยังมาไม่ถึง ไว้กลับมาบันทึกตอนเช้านะ"
+	—
+	D16
+	"อยู่บนเตียงรวม {x} ชม. {y} นาที ถูกไหม? ลองเช็กว่าเลือกเวลาเช้า-ค่ำถูกหรือเปล่า"
+	[ถูกแล้ว] [แก้เวลา]
+	D17 ไม่ให้แก้
+	"บันทึกนี้ผ่านมาเกิน 2 วันแล้ว แก้ไม่ได้"
+	—
+	หน้า Weekly checklist
+จุด
+	ข้อความ
+	หัวหน้า
+	"สัปดาห์นี้เป็นอย่างไรบ้าง ไม่มีคำตอบถูกหรือผิด เราใช้ข้อมูลนี้เลือกเคล็ดลับที่เหมาะกับคุณ"
+	ตัวเลือกข้อ 1–8
+	0 วัน / 1 วัน / 2 วัน / 3 วัน / 4 วัน / 5 วัน / 6 วัน / ทุกวัน
+	ตัวเลือกข้อ 9
+	ไม่เลย / บางครั้ง / บ่อย
+	W2 ตอบไม่ครบ
+	"ยังเหลืออีก {n} ข้อ"
+	W4 เตือน
+	"มีคำถามสั้นๆ ประจำสัปดาห์รออยู่ ใช้ไม่ถึง 1 นาที"
+	ส่งสำเร็จ
+	"ขอบคุณนะ เราจะเลือกเคล็ดลับให้เหมาะกับสัปดาห์หน้า"
+	Empty state
+หน้า
+	ข้อความ
+	หน้าสรุปประจำสัปดาห์ ยังไม่มีบันทึกเลย
+	"ยังไม่มีบันทึก เริ่มบันทึกเช้าพรุ่งนี้ได้เลย"
+	หน้าสรุปประจำสัปดาห์ มีบันทึกน้อยกว่า 5 คืน
+	"สัปดาห์นี้มีข้อมูล {n} คืน ยังน้อยไปสำหรับสรุปทั้งสัปดาห์ บันทึกต่ออีกนิด เราจะเห็นภาพชัดขึ้น"
+	8. Test case
+สมมติวัน 1 ของโปรแกรม = จ. 9 พ.ย. 2026 และ lesson: เวลาเป้าหมายที่จะตื่น = 07:00 ตั้งในวัน 2 หลังบันทึกเช้า (คืน 1–2 จึงเป็น "ไม่นับ") คะแนนคุณภาพการนอนเป็นค่าสมมติสำหรับทดสอบ
+8.1 รายคืน
+#
+	Input (ขึ้นเตียง / ปิดไฟ / กว่าจะหลับ / ตื่นกลางดึก ครั้ง, นาที / ตื่นครั้งสุดท้าย / ลุก / คุณภาพ)
+	ผลที่ต้องได้ (เวลาบนเตียง / เวลาหลับจริง / ประสิทธิภาพ / ลุกตรงเป้า)
+	ผ่านไหม
+	1
+	23:30 / 23:45 / 50 / 1, 10 / 07:00 / 07:10 / 2
+	460 / (435 − 50 − 10) = 375 / 81.5% / ไม่นับ
+	
+
+	2
+	23:30 / 23:40 / 45 / 2, 20 / 06:50 / 07:00 / 2
+	450 / (430 − 45 − 20) = 365 / 81.1% / ไม่นับ
+	
+
+	3
+	23:45 / 00:10 / 60 / 1, 10 / 07:00 / 07:15 / 1
+	450 / (410 − 60 − 10) = 340 / 75.6% / ใช่ (ห่าง 15)
+	
+
+	4
+	23:20 / 23:30 / 40 / 1, 15 / 07:00 / 07:05 / 3
+	465 / (450 − 40 − 15) = 395 / 84.9% / ใช่ (ห่าง 5)
+	
+
+	5
+	23:30 / 23:30 / 35 / 0, 0 / 07:00 / 07:00 / 4
+	450 / (450 − 35 − 0) = 415 / 92.2% / ใช่ (ห่าง 0)
+	
+
+	6
+	00:15 / 00:20 / 30 / 1, 10 / 08:30 / 08:45 / 4
+	510 / (490 − 30 − 10) = 450 / 88.2% / ไม่ใช่ (ห่าง 105)
+	
+
+	7
+	23:45 / 00:00 / 55 / 2, 25 / 07:30 / 07:40 / 2
+	475 / (450 − 55 − 25) = 370 / 77.9% / ไม่ใช่ (ห่าง 40)
+	
+
+	8.2 รายสัปดาห์ (จาก 7 คืนข้างบน)
+#
+	Input
+	ผลที่ต้องได้
+	ผ่านไหม
+	8
+	7 คืนข้างบน
+	จำนวนคืนที่ใช้ได้ 7 · เวลาหลับจริงเฉลี่ย 387 · เวลาบนเตียงเฉลี่ย 466 · ประสิทธิภาพรายสัปดาห์ 83.1% · กว่าจะหลับเฉลี่ย 45 · ลุกตรงเป้า 3 / 5
+	
+
+	9
+	ลบคืน 5–7 ออก เหลือ 4 คืน
+	ไม่คำนวณค่ารายสัปดาห์ แสดง empty state (D14)
+	
+
+	8.3 Edge cases
+#
+	Input
+	ผลที่ต้องได้
+	ผ่านไหม
+	10
+	ขึ้นเตียง 23:30 ปิดไฟ 23:20
+	ไม่บันทึก (D4)
+	
+
+	11
+	ปิดไฟ 23:00 ตื่น 01:00 กว่าจะหลับ 90 ตื่นกลางดึก 1 ครั้ง 40 นาที
+	ไม่บันทึก 130 > 120 (D7)
+	
+
+	12
+	ขึ้นเตียง 23:00 ปิดไฟ 23:00 กว่าจะหลับ 90 ตื่นกลางดึก 1 ครั้ง 30 นาที ตื่น 01:00 ลุก 01:00 แล้วตอบ "ใช่"
+	บันทึก เวลาบนเตียง 120 · เวลาหลับจริง 0 · ประสิทธิภาพ 0.0% (D8)
+	
+
+	13
+	ขึ้นเตียง 11:30 ปิดไฟ 11:45 ตื่น 07:00 ลุก 07:10
+	ถามยืนยัน เวลาบนเตียง 1,180 > 960 (D16)
+	
+
+	14
+	ตื่นกลางดึก 2 ครั้ง 20 นาที แล้วเปลี่ยนเป็น 0 ครั้ง
+	เวลาตื่นกลางดึกรวม = 0 (D1)
+	
+
+	15
+	ส่งตอน 06:30 ลุกจากเตียง 07:10 วันเดียวกัน
+	ไม่บันทึก (D15)
+	
+
+	16
+	คืน จ. 9 พ.ย. ส่ง พ. 11 พ.ย. 19:00 (ช้า 36 ชม.)
+	รับ กรอกย้อนหลัง = ใช่ (D12)
+	
+
+	17
+	คืน จ. 9 พ.ย. ส่ง พฤ. 12 พ.ย. 08:00 (ช้า 49 ชม.)
+	ไม่ให้บันทึก (D12)
+	
+
+	18
+	บันทึกคืน 1 ซ้ำ
+	เปิดบันทึกเดิม ยังมี 1 รายการ (D11)
+	
+
+	19
+	ส่งเวลากว่าจะหลับ = 500 ผ่านระบบหลังบ้าน
+	ปฏิเสธ (D10)
+	
+
+	8.4 Weekly checklist
+#
+	Input
+	ผลที่ต้องได้ (เกณฑ์ ≥ 3 / ≤ 3 ตาม [?])
+	ผ่านไหม
+	20
+	แสง 2 · คาเฟอีน 4 · งีบ 1 · ออกกำลังกาย 2 · แอลกอฮอล์ 0 · มื้อหนัก 1 · หรี่ไฟ 1 · จอบนเตียง 6 · ดูนาฬิกา บ่อย
+	ส่งให้ suggestion 6 ข้อ: คาเฟอีน, จอบนเตียง (W5) · แสง, ออกกำลังกาย, หรี่ไฟ (W6) · ดูนาฬิกา (W7) ไม่ส่ง 3 ข้อ: งีบ, แอลกอฮอล์, มื้อหนัก
+	
+
+	21
+	คาเฟอีน 3 (ตรงเกณฑ์พอดี)
+	ส่ง (W5)
+	
+
+	22
+	ตอบ 8 ข้อ ข้ามข้อ 9
+	ไม่ส่ง ไฮไลต์ข้อ 9 (W2)
+	
+
+	9. ที่ยังไม่ชัด
+#
+	คำถาม
+	ใครตอบได้
+	ค่าตั้งต้นที่ใช้ไปก่อน
+	ต้องผ่านผู้เชี่ยวชาญไหม
+	1
+	diary: เวลากว่าจะหลับ รับสูงสุดกี่นาที
+	Washi
+	120
+	ไม่
+	2
+	“3 ขึ้นไป” เก็บเป็นค่าอะไร
+	Washi + Lunn
+	3
+	ไม่
+	3
+	diary: เวลาตื่นกลางดึกรวม รับสูงสุดกี่นาที (ต้องพอบันทึกคืนที่ไม่ได้หลับ)
+	Washi
+	600
+	ไม่
+	4
+	D4, D6 ช่วงห่างสูงสุด
+	Washi
+	12 ชม.
+	ไม่
+	5
+	ขึ้นเตียงก่อนเที่ยงวันนับเป็นวันถัดไป (ข้อ 5.2)
+	Washi
+	12:00
+	ไม่
+	6
+	ประสิทธิภาพการนอนรายสัปดาห์ใช้ผลรวม÷ผลรวม หรือเฉลี่ยรายคืน
+	Washi
+	ผลรวม ÷ ผลรวม
+	ใช่
+	7
+	ลุกตรงเวลาเป้าหมาย: คลาดได้กี่นาที และใช้เวลาลุกหรือเวลาตื่น
+	Washi + หมอ Surat
+	30 นาที, เวลาลุกจากเตียง
+	ใช่
+	8
+	D12 กรอกย้อนหลังได้กี่ชั่วโมง และติดป้ายเมื่อช้ากว่ากี่ชั่วโมง
+	Washi
+	48 / 12 ชม.
+	ไม่
+	9
+	D13 เวลาเตือน
+	ทีม
+	12:00
+	ไม่
+	10
+	D14 จำนวนคืนขั้นต่ำ (เอกสารเขียน 5–7)
+	Washi + หมอ Surat
+	5 คืน
+	ใช่
+	11
+	D16 เกณฑ์ถามยืนยันเวลาบนเตียง
+	Washi
+	960 นาที
+	ไม่
+	12
+	D17 แก้บันทึกได้ภายในกี่ชั่วโมง
+	Washi
+	48 ชม.
+	ไม่
+	13
+	D18 เก็บค่าที่กรอกค้างไว้ไหม
+	ทีม
+	เก็บถึงสิ้นวัน
+	ไม่
+	14
+	W1 ถามทุกสัปดาห์ตลอดโปรแกรมไหม
+	Washi + Lunn
+	ทุกวันที่ 7 ของสัปดาห์
+	ไม่
+	15
+	W2 ต้องตอบครบ 9 ข้อไหม
+	Washi + Lunn
+	ครบ
+	ไม่
+	16
+	W3, W4 แก้ได้ถึงเมื่อไร และข้ามหลังกี่วัน
+	Washi
+	สัปดาห์เดียวกัน / 3 วัน
+	ไม่
+	17
+	W5, W6 เกณฑ์จำนวนวันของแต่ละข้อ
+	Lunn + หมอ Surat
+	≥ 3 / ≤ 3
+	ใช่
+	18
+	เพิ่มคำถาม "คิดมากก่อนนอน" เป็นข้อ 10 ของ checklist ไหม
+	Washi + Lunn
+	ไม่เพิ่ม
+	ไม่
+	19
+	วัดว่าผู้ใช้ทำตามคำแนะนำไหม
+	Washi + Lunn
+	ไม่ทำ
+	ไม่
+	20
+	ผู้ใช้ที่เลือก "กลับไปปรับเองที่บ้าน" วัน 14 ยังกรอก diary ต่อไหม
+	ทีม
+	กรอกต่อได้
+	ไม่
+	21
+	ใครเป็นเจ้าของหน้า recap และ lesson: เวลาเป้าหมายที่จะตื่น
+	ทีม
+	—
+	ไม่
+	
+
+
+
+Daily Input
+ชื่อ
+	มาจาก
+	ชนิด
+	หน่วย
+	ค่าที่รับได้
+	บังคับไหม
+	diary: เวลาขึ้นเตียง
+	ผู้ใช้กรอก
+	เวลา
+	HH:MM
+	00:00–23:59
+	บังคับ
+	diary: เวลาปิดไฟ
+	ผู้ใช้กรอก
+	เวลา
+	HH:MM
+	00:00–23:59 และไม่ก่อน เวลาขึ้นเตียง
+	บังคับ
+	diary: เวลากว่าจะหลับ
+	ผู้ใช้กรอก
+	ตัวเลข
+	นาที
+	0–120 ตาม mockup [?]
+	บังคับ
+	diary: จำนวนครั้งที่ตื่นกลางดึก
+	ผู้ใช้กรอก
+	ตัวเลือก
+	ครั้ง
+	0, 1, 2, 3 ขึ้นไป ตาม mockup [?]
+	บังคับ
+	diary: เวลาตื่นกลางดึกรวม
+	ผู้ใช้กรอก
+	ตัวเลข
+	นาที
+	0–[?]
+	บังคับเมื่อ จำนวนครั้งที่ตื่นกลางดึก ≥ 1 ไม่งั้นระบบใส่ 0
+	diary: เวลาตื่นครั้งสุดท้าย
+	ผู้ใช้กรอก
+	เวลา
+	HH:MM
+	00:00–23:59 และหลัง เวลาปิดไฟ
+	บังคับ
+	diary: เวลาลุกจากเตียง
+	ผู้ใช้กรอก
+	เวลา
+	HH:MM
+	00:00–23:59 และไม่ก่อน เวลาตื่นครั้งสุดท้าย
+	บังคับ
+	diary: คุณภาพการนอน
+	ผู้ใช้กรอก
+	ตัวเลือก
+	คะแนน
+	1–5
+	บังคับ
+	ค่าสูงสุดของ diary: เวลาตื่นกลางดึกรวม ต้องตั้งให้พอบันทึกคืนที่ไม่ได้หลับเลยได้ เพราะ diary: เวลากว่าจะหลับ รับได้แค่ 120 นาที ถ้าค่าสูงสุดต่ำเกินไป คืนแบบนั้นจะบันทึกไม่ได้ [?]
+Weekly checklist
+(เหมือนเดิม ไม่ได้แก้)
+0. หัว
+* ชิ้นงาน: Diary + Recap
+* เจ้าของ: Washi
+* สถานะ: Draft
+* ใช้ข้อมูลจาก: lesson: เวลาเป้าหมายที่จะตื่น
+* ส่งข้อมูลให้: คำนวณ: ประสิทธิภาพการนอน → suggestion และ recap
+1. เป้าหมาย
+* ผู้ใช้ทำอะไรได้: บันทึกการนอนเมื่อคืนทุกเช้าในประมาณ 1 นาที
+* ผู้ใช้คือใคร: นุ่น 26 ปี พนักงานบริษัทในกรุงเทพ เข้านอนประมาณ 23:30 แต่กว่าจะหลับ 30–60 นาที เพราะคิดวน (ตาม Tab 1)
+* เสร็จเมื่อไหร่: กรอกการนอน 7 คืนของนุ่นแล้วตัวเลขตรงกับข้อ 8 ทุกช่อง
+สูตร
+* เวลาบนเตียง = เวลาลุกจากเตียง − เวลาขึ้นเตียง
+* เวลาหลับจริง = (เวลาตื่นครั้งสุดท้าย − เวลาปิดไฟ) − เวลากว่าจะหลับ − เวลาตื่นกลางดึกรวม
+* ประสิทธิภาพการนอน = เวลาหลับจริง ÷ เวลาบนเตียง × 100
+กฎการทำงาน
+4.1 Daily Input: ระหว่างกรอก
+#
+	เมื่อ
+	ถ้า
+	ระบบทำ
+	ไม่งั้น
+	D1
+	ผู้ใช้เลือก diary: จำนวนครั้งที่ตื่นกลางดึก
+	= 0
+	ซ่อนช่อง diary: เวลาตื่นกลางดึกรวม และบันทึกเป็น 0 นาที
+	แสดงช่อง diary: เวลาตื่นกลางดึกรวม และบังคับกรอก
+	D2
+	ผู้ใช้เลือก diary: จำนวนครั้งที่ตื่นกลางดึก
+	เลือก “3 ขึ้นไป”
+	บันทึกเป็น 3 [?]
+	บันทึกตามตัวเลขที่เลือก
+	4.2 Daily Input: ตอนกดบันทึก (ตรวจตามลำดับ หยุดที่กฎแรกที่ไม่ผ่าน)
+#
+	เมื่อ
+	ถ้า
+	ระบบทำ
+	ไม่งั้น
+	D3
+	ผู้ใช้กดบันทึก diary
+	มีช่องที่ "บังคับ" ว่าง (รวม diary: คุณภาพการนอน และ diary: เวลาตื่นกลางดึกรวม เมื่อ diary: จำนวนครั้งที่ตื่นกลางดึก ≥ 1)
+	ไม่บันทึก ไฮไลต์ช่องที่ว่าง
+	ตรวจ D4
+	D4
+	ตรวจ diary: เวลาปิดไฟ
+	เวลาปิดไฟเดินไปข้างหน้าจาก diary: เวลาขึ้นเตียง ได้ไม่เกิน 12 ชม. [?]
+	ถือว่าปิดไฟหลังขึ้นเตียง ถ้าตัวเลขน้อยกว่าแปลว่าข้ามเที่ยงคืน ให้นับเป็นวันถัดไป (ตามตัวอย่างใน template) แล้วตรวจ D5
+	ไม่บันทึก แจ้งว่าเวลาปิดไฟอยู่ก่อนเวลาขึ้นเตียง
+	D5
+	ตรวจ diary: เวลาตื่นครั้งสุดท้าย
+	เท่ากับ diary: เวลาปิดไฟ
+	ไม่บันทึก แจ้งว่าเวลาตื่นตรงกับเวลาปิดไฟ
+	นับเดินหน้าจาก diary: เวลาปิดไฟ (ข้ามเที่ยงคืนได้) แล้วตรวจ D6
+	D6
+	ตรวจ diary: เวลาลุกจากเตียง
+	เดินไปข้างหน้าจาก diary: เวลาตื่นครั้งสุดท้าย ได้ไม่เกิน 12 ชม. [?]
+	ถือว่าลุกหลังตื่น แล้วตรวจ D7
+	ไม่บันทึก แจ้งว่าเวลาลุกจากเตียงอยู่ก่อนเวลาตื่นครั้งสุดท้าย
+	D7
+	ตรวจเวลาที่ไม่ได้หลับ
+	diary: เวลากว่าจะหลับ + diary: เวลาตื่นกลางดึกรวม มากกว่าช่วง diary: เวลาปิดไฟ ถึง diary: เวลาตื่นครั้งสุดท้าย
+	ไม่บันทึก แจ้งให้กรอกใหม่ (กรณี "ตื่นก่อนหลับ / เวลาติดลบ" ใน template)
+	ตรวจ D8
+	D8
+	ตรวจเวลาที่ไม่ได้หลับ
+	ผลรวมใน D7 เท่ากับช่วงนั้นพอดี (หลับจริง 0 นาที)
+	ถามยืนยัน "เมื่อคืนไม่ได้หลับเลยใช่ไหม" ตอบ "ใช่" → บันทึก แล้วทำ D9 · ตอบ "ไม่ใช่" → ไม่บันทึก กลับไปให้แก้ diary: เวลากว่าจะหลับ หรือ diary: เวลาตื่นกลางดึกรวม
+	บันทึก แล้วทำ D9
+	D9
+	บันทึกสำเร็จ
+	—
+	คำนวณ คำนวณ: เวลาบนเตียง, คำนวณ: เวลาหลับจริง, คำนวณ: ประสิทธิภาพการนอน ตามสูตรในข้อ 5
+	—
+	4.3 ระบบหลังบ้าน
+#
+	เมื่อ
+	ถ้า
+	ระบบทำ
+	ไม่งั้น
+	D10
+	ระบบหลังบ้านรับข้อมูล diary
+	มีค่าที่อยู่นอกช่วง "ค่าที่รับได้" ในตาราง Daily Input
+	ปฏิเสธ ไม่บันทึก
+	ตรวจ D3–D8
+	Edge cases
+ค่าว่าง
+กรณี
+	ระบบทำ
+	กดบันทึกโดยที่ diary: เวลาลุกจากเตียง ว่าง
+	ไม่บันทึก ไฮไลต์ช่องนั้น (D3)
+	diary: จำนวนครั้งที่ตื่นกลางดึก = 2 แต่ diary: เวลาตื่นกลางดึกรวม ว่าง
+	ไม่บันทึก ไฮไลต์ diary: เวลาตื่นกลางดึกรวม (D3)
+	เคยกรอก diary: เวลาตื่นกลางดึกรวม = 20 นาทีไว้ แล้วเปลี่ยน diary: จำนวนครั้งที่ตื่นกลางดึก เป็น 0
+	ล้างค่า 20 ทิ้ง บันทึกเป็น 0 นาที (D1)
+	กดบันทึกโดยที่ diary: คุณภาพการนอน ว่าง
+	ไม่บันทึก ไฮไลต์ช่องนั้น (D3)
+	ค่า 0 และค่าที่ตรงเกณฑ์พอดี
+กรณี
+	ระบบทำ
+	diary: เวลากว่าจะหลับ = 0 นาที
+	รับ เป็นค่าที่เป็นไปได้
+	diary: เวลากว่าจะหลับ = 120 นาที (ค่าสูงสุด) แต่จริงๆ ใช้ 150 นาที
+	ผู้ใช้เลือกได้สูงสุด 120 ข้อมูลจะต่ำกว่าความจริง [?]
+	diary: เวลาปิดไฟ = diary: เวลาขึ้นเตียง (23:30 / 23:30)
+	รับ (D4)
+	diary: เวลาลุกจากเตียง = diary: เวลาตื่นครั้งสุดท้าย (07:00 / 07:00)
+	รับ (D6)
+	diary: เวลาขึ้นเตียง 20:00, diary: เวลาปิดไฟ 08:00 (ห่าง 12 ชม. พอดี)
+	รับ เพราะเกณฑ์คือ "ไม่เกิน" 12 ชม. (D4)
+	ปิดไฟ 23:00 ตื่น 01:00 (120 นาที) กว่าจะหลับ 90 + ตื่นกลางดึก 30 = 120 นาทีพอดี
+	คำนวณ: เวลาหลับจริง = 0 ถามยืนยันว่าไม่ได้หลับเลย (D8)
+	ขึ้นเตียง ปิดไฟ ตื่น และลุก ตรงกันทุกจังหวะ กว่าจะหลับ 0 ตื่นกลางดึก 0
+	คำนวณ: ประสิทธิภาพการนอน = 100% รับ (D9)
+	ค่าที่เป็นไปไม่ได้
+กรณี
+	ระบบทำ
+	ปิดไฟ 23:00 ตื่น 01:00 (120 นาที) กว่าจะหลับ 90 + ตื่นกลางดึก 40 = 130 นาที (เวลาหลับจริงติดลบ 10)
+	ไม่บันทึก ไฮไลต์ diary: เวลากว่าจะหลับ และ diary: เวลาตื่นกลางดึกรวม (D7)
+	ขึ้นเตียง 23:30 ปิดไฟ 23:20 (นับไปข้างหน้าได้ 23 ชม. 50 นาที)
+	ไม่บันทึก แจ้งว่าเวลาปิดไฟอยู่ก่อนเวลาขึ้นเตียง (D4)
+	ตื่นครั้งสุดท้าย 07:00 ลุกจากเตียง 06:50
+	ไม่บันทึก แจ้งว่าเวลาลุกจากเตียงอยู่ก่อนเวลาตื่น (D6)
+	ปิดไฟ 23:45 ตื่นครั้งสุดท้าย 23:45
+	ไม่บันทึก (D5)
+	ส่งค่าเข้าระบบโดยไม่ผ่านหน้าจอ เช่น เวลากว่าจะหลับ = 500 หรือ คุณภาพการนอน = 7
+	
+
+	
+
+Spec — Suggestion (CBT-I MVP)
+0. หัว
+หัวข้อ
+	รายละเอียด
+	ชิ้นงาน
+	Suggestion (คำแนะนำปรับพฤติกรรมรายสัปดาห์)
+	เจ้าของ
+	Lunn [?] (ยืนยันการสะกดชื่อ)
+	สถานะ
+	Draft (10 พ.ย. 2026)
+	ใช้ข้อมูลจาก
+	คำนวณ: จำนวนคืนที่ใช้ได้, คำนวณ: ประสิทธิภาพการนอนรายสัปดาห์, คำนวณ: เวลากว่าจะหลับเฉลี่ยรายสัปดาห์, คำนวณ: เวลาหลับจริงเฉลี่ยรายสัปดาห์, คำนวณ: เวลาบนเตียงเฉลี่ยรายสัปดาห์, คำนวณ: จำนวนเช้าที่ลุกตรงเวลาเป้าหมาย, คำนวณ: ประสิทธิภาพการนอน (รายคืน), diary: เวลาตื่นครั้งสุดท้าย, diary: เวลาลุกจากเตียง, diary: เวลากว่าจะหลับ, diary: วันที่ของคืน, lesson: เวลาเป้าหมายที่จะตื่น, checklist: ทั้ง 9 รายการ (จำนวนวันที่รับแสงหลังตื่น … ความถี่ที่ดูนาฬิกาตอนตื่น)
+	ส่งข้อมูลให้
+	หน้าจอเลือก 1–2 ข้อจาก 3 ข้อ (ทีม suggestion ทำเอง) · หน้าสรุปประจำสัปดาห์ (recap) ของ Washi: ผลเทียบสัปดาห์แรก
+	1. เป้าหมาย
+* ผู้ใช้ทำอะไรได้: เห็น 3 คำแนะนำปรับพฤติกรรมที่ตรงกับตัวเลขของตัวเองในสัปดาห์ที่ผ่านมา เลือกลอง 1–2 ข้อ และเห็นว่าเทียบกับสัปดาห์แรกแล้วพัฒนาตรงไหน
+* ผู้ใช้คือใคร: นุ่น คนไทยที่นอนไม่หลับ ใช้แอปต่อเนื่อง ไม่ใช่แค่ 14 วัน. สัปดาห์แรกของนุ่น (ตัวอย่างจาก Washi ข้อ 8.1): ใช้ได้ 7 คืน, ประสิทธิภาพการนอนรายสัปดาห์ 83.1%, เวลากว่าจะหลับเฉลี่ย 45.0 นาที, ดูนาฬิกาตอนตื่นบ่อย, ใช้จอบนเตียง 6 วัน.
+* เสร็จเมื่อ: ทุก test case ในข้อ 8 เจ้าของชิ้นคิดมือแล้วได้ผลตรงทุกแถว และช่อง [?] ในข้อ 9 ถูกตอบจนไม่เหลือการเดา.
+2. ขอบเขต
+ทำในรอบนี้
+* ทุกครบ 7 วันของโปรแกรม (วัน 1–7, 8–14, …) ระบบประเมินค่ารายสัปดาห์จาก Washi + checklist แล้วเลือก suggestion 3 ข้อจากรายการ 10 ข้อ (S1–S10) ด้วยกฎตามลำดับความสำคัญ
+* แสดงข้อความความปลอดภัย (SF1–SF4) พร้อม suggestion เมื่อเข้าเงื่อนไข
+* หน้าจอให้ผู้ใช้เลือก 1–2 ข้อ และจำว่าเลือกอะไร กี่วัน
+* เทียบสัปดาห์ปัจจุบันกับสัปดาห์แรก (ส่งผลให้ recap)
+ไม่ทำในรอบนี้
+* ไม่แนะนำยาหรืออาหารเสริม ไม่ตอบเรื่องยา
+* ไม่ปรับ sleep window (SRT) — อยู่ภาคผนวก ยังไม่เปิด
+* ไม่คัดกรองอารมณ์ ยา หยุดหายใจขณะหลับ
+* ไม่วัดว่าผู้ใช้ทำตาม suggestion จริงหรือไม่ (adherence) ใช้แค่ตัวเลขสัปดาห์ถัดไปบอกแทน
+* ไม่เพิ่มคำถาม checklist ข้อ 10 (คิดมากก่อนนอน) จนกว่าทีมตัดสิน [?]
+* ไม่ส่งการแจ้งเตือนนอกแอป
+* ไม่ใช้ AI สร้างข้อความตอนผู้ใช้ใช้งาน — AI ช่วยร่างข้อความมาก่อนเท่านั้น และทุกข้อต้องผ่าน Lunn และหมอ Surat ก่อนไปถึงผู้ใช้
+3. ข้อมูลเข้า-ออก
+3.1 ข้อมูลเข้า (ชื่อตามพจนานุกรมกลางของ Washi และสเปกระดับ 10 พ.ย.)
+ชื่อ
+	มาจาก
+	ชนิด
+	หน่วย
+	ค่าที่รับได้
+	บังคับไหม
+	คำนวณ: จำนวนคืนที่ใช้ได้
+	คำนวณ (Washi)
+	จำนวนเต็ม
+	คืน
+	0–7
+	บังคับ (F1 ใช้เช็ก ≥ 5 [?])
+	คำนวณ: ประสิทธิภาพการนอนรายสัปดาห์
+	คำนวณ (Washi)
+	ทศนิยม
+	%
+	ตาม Washi
+	บังคับ (SF3, เปรียบเทียบ)
+	คำนวณ: เวลาหลับจริงเฉลี่ยรายสัปดาห์
+	คำนวณ (Washi)
+	ทศนิยม
+	นาที
+	ตาม Washi
+	บังคับ (SF2, เปรียบเทียบ)
+	คำนวณ: เวลากว่าจะหลับเฉลี่ยรายสัปดาห์
+	คำนวณ (Washi)
+	ทศนิยม
+	นาที
+	ตาม Washi
+	บังคับ (S3, S4, เปรียบเทียบ)
+	คำนวณ: จำนวนเช้าที่ลุกตรงเวลาเป้าหมาย
+	คำนวณ (Washi)
+	จำนวนเต็ม
+	เช้า
+	0–7
+	ใช้เปรียบเทียบเท่านั้น (ยังไม่ใช้เป็นเงื่อนไข S1 [?])
+	คำนวณ: เวลาหลับจริง (รายคืน)
+	คำนวณ (Washi)
+	จำนวนเต็ม
+	นาที
+	≥ 0
+	บังคับ (SF1: = 0 ที่ผู้ใช้ยืนยัน)
+	คำนวณ: ประสิทธิภาพการนอน (รายคืน)
+	คำนวณ (Washi)
+	ทศนิยม
+	%
+	ตาม Washi
+	บังคับ (SF4)
+	diary: เวลาลุกจากเตียง
+	ผู้ใช้กรอก
+	เวลา
+	HH:MM
+	ตาม Washi
+	บังคับ (S1)
+	diary: เวลากว่าจะหลับ
+	ผู้ใช้กรอก
+	จำนวนเต็ม
+	นาที
+	ตาม Washi
+	บังคับ (S2)
+	diary: เวลาตื่นกลางดึกรวม
+	ผู้ใช้กรอก
+	จำนวนเต็ม
+	นาที
+	ตาม Washi
+	บังคับ (S2)
+	diary: วันที่ของคืน
+	ระบบ
+	วันที่
+	วันที่
+	ตาม Washi
+	บังคับ (จัดคืนเข้าสัปดาห์ช่วง 1–7, 8–14, …)
+	checklist: จำนวนวันที่ดื่มคาเฟอีนใกล้นอน
+	ผู้ใช้กรอก (รายสัปดาห์)
+	จำนวนเต็ม
+	วัน
+	0–7
+	ไม่บังคับ (ไม่ตอบ = F3)
+	checklist: จำนวนวันที่งีบกลางวัน
+	ผู้ใช้กรอก (รายสัปดาห์)
+	จำนวนเต็ม
+	วัน
+	0–7
+	ไม่บังคับ
+	checklist: จำนวนวันที่ออกกำลังกาย
+	ผู้ใช้กรอก (รายสัปดาห์)
+	จำนวนเต็ม
+	วัน
+	0–7
+	ไม่บังคับ
+	checklist: จำนวนวันที่ดื่มแอลกอฮอล์ใกล้นอน
+	ผู้ใช้กรอก (รายสัปดาห์)
+	จำนวนเต็ม
+	วัน
+	0–7
+	ไม่บังคับ
+	checklist: จำนวนวันที่กินมื้อหนักหรือออกกำลังหนักใกล้นอน
+	ผู้ใช้กรอก (รายสัปดาห์)
+	จำนวนเต็ม
+	วัน
+	0–7
+	ไม่บังคับ
+	checklist: จำนวนวันที่หรี่ไฟก่อนนอน
+	ผู้ใช้กรอก (รายสัปดาห์)
+	จำนวนเต็ม
+	วัน
+	0–7
+	ไม่บังคับ
+	checklist: จำนวนวันที่ใช้จอบนเตียง
+	ผู้ใช้กรอก (รายสัปดาห์)
+	จำนวนเต็ม
+	วัน
+	0–7
+	ไม่บังคับ (ใช้เพิ่มประโยคใน S2)
+	checklist: ความถี่ที่ดูนาฬิกาตอนตื่น
+	ผู้ใช้กรอก (รายสัปดาห์)
+	ตัวเลือก
+	—
+	ไม่เลย / บางครั้ง / บ่อย
+	ไม่บังคับ (ใช้เพิ่มประโยคใน S2)
+	ไม่ใช้ในกฎใดเลย: diary: คุณภาพการนอน (พจนานุกรมกับกฎ D ของ Washi บอกคลาดกันว่าบังคับหรือไม่ [?] ถาม Washi) · checklist: จำนวนวันที่รับแสงหลังตื่น (ยังไม่มี suggestion ข้อไหนใช้).
+3.2 ชื่อใหม่ที่ขอเพิ่มในพจนานุกรม (ยังห้ามใช้จนกว่าทีมอนุมัติ)
+ชื่อที่ขอ
+	ความหมายสั้น ๆ
+	หน่วย
+	เจ้าของ
+	คำนวณ: ช่วงเวลาลุกจากเตียง
+	เวลาลุกจากเตียงช้าสุด − เร็วสุด ของคืนที่ใช้ได้ในสัปดาห์
+	นาที
+	Lunn
+	คำนวณ: จำนวนคืนที่หลับยากหรือตื่นนาน
+	จำนวนคืนที่ใช้ได้ที่ diary: เวลากว่าจะหลับ หรือ diary: เวลาตื่นกลางดึกรวม มากกว่า 20 นาที [?]
+	คืน
+	Lunn
+	suggestion: คิว
+	รายการ suggestion ที่เข้าเงื่อนไข เรียงตาม priority
+	รายการ
+	Lunn
+	suggestion: 3 ข้อที่แสดง
+	3 ข้อแรกของคิวที่ให้ผู้ใช้เลือก
+	รายการ
+	Lunn
+	suggestion: ข้อที่ผู้ใช้เลือก
+	1–2 ข้อที่ผู้ใช้กดเลือกจาก 3 ข้อ
+	รายการ
+	Lunn
+	suggestion: วันที่เริ่มสอน
+	วันที่ผู้ใช้เลือก ใช้นับ 2–3 วัน [?] และนับวันห้ามซ้ำ 14 วัน [?]
+	วันที่
+	Lunn
+	suggestion: ตัวเลือก S1–S10 (10 ชื่อ)
+	ชื่อ S1 ตื่นเวลาเดิม … S10 หรี่ไฟก่อนนอน (รายชื่อเต็มในข้อ 4.2)
+	—
+	Lunn
+	safety: ข้อความ SF1–SF4 (4 ชื่อ)
+	ข้อความความปลอดภัยแสดงคู่ suggestion
+	—
+	Lunn
+	ชื่อในตาราง 3.2 ผมเสนอเอง ยังไม่ได้รับอนุมัติจากทีม — ต้องเพิ่มแถวในพจนานุกรมกลางก่อนใช้ (ตามกติกาในเทมเพลต)
+3.3 ข้อมูลออก
+* รายการ suggestion 3 ข้อ (ไม่ใช่สามคือมากกว่านั้น) → หน้าจอเลือก 1–2 ข้อ
+* ข้อความ safety ที่เข้าเงื่อนไข แสดงคู่กัน
+* ผลเทียบสัปดาห์แรก → หน้า recap (Washi)
+* สถานะ F1–F4 เมื่อไม่มี suggestion ให้แสดง
+4. กฎการทำงาน
+4.1 กฎหลัก (เมื่อ / ถ้า / ระบบทำ / ไม่งั้น)
+#
+	เมื่อ
+	ถ้า
+	ระบบทำ
+	ไม่งั้น
+	R1
+	ถึงรอบประเมิน (วัน 8, 15, 22, 29, … หลังจบสัปดาห์ [?])
+	คำนวณ: จำนวนคืนที่ใช้ได้ ≥ 5 [?]
+	ประเมินเงื่อนไข S1–S10 จากค่ารายสัปดาห์นั้น และ checklist ของสัปดาห์นั้น
+	ใช้ F1 (ไม่ให้คำแนะนำ)
+	R2
+	R1 ประเมินเสร็จ
+	มี suggestion ที่เงื่อนไขเป็นจริง ≥ 1 ข้อ
+	เข้า suggestion: คิว เรียง priority น้อยก่อน ตัดข้อที่สอนแล้วภายใน 14 วัน [?] แสดง 3 ข้อแรกให้เลือก (ถ้าเหลือน้อยกว่า 3 แสดงเท่าที่มี)
+	ใช้ F2
+	R3
+	ผู้ใช้เลือกข้อบนหน้าจอเลือก
+	เลือก 1–2 ข้อ
+	บันทึก suggestion: ข้อที่ผู้ใช้เลือก และ suggestion: วันที่เริ่มสอน สอนข้อละ 2–3 วัน [?] คำแนะนำค้างไว้ ไม่เปลี่ยนแม้ตัวเลขรายวันเปลี่ยน
+	เลือกมากกว่า 2 ข้อไม่ได้ (หน้าจอบังคับไม่ให้กดเกิน)
+	R4
+	ผู้ใช้ยังไม่เลือก
+	ยังไม่ถึงรอบประเมินถัดไป
+	รอ แสดง 3 ข้อเดิมค้างไว้
+	ถึงรอบประเมินถัดไปแล้วยังไม่เลือก: ทิ้งคิวเดิม ทำ R1 ใหม่
+	R5
+	R2 แสดง suggestion
+	SF1–SF4 ข้อใดข้อหนึ่งเป็นจริง (ดู 4.3)
+	แสดงข้อความ safety คู่กับ suggestion ไม่แทนที่
+	ไม่แสดง safety
+	R6
+	ถึงรอบประเมิน
+	ไม่มีคำตอบ checklist ของสัปดาห์นั้น (Washi W4)
+	ใช้ F3: ประเมินเฉพาะ S1–S4 จาก diary
+	ประเมิน S5–S10 ด้วย
+	R7
+	สัปดาห์ที่ประเมินเป็นสัปดาห์ที่ ≥ 2
+	ทั้งสัปดาห์ 1 และสัปดาห์นั้นมี คำนวณ: จำนวนคืนที่ใช้ได้ ≥ 5 [?]
+	ส่งผลเทียบให้ recap (ดูข้อ 5 แถว ผลเทียบกับสัปดาห์แรก)
+	แสดง "ยังเทียบไม่ได้" ไม่เติมค่าแทน
+	4.2 ตารางตัดสินใจ S1–S10 (เรียงตาม priority; เข้าหลายข้อพร้อมกัน → เลขน้อยก่อน)
+priority
+	ชื่อ
+	เงื่อนไข (จริง = เข้าคิว)
+	เปิดได้ตั้งแต่
+	1
+	suggestion: S1 ตื่นเวลาเดิม
+	คำนวณ: ช่วงเวลาลุกจากเตียง ≥ 60 นาที [?]
+	วัน 8
+	2
+	suggestion: S2 ลุกจากเตียงถ้าไม่หลับเกิน 20 นาที [?]
+	คำนวณ: จำนวนคืนที่หลับยากหรือตื่นนาน ≥ 3 คืน [?]
+	วัน 8
+	3
+	suggestion: S5 เลื่อนคาเฟอีนให้เร็วขึ้น
+	checklist: จำนวนวันที่ดื่มคาเฟอีนใกล้นอน ≥ 3 วัน [?]
+	วัน 8
+	4
+	suggestion: S6 เว้นแอลกอฮอล์ใกล้นอน
+	checklist: จำนวนวันที่ดื่มแอลกอฮอล์ใกล้นอน ≥ 3 วัน [?]
+	วัน 8
+	5
+	suggestion: S9 เว้นออกกำลังหนักก่อนนอน
+	checklist: จำนวนวันที่กินมื้อหนักหรือออกกำลังหนักใกล้นอน ≥ 3 วัน [?]
+	วัน 8
+	6
+	suggestion: S10 หรี่ไฟก่อนนอน
+	checklist: จำนวนวันที่หรี่ไฟก่อนนอน ≤ 3 วัน [?]
+	วัน 8
+	7
+	suggestion: S3 brain dump 5 นาทีก่อนปิดไฟ
+	คำนวณ: เวลากว่าจะหลับเฉลี่ยรายสัปดาห์ ≥ 20 นาที [?]
+	วัน 8
+	8
+	suggestion: S8 ขยับตัวเพิ่ม
+	checklist: จำนวนวันที่ออกกำลังกาย ≤ 3 วัน [?]
+	วัน 8
+	9
+	suggestion: S7 งีบให้สั้นและไม่ดึก
+	checklist: จำนวนวันที่งีบกลางวัน ≥ 3 วัน [?]
+	วัน 8
+	10
+	suggestion: S4 ระบุความคิดที่วนบ่อยที่สุด
+	S3 ถูกสอนแล้ว และ เวลากว่าจะหลับเฉลี่ยรายสัปดาห์ ≥ 20 นาที [?]
+	วัน 11 [?]
+	ลำดับ priority เรียงตามความแข็งของหลักฐาน ไม่ใช่ตามความเหมาะกับผู้ใช้แต่ละคน [?] ถาม Lunn ว่าจะคงไว้หรือเปลี่ยน.
+4.3 Safety (แสดงคู่ suggestion ไม่แทนที่)
+ชื่อ
+	เงื่อนไข
+	safety: SF1
+	คำนวณ: เวลาหลับจริง (รายคืน) = 0 ที่ผู้ใช้ยืนยัน (Washi D8) ≥ 2 คืนในสัปดาห์ที่ประเมิน [?]
+	safety: SF2
+	คำนวณ: เวลาหลับจริงเฉลี่ยรายสัปดาห์ < 240 นาที [?]
+	safety: SF3
+	คำนวณ: ประสิทธิภาพการนอนรายสัปดาห์ < 70% [?]
+	safety: SF4
+	ค่าเฉลี่ย คำนวณ: ประสิทธิภาพการนอน (รายคืน) 3 คืนสุดท้ายของสัปดาห์ ต่ำกว่า 3 คืนแรกของสัปดาห์เดียวกัน ≥ 10 จุด [?]
+	SF1–SF4 ไม่มีคำแนะนำเรื่องยา บอกแค่ให้ปรึกษาแพทย์ เกณฑ์ทุกตัวหมอ Surat ต้องยืนยัน.
+5. สูตร / การคำนวณ
+ค่ารายสัปดาห์ของ Washi (คำนวณ: …รายสัปดาห์) ระบบนี้รับมาใช้ตรง ๆ ไม่คำนวณซ้ำ สูตรด้านล่างคือสูตรของชิ้น Suggestion เอง
+ชื่อ
+	สูตร
+	ตัวอย่าง (นุ่น สัปดาห์แรก)
+	คำนวณ: ช่วงเวลาลุกจากเตียง
+	ค่าสูงสุด − ค่าต่ำสุด ของ diary: เวลาลุกจากเตียง ในคืนที่ใช้ได้ของสัปดาห์ (แปลงเป็นนาทีนับจาก 00:00)
+	สูงสุด 08:45 = 525, ต่ำสุด 07:00 = 420 → 525 − 420 = 105 นาที
+	คำนวณ: จำนวนคืนที่หลับยากหรือตื่นนาน
+	นับคืนที่ใช้ได้ที่ diary: เวลากว่าจะหลับ > 20 นาที หรือ diary: เวลาตื่นกลางดึกรวม > 20 นาที ("เกิน 20" = มากกว่า ไม่รวม 20 พอดี [?])
+	เวลากว่าจะหลับ 50, 45, 60, 40, 35, 30, 55 ทุกคืน > 20 → 7 คืน
+	คำนวณ: เวลากว่าจะหลับเฉลี่ยรายสัปดาห์ (Washi)
+	ผลรวม diary: เวลากว่าจะหลับ ÷ คำนวณ: จำนวนคืนที่ใช้ได้
+	(50+45+60+40+35+30+55) ÷ 7 = 315 ÷ 7 = 45.0 นาที
+	คำนวณ: ประสิทธิภาพการนอนรายสัปดาห์ (Washi)
+	ผลรวมเวลาหลับจริง ÷ ผลรวมเวลาบนเตียง × 100
+	นุ่น = 83.1% (ตามตัวอย่าง Washi)
+	ผลเทียบกับสัปดาห์แรก
+	ผลต่าง = ค่าสัปดาห์ที่ประเมิน − ค่าสัปดาห์ที่ 1 · ประสิทธิภาพการนอนรายสัปดาห์: ผลต่าง ≥ +3 จุด [?] = ดีขึ้น, ≤ −3 จุด [?] = แย่ลง, อยู่ในช่วงอื่น = เท่าเดิม · เวลากว่าจะหลับเฉลี่ยรายสัปดาห์: ≤ −5 นาที [?] = ดีขึ้น, ≥ +5 นาที [?] = แย่ลง · เวลาหลับจริงเฉลี่ยรายสัปดาห์: ≥ +15 นาที [?] = ดีขึ้น, ≤ −15 นาที [?] = แย่ลง · จำนวนเช้าที่ลุกตรงเวลาเป้าหมาย และจำนวนวันของ checklist: เกณฑ์ [?] (ยังไม่มีตัวเลข)
+	สัปดาห์ 1 = 83.1% (จาก Washi) สมมติว่าสัปดาห์ 3 = 87.0% (ตัวเลขสมมติเพื่อแสดงวิธีคิด) → +3.9 ≥ +3 → ดีขึ้น
+	SF4
+	ค่าเฉลี่ยตัวเลข คำนวณ: ประสิทธิภาพการนอน (รายคืน) ของ 3 คืนแรก − 3 คืนสุดท้าย (เรียงตาม diary: วันที่ของคืน เฉพาะคืนที่ใช้ได้) ≥ 10 จุด [?]
+	ดู test 5 ในข้อ 8
+	การปัดเศษ: % แสดง 1 ตำแหน่งทศนิยมตาม Washi แต่เทียบเกณฑ์ด้วยค่าที่ปัดแล้ว 1 ตำแหน่ง [?] · นาทีช่วงเวลาลุกจากเตียงเป็นจำนวนเต็มอยู่แล้ว
+ข้ามเที่ยงคืน: ช่วงเวลาลุกจากเตียงคำนวณจากเวลาตอนเช้าสองค่าที่นับจาก 00:00 ของวันนั้น ถ้ามีคืนที่ลุกหลังเที่ยงคืนช่วงเวลาจะพลาด — ยังไม่กำหนด [?].
+ข้อมูลไม่ครบ: คำนวณจากคืนที่ใช้ได้เท่านั้น ถ้าไม่ถึง 5 คืน [?] ไม่คำนวณค่ารายสัปดาห์เลย (ใช้ F1) ไม่เติมค่าแทนคืนที่ขาด.
+6. Edge cases
+กรณี
+	ระบบทำ
+	คืนที่ใช้ได้ในสัปดาห์ประเมิน = 4 (น้อยกว่า 5)
+	ใช้ F1: ไม่ให้ suggestion แสดง recap เท่าที่มี ประเมินซ้ำได้เมื่อผู้ใช้กรอกย้อนหลังจนครบ 5 คืน (ภายใน 48 ชม. ตาม Washi)
+	คืนที่ใช้ได้ = 5 พอดี
+	ประเมินตามปกติ (เกณฑ์ ≥ 5) ค่าเฉลี่ยหารด้วย 5
+	ค่าเท่าเกณฑ์พอดี: เวลากว่าจะหลับเฉลี่ยรายสัปดาห์ = 20.0 นาที
+	S3 เข้าคิว (เงื่อนไข ≥ 20)
+	ค่าเท่าเกณฑ์พอดี: checklist คาเฟอีน = 3 วัน, หรี่ไฟ = 3 วัน
+	S5 เข้าคิว (≥ 3), S10 เข้าคิว (≤ 3)
+	คืนหนึ่งมี diary: เวลากว่าจะหลับ = 20 พอดี และ diary: เวลาตื่นกลางดึกรวม = 0
+	ไม่นับเป็นคืนหลับยากหรือตื่นนาน (เกณฑ์ "> 20") [?]
+	ไม่มีคำตอบ checklist ของสัปดาห์นั้น
+	F3: ประเมินเฉพาะ S1–S4 จาก diary ไม่ใส่ประโยคเสริมใน S2 ไม่เปิด S5–S10
+	ผู้ใช้ไม่เลือกจนถึงรอบประเมินถัดไป
+	ทิ้งคิวเดิม ประเมินใหม่จากสัปดาห์ล่าสุด
+	เงื่อนไขเป็นจริงน้อยกว่า 3 ข้อ (เช่น 2 ข้อ)
+	แสดงเท่าที่มี ไม่เติมให้ครบ 3
+	เงื่อนไขเป็นจริง 0 ข้อ และคืนใช้ได้ ≥ 5
+	F2
+	คืนที่ผู้ใช้ยืนยันว่าไม่ได้หลับเลย (Washi D8)
+	F4: นับเป็นคืนที่ใช้ได้ ประสิทธิภาพการนอน (รายคืน) = 0 รวมในค่าเฉลี่ย ถ้ามี ≥ 2 คืน → SF1
+	SF1–SF4 ข้อใดข้อหนึ่งเป็นจริง แต่ไม่มี suggestion เข้าเงื่อนไขเลย
+	แสดงเฉพาะข้อความ safety ไม่แสดงข้อความ F2 (เพราะ F2 บอกว่าการนอนสม่ำเสมอ ขัดกัน) [?]
+	ผู้ใช้หายไปหลายสัปดาห์แล้วกลับมา
+	ยังไม่กำหนด [?] (สัปดาห์โปรแกรมนับจากวันที่เริ่มใช้ตาม Washi)
+	7. ข้อความที่ผู้ใช้เห็น
+ข้อความทุกอันยังต้องผ่าน Lunn และหมอ Surat ก่อนถึงผู้ใช้ ข้อความที่มี [?] คือตัวเลขที่ยังไม่ได้ยืนยัน. หน้าจอเลือกและข้อความในหมวด 7.1 ผมร่างใหม่ ยังไม่มีใครรีวิว.
+7.1 หน้าจอ "เลือกสิ่งที่อยากลอง" (ทีม suggestion ทำ)
+จุดในหน้า
+	ข้อความ
+	หัวข้อ
+	เลือกสิ่งที่อยากลองในสัปดาห์นี้
+	คำอธิบาย
+	จากบันทึกของคุณ เราเห็นหลายเรื่องที่ปรับได้ เลือก 1–2 ข้อที่รู้สึกทำได้ ค่อยๆ เปลี่ยนทีละนิดก็พอ
+	ปุ่มยืนยัน
+	เริ่มลองข้อนี้
+	เลือกครบ 2 แล้วกดข้อที่ 3
+	เลือกได้ไม่เกิน 2 ข้อ เพื่อให้ค่อยๆ เปลี่ยนได้ไม่หนักเกินไป
+	ยังไม่เลือก
+	(ไม่มีข้อความเตือน รอให้ผู้ใช้เลือก)
+	7.2 คำแนะนำ (จากร่าง v0.2)
+ชื่อ
+	ข้อความ ({…} = ค่าที่ระบบใส่)
+	S1 ตื่นเวลาเดิม
+	ช่วงที่ผ่านมาคุณลุกจากเตียงห่างกันได้ถึง {ช่วงเวลาลุกจากเตียง} นาที ลองเลือกเวลาลุกที่ทำได้จริงสักเวลา แล้วลุกเวลานั้นทุกวัน แม้วันหยุดก็ตาม ทำได้เท่าไหร่ก็นับ ไม่ต้องสมบูรณ์แบบ
+	S2 ลุกจากเตียงถ้าไม่หลับเกิน 20 นาที
+	คืนที่นอนไม่หลับเป็นเรื่องที่เจอได้บ่อย ถ้ารู้สึกว่าผ่านไปประมาณ 20 นาทีแล้วยังไม่หลับ ลองลุกไปนั่งทำอะไรเบาๆ ในที่แสงสลัว แล้วกลับมาเตียงเมื่อรู้สึกง่วง เพื่อให้สมองจำว่าเตียงคือที่นอน · เพิ่มถ้า checklist: จำนวนวันที่ใช้จอบนเตียง ≥ 3 [?]: ลองเลี่ยงมือถือระหว่างนั้น · เพิ่มถ้า checklist: ความถี่ที่ดูนาฬิกาตอนตื่น = "บ่อย": ลองหันนาฬิกาออกไป
+	S3 brain dump
+	สัปดาห์ที่ผ่านมาคุณใช้เวลาราว {เวลากว่าจะหลับเฉลี่ยรายสัปดาห์} นาทีกว่าจะหลับ ก่อนปิดไฟ ลองใช้เวลาราว 5 นาทีเขียนสิ่งที่ต้องทำพรุ่งนี้ลงกระดาษ แล้ววางไว้ ให้สมองได้พัก
+	S4 ระบุความคิดที่วนบ่อยที่สุด
+	แบบฝึกเสริม (หลักฐานของท่านี้เดี่ยวๆ ยังจำกัด) ถ้าคืนไหนความคิดวนขึ้นมา ลองสังเกตว่ามันวนเรื่องอะไรบ่อยที่สุด แล้วบอกตัวเองว่า ฉันกำลังมีความคิดว่า… ไม่ต้องไล่ความคิดออก แค่รู้ทัน
+	S5 เลื่อนคาเฟอีนให้เร็วขึ้น
+	สัปดาห์ที่ผ่านมามี {checklist: จำนวนวันที่ดื่มคาเฟอีนใกล้นอน} วันที่คุณดื่มกาแฟ ชา หรือเครื่องดื่มชูกำลังภายใน 6 ชั่วโมงก่อนนอน คาเฟอีนอยู่ในร่างกายได้หลายชั่วโมง ลองเลื่อนแก้วสุดท้ายของวันให้เร็วขึ้นดู
+	S6 เว้นแอลกอฮอล์ใกล้นอน
+	ช่วง 4 ชั่วโมงก่อนนอนมี {checklist: จำนวนวันที่ดื่มแอลกอฮอล์ใกล้นอน} วันที่คุณดื่มแอลกอฮอล์ แม้จะช่วยให้หลับเร็วขึ้น แต่การนอนช่วงหลังของคืนมักสะดุดมากขึ้น ลองเว้นช่วงใกล้นอนดูนะ
+	S9 เว้นออกกำลังหนักก่อนนอน
+	ถ้าออกกำลังหนัก ลองเว้นอย่างน้อย 1 ชั่วโมงก่อนเข้านอน [?]
+	S10 หรี่ไฟก่อนนอน
+	สัปดาห์ที่ผ่านมามี {checklist: จำนวนวันที่หรี่ไฟก่อนนอน} วันที่คุณหรี่ไฟก่อนนอน ลองหรี่ไฟในบ้านและทำอะไรเบาๆ ก่อนนอนสักพัก
+	S8 ขยับตัวเพิ่ม
+	สัปดาห์ที่ผ่านมาคุณได้ขยับตัวหรือออกกำลังกาย {checklist: จำนวนวันที่ออกกำลังกาย} วัน ลองขยับเพิ่มอีกสักวันสองวันตามที่ทำไหว
+	S7 งีบให้สั้นและไม่ดึก
+	ถ้าต้องงีบ ลองให้สั้นและไม่เกินบ่ายต้นๆ เพื่อเก็บความง่วงไว้ให้กลางคืน [?]
+	7.3 Fallback และ Safety
+สถานการณ์
+	ข้อความ
+	F1 คืนไม่พอ
+	ตอนนี้ข้อมูลการนอนยังมีไม่พอให้แนะนำได้แม่น ลองบันทึกต่ออีกไม่กี่คืนนะ คืนที่ลืมไม่เป็นไร
+	F2 ไม่มีอะไรต้องปรับ
+	ช่วงนี้รูปแบบการนอนของคุณค่อนข้างสม่ำเสมอ ยังไม่มีอะไรที่ต้องปรับเพิ่ม บันทึกต่อไปเรื่อยๆ ก็พอ
+	F3 ไม่มีคำตอบ checklist
+	(ไม่มีข้อความใหม่ แสดงคำแนะนำจาก diary เท่าที่มี)
+	F4 คืนหลับ = 0
+	(ใช้ข้อความ SF1)
+	SF1
+	มีหลายคืนที่คุณแทบไม่ได้หลับเลย อาการนี้ควรให้แพทย์ช่วยดู ลองนัดพบแพทย์หรือผู้เชี่ยวชาญด้านการนอนนะ
+	SF2
+	ช่วงนี้คุณนอนหลับได้น้อยมากต่อเนื่อง ควรปรึกษาแพทย์
+	SF3
+	การนอนของคุณยังแย่ค่อนข้างมาก การลองปรับพฤติกรรมอย่างเดียวอาจไม่พอ ลองปรึกษาแพทย์
+	SF4
+	ช่วงนี้การนอนแย่ลงกว่าตอนเริ่ม บางคนเป็นแบบนี้ได้ ลองทำต่ออีกสองสามวัน ถ้ายังไม่ดีขึ้นแนะนำให้ปรึกษาแพทย์
+	7.4 ผลเทียบกับสัปดาห์แรก (ส่งให้หน้า recap)
+สถานการณ์
+	ข้อความ
+	หัวข้อ
+	สัปดาห์นี้ต่างจากสัปดาห์แรกอย่างไร
+	บรรทัดต่อรายการ
+	{ชื่อค่า}: สัปดาห์แรก {ค่า} → สัปดาห์นี้ {ค่า} ({ดีขึ้น / เท่าเดิม / แย่ลง})
+	ยังเทียบไม่ได้
+	ยังเทียบไม่ได้ เพราะข้อมูลในสัปดาห์ใดสัปดาห์หนึ่งยังไม่พอ
+	คำกำกับท้ายหน้า
+	ตัวเลขเป็นการเทียบก่อน-หลัง ไม่ได้บอกว่าเป็นผลจากคำแนะนำ
+	8. Test case
+คิดมือแล้วจากกฎในข้อ 4–5 และค่าตั้งต้นที่เป็น [?] ช่อง "ผ่านไหม" ให้ Lunn เป็นคนเช็กเองหลังคิดมือแยก — ผมยังไม่ได้รันเทสกับระบบจริง สัปดาห์แรกของนุ่น (test 1) มาจากตัวอย่างของ Washi; test 2–11 ผมสร้างตัวเลขเองเพื่อทดสอบกฎเท่านั้น ไม่ใช่ข้อมูลผู้ใช้จริง.
+#
+	Input (ค่าจริง)
+	ผลที่ต้องได้ (คิดมือ)
+	ผ่านไหม
+	1
+	นุ่น สัปดาห์ 1 (วันประเมิน 8): คำนวณ: จำนวนคืนที่ใช้ได้ = 7 · diary: เวลาลุกจากเตียง = 07:10, 07:00, 07:15, 07:05, 07:00, 08:45, 07:40 · diary: เวลากว่าจะหลับ = 50, 45, 60, 40, 35, 30, 55 · คำนวณ: ประสิทธิภาพการนอนรายสัปดาห์ = 83.1 · คำนวณ: เวลาหลับจริงเฉลี่ยรายสัปดาห์ = 387 · checklist: คาเฟอีน = 4, ออกกำลังกาย = 2, หรี่ไฟ = 1, แอลกอฮอล์ = 0, งีบ = 1, มื้อหนัก/ออกกำลังหนัก = 1, จอบนเตียง = 6, ดูนาฬิกา = บ่อย · ยังไม่เคยสอนข้อใด
+	ช่วงเวลาลุกจากเตียง = 525 − 420 = 105 → S1 จริง. คืนหลับยาก = 7 → S2 จริง พร้อมประโยคเสริมเรื่องจอ (6 ≥ 3) และนาฬิกา (บ่อย). S5 จริง (4 ≥ 3). S6 ไม่ (0). S9 ไม่ (1). S10 จริง (1 ≤ 3). S3 จริง (45.0 ≥ 20). S8 จริง (2 ≤ 3). S7 ไม่ (1). S4 ไม่ (S3 ยังไม่ถูกสอน). คิว = S1, S2, S5, S10, S3, S8. แสดง 3 ข้อ: S1, S2, S5. Safety ไม่แสดง (SF1 ไม่มีคืนหลับ = 0; SF2 387 ≥ 240; SF3 83.1 ≥ 70; SF4 ไม่ทดสอบในข้อนี้ เพราะต้องใช้ SE รายคืน)
+	
+
+	2
+	คำนวณ: จำนวนคืนที่ใช้ได้ = 4 · ค่าอื่นเหมือน test 1
+	F1 ไม่มี suggestion ไม่มี safety (ไม่คำนวณค่ารายสัปดาห์ เพราะ 4 < 5)
+	
+
+	3
+	คำนวณ: จำนวนคืนที่ใช้ได้ = 5 · ช่วงเวลาลุกจากเตียง = 30 · diary: เวลากว่าจะหลับ = 10 ทุกคืน · diary: เวลาตื่นกลางดึกรวม = 0 ทุกคืน · SE รายสัปดาห์ = 90.0 · เวลาหลับจริงเฉลี่ย = 420 · checklist: คาเฟอีน = 2, แอลกอฮอล์ = 0, มื้อหนัก/ออกกำลังหนัก = 0, หรี่ไฟ = 5, ออกกำลังกาย = 5, งีบ = 1
+	คืนใช้ได้ 5 ≥ 5 ประเมินได้. ทุกข้อไม่เข้า (S1: 30 < 60; S2: 0 คืน; S3: 10.0 < 20; S5: 2 < 3; S6: 0; S9: 0; S10: 5 > 3; S8: 5 > 3; S7: 1 < 3). ใช้ F2 ไม่มี safety
+	
+
+	4
+	คืนใช้ได้ = 7 · ช่วงเวลาลุกจากเตียง = 60 · diary: เวลากว่าจะหลับ = 20 ทุกคืน · diary: เวลาตื่นกลางดึกรวม = 0 ทุกคืน · SE รายสัปดาห์ = 85.0 · เวลาหลับจริงเฉลี่ย = 400 · checklist: คาเฟอีน = 3, แอลกอฮอล์ = 3, มื้อหนัก/ออกกำลังหนัก = 3, หรี่ไฟ = 3, ออกกำลังกาย = 3, งีบ = 3
+	ค่าเท่าเกณฑ์พอดีทุกตัว: S1 จริง (60 ≥ 60) · S2 ไม่ (20 ไม่ > 20 → 0 คืน) [?] · S5, S6, S9, S7 จริง (3 ≥ 3) · S10, S8 จริง (3 ≤ 3) · S3 จริง (20.0 ≥ 20). คิว = S1, S5, S6, S9, S10, S3, S8, S7 แสดง 3 ข้อ: S1, S5, S6. ไม่มี safety
+	
+
+	5
+	คืนใช้ได้ = 7 · เวลาบนเตียง = 480 ทุกคืน · เวลาหลับจริงรายคืน (คืน 1→7) = 400, 400, 400, 380, 380, 300, 300
+	SE รายคืน = 83.33, 83.33, 83.33, 79.17, 79.17, 62.50, 62.50. เฉลี่ย 3 คืนแรก = 83.33; 3 คืนสุดท้าย (คืน 5–7) = (79.17 + 62.50 + 62.50) ÷ 3 = 68.06; ต่าง 15.28 ≥ 10 → SF4 จริง. SE รายสัปดาห์ = 2560 ÷ 3360 = 76.2% ≥ 70 → SF3 ไม่. เวลาหลับจริงเฉลี่ย = 2560 ÷ 7 = 365.7 ≥ 240 → SF2 ไม่
+	
+
+	6
+	คืนใช้ได้ = 7 · 2 คืนผู้ใช้ยืนยันไม่ได้หลับเลย (เวลาหลับจริง = 0) · 5 คืนที่เหลือ: เวลาหลับจริง = 420 และเวลาบนเตียง = 480 · ในทั้ง 7 คืนเวลาบนเตียง = 480
+	SF1 จริง (2 ≥ 2). เวลาหลับจริงเฉลี่ย = 2100 ÷ 7 = 300 ≥ 240 → SF2 ไม่. SE รายสัปดาห์ = 2100 ÷ 3360 = 62.5% < 70 → SF3 จริง. แสดง SF1 และ SF3 คู่กับ suggestion (หรือแสดงแค่ safety ถ้าไม่มี suggestion เข้า [?])
+	
+
+	7
+	คืนใช้ได้ = 6 · ไม่มีคำตอบ checklist · ช่วงเวลาลุกจากเตียง = 80 · diary: เวลากว่าจะหลับ = 30 ทุกคืน · SE รายสัปดาห์ = 80.0 · เวลาหลับจริงเฉลี่ย = 380
+	F3. S1 จริง (80 ≥ 60), S2 จริง (6 คืน > 20) ไม่ใส่ประโยคเสริม, S3 จริง (30.0 ≥ 20). S5–S10 ไม่ประเมิน. แสดง S1, S2, S3
+	
+
+	8
+	สัปดาห์ 2 ของคนเดียวกับ test 1 (วันประเมิน 15) ผู้ใช้ไม่เคยเลือกอะไรจากรอบแรก. ช่วงเวลาลุกจากเตียง = 40; คืนใช้ได้ = 7; diary: เวลากว่าจะหลับ = 50, 45, 60, 40, 35, 30, 55; SE รายสัปดาห์ = 84.0; เวลาหลับจริงเฉลี่ย = 390; checklist เหมือน test 1
+	S1 ไม่จริง (40 < 60). คิวใหม่ = S2, S5, S10, S3, S8. แสดง S2, S5, S10 (ประเมินใหม่จากสัปดาห์ 2 ไม่ใช้คิวเก่า)
+	
+
+	9
+	ค่าเหมือน test 1 แต่วันประเมิน 15 และผู้ใช้เลือก S1 กับ S5 ในรอบวัน 8 (suggestion: วันที่เริ่มสอน = วัน 8)
+	วัน 15 − วัน 8 = 7 < 14 → S1 และ S5 ถูกตัด [?] คิว = S2, S10, S3, S8 แสดง S2, S10, S3
+	
+
+	10
+	ประสิทธิภาพการนอนรายสัปดาห์: สัปดาห์ 1 = 83.1, สัปดาห์ 3 = 86.0 · เวลากว่าจะหลับเฉลี่ยรายสัปดาห์: 45.0 → 38.0 · เวลาหลับจริงเฉลี่ยรายสัปดาห์: 387 → 372 (ทั้งสองสัปดาห์คืนใช้ได้ ≥ 5)
+	SE: 86.0 − 83.1 = +2.9 อยู่ใน ±3 → เท่าเดิม. กว่าจะหลับ: 38.0 − 45.0 = −7.0 ≤ −5 → ดีขึ้น. เวลาหลับจริง: 372 − 387 = −15 ≤ −15 → แย่ลง (ค่าเท่าเกณฑ์พอดี นับเป็นแย่ลง [?])
+	
+
+	11
+	สัปดาห์ 3 มีคืนใช้ได้ = 3 (สัปดาห์ 1 = 7)
+	หน้าเทียบแสดง "ยังเทียบไม่ได้" ไม่เติมค่าแทน ใช้ F1 ไม่ให้ suggestion
+	
+
+	แหล่งที่มาของ test 1: ตัวอย่างนุ่น ข้อ 8.1 ใน spec ของ Washi (ค่ากว่าจะหลับเฉลี่ย 45.0, SE 83.1%, เวลาหลับจริงเฉลี่ย 387) คุณและ Washi ควรคิดช่วงเวลาลุก 105 นาทีซ้ำเองจากเวลาลุกสองค่า (08:45 กับ 07:00).
+9. ที่ยังไม่ชัด [?]
+ค่าตั้งต้นในตารางคือสิ่งที่ใช้ในข้อ 4–8 แล้ว ไม่ใช่คำตอบที่ยืนยัน — แถวที่ผมใส่ "ไม่มี" คือยังไม่มีแหล่งหรือคำตอบ และจะยังไม่เดาให้.
+#
+	คำถาม
+	ใครตอบได้
+	ค่าตั้งต้นที่ใช้ไปก่อน
+	ต้องผ่านผู้เชี่ยวชาญไหม
+	1
+	วันประเมิน: ตามวันโปรแกรมคงที่ (8, 15, 22, 29) หรือวันถัดจากผู้ใช้ส่ง checklist
+	Lunn, Washi
+	8, 15, 22, 29
+	ไม่
+	2
+	S1 วัดด้วย คำนวณ: ช่วงเวลาลุกจากเตียง ≥ 60 นาที หรือด้วย คำนวณ: จำนวนเช้าที่ลุกตรงเวลาเป้าหมาย และเกณฑ์ 60 นาที
+	Lunn, Washi, หมอ
+	ช่วงเวลาลุก ≥ 60
+	ใช่
+	3
+	S2: เกณฑ์ 20 นาที, "> 20" หรือ "≥ 20", และ ≥ 3 คืน (ทุกคนในตัวอย่างเข้าเกณฑ์กันหมด จึงแยกคนไม่ได้)
+	Lunn, หมอ
+	> 20 นาที, ≥ 3 คืน
+	ใช่
+	4
+	S3: เกณฑ์เวลากว่าจะหลับเฉลี่ยรายสัปดาห์ ≥ 20 นาที
+	Lunn, หมอ
+	≥ 20 นาที
+	ใช่
+	5
+	S4: เงื่อนไขเปิด (ตอนนี้: S3 ถูกสอนแล้ว + กว่าจะหลับ ≥ 20) และวันแรกที่เปิด (วัน 11); จะเพิ่ม checklist ข้อ 10 (คิดมากก่อนนอน) ไหม ซึ่ง Washi เสนอแล้ว
+	Lunn, Washi
+	เงื่อนไขตามตาราง 4.2; ยังไม่เพิ่มข้อ 10
+	ใช่ (หลักฐานจำกัด)
+	6
+	เกณฑ์ checklist S5, S6, S7, S9 ≥ 3 วัน และ S8, S10 ≤ 3 วัน (ค่าตั้งต้นของ Washi W5/W6)
+	Washi, หมอ
+	ตาม Washi
+	ใช่
+	7
+	ตัวเลขในข้อความ: S7 (งีบ 30 นาที / ก่อนบ่าย 3), S9 (1 ชม.), S10 (30 นาที)
+	หมอ
+	ไม่ใส่ตัวเลขในข้อความจนกว่าจะยืนยัน (แหล่งอ้างอิงยังไม่สมบูรณ์)
+	ใช่
+	8
+	ลำดับ priority: เรียงตามหลักฐาน หรือตามความเหมาะกับผู้ใช้ (S3 อยู่ลำดับ 7 แม้นุ่นคิดมากก่อนนอน)
+	Lunn
+	ตามหลักฐาน
+	ไม่
+	9
+	สอนข้อละกี่วัน (2 หรือ 3) และห้ามซ้ำกี่วัน (14)
+	Lunn, หมอ
+	2–3 วัน / 14 วัน
+	ใช่
+	10
+	Safety: 240 นาที, 70%, ≥ 2 คืน (SF1), ต่าง 10 จุด (SF4), คืนผู้ใช้ไม่ครบ 3 คืนแรก/สุดท้ายจะนับยังไง
+	หมอ Surat
+	ไม่มี (ใช้ตัวเลขในตารางไปก่อนเป็นร่าง)
+	ใช่ ห้ามใช้กับผู้ใช้จริงจนกว่าจะยืนยัน
+	11
+	F1: คืนไม่ถึง 5 จะรอประเมินซ้ำถึงเมื่อไร และข้ามไปสัปดาห์ถัดไปเมื่อไร
+	Lunn, Washi
+	ประเมินซ้ำได้ทุกวันจนครบ 5 คืน ถ้าสัปดาห์ถัดไปเริ่มแล้วไม่ครบ ให้ข้าม
+	ไม่
+	12
+	เกณฑ์เทียบกับสัปดาห์แรก: ±3 จุด / ±5 นาที / ±15 นาที, ค่าเท่าเกณฑ์นับเป็นดีขึ้น/แย่ลง, การปัดเศษ, และเกณฑ์ของ จำนวนเช้าที่ลุกตรงเวลาเป้าหมาย และ checklist (ยังไม่มีตัวเลข)
+	หมอ
+	ทั้งสามค่าแรกตามนี้, ค่าเท่าเกณฑ์ = ดีขึ้น/แย่ลง, ปัด 1 ตำแหน่ง; สองรายการสุดท้าย ไม่มีค่า → ไม่แสดงลูกศรจนกว่าจะตอบ
+	ใช่
+	13
+	Safety เป็นจริงแต่ไม่มี suggestion เข้าเงื่อนไข: แสดง safety อย่างเดียว หรือคู่กับ F2
+	Lunn
+	safety อย่างเดียว
+	ไม่
+	14
+	ช่วงเวลาลุก: คืนที่ลุกหลังเที่ยงคืนนับยังไง และคืนที่ยืนยันไม่ได้หลับเลย (D8) มี diary: เวลาลุกจากเตียง หรือไม่
+	Washi
+	ไม่มี (รอคำตอบ)
+	ไม่
+	15
+	diary: คุณภาพการนอน บังคับหรือไม่ (ตารางกับกฎ D ขัดกัน)
+	Washi
+	ไม่ใช้ในกฎ
+	ไม่
+	16
+	checklist: จำนวนวันที่กินมื้อหนักหรือออกกำลังหนักใกล้นอน รวมสองเรื่องไว้ข้อเดียว จะแยกหรือไม่
+	Washi, Lunn
+	ไม่แยก ข้อความ S9 พูดเฉพาะออกกำลังหนัก
+	ใช่ (หลักฐานมื้อหนักยังไม่ได้ตรวจ)
+	17
+	checklist: จำนวนวันที่รับแสงหลังตื่น ไม่มี suggestion รองรับ จะเพิ่มหรือไม่
+	Lunn
+	ไม่เพิ่ม
+	ใช่ (ถ้าเพิ่ม ต้องมีหลักฐาน)
+	18
+	ผู้ใช้หายไปหลายสัปดาห์แล้วกลับมา: นับสัปดาห์โปรแกรมใหม่หรือต่อเดิม
+	Lunn, Washi
+	ไม่มี (รอคำตอบ)
+	ไม่
+	19
+	ชื่อใหม่ในข้อ 3.2 และการสะกดชื่อเจ้าของ (Lunn / Lun)
+	ทีม
+	ห้ามใช้จนกว่าจะอนุมัติ
+	ไม่
+	20
+	ข้อความในหน้าเลือก (7.1) และผลเทียบ (7.4)
+	Lunn
+	ใช้ร่างที่เขียนไว้
+	ใช่ (ตามกติกาทุกข้อความ)

@@ -29,7 +29,7 @@ export const DICT: Record<string, string> = {
   'assessment: คำตอบ 9Q ข้อคิดทำร้ายตนเอง': 'assessment_responses.q9_q3_11',
   'assessment: ข้อห้าม 5 ข้อ': 'assessment_responses.contraindication_*',
   'assessment: ทำงานเป็นกะ': 'assessment_responses.shift_work',
-  'assessment: ตั้งครรภ์/หลังคลอด 6 เดือน': 'assessment_responses.pregnant_postnatal',
+  'assessment: ตั้งครรภ์/หลังคลอด 6 เดือน': "assessment_responses.pregnant_postnatal — values: 'ใช่' / 'ไม่ใช่' / 'ไม่เกี่ยวข้อง'",
   'assessment: RLS 4 ข้อ': 'assessment_responses.rls_q1…rls_q4',
   'assessment: STOP-Bang ข้อกรน/เหนื่อย/หยุดหายใจ': 'assessment_responses.stop_bang_snore / tired / observed',
   'assessment: ความดันโลหิตสูง': 'assessment_responses.hypertension',
