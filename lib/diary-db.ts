@@ -183,6 +183,21 @@ export async function startProgramme(
 
 // ─── Lesson settings ──────────────────────────────────────────────────────────
 
+/** Save the target wakeup time (HH:MM) chosen during rules confirmation (D6). */
+export async function saveTargetWakeupTime(
+  targetWakeupTime: string
+): Promise<{ error: string | null }> {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) return { error: 'not-authenticated' }
+
+  const { error } = await supabase
+    .from('lesson_settings')
+    .upsert({ user_id: user.id, target_wakeup_time: targetWakeupTime }, { onConflict: 'user_id' })
+
+  return { error: error?.message ?? null }
+}
+
 /** Load the target wakeup time (HH:MM) or null if not yet set (D6). */
 export async function loadTargetWakeupTime(): Promise<string | null> {
   const supabase = await createClient()

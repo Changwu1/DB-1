@@ -120,6 +120,20 @@ export const SF3_EFFICIENCY_THRESHOLD_PCT = 70 // [?] Surat
 /** Drop in efficiency (percentage points) from first 3 to last 3 nights of a week to trigger SF4 */
 export const SF4_EFFICIENCY_DROP_THRESHOLD = 10 // [?] Surat
 
+// ── Education (B-card why-it-continues thresholds) ───────────────────────────
+
+/** Average efficiency below which B3 card fires (strictly less than) */
+export const EDUCATION_EFFICIENCY_THRESHOLD_PCT = 85 // [?] Must match Lunn's value
+
+/** Days napped per week at or above which B1 card fires */
+export const EDUCATION_NAP_DAYS_THRESHOLD = 3 // [?]
+
+/** Wake-time range (minutes) above which B2 card fires (strictly greater than) */
+export const EDUCATION_WAKE_RANGE_THRESHOLD_MIN = 60 // [?]
+
+/** Total number of myths in the rotation */
+export const TOTAL_MYTHS = 9
+
 // ── Comparison thresholds (recap) ────────────────────────────────────────────
 
 /** Sleep efficiency change (pct points) considered "improved" */

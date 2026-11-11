@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation'
 import { getNowServer } from '@/lib/time'
 import { parseTime, formatTime, validateDiary } from '@/lib/diary'
 import { saveDiaryEntry, loadDiaryEntry, loadTargetWakeupTime } from '@/lib/diary-db'
+import { loadEducationState } from '@/lib/education-db'
 import { BACKFILL_ALLOWED_HOURS, BACKFILL_LATE_LABEL_HOURS } from '@/lib/constants'
 import type { DiaryInput } from '@/lib/diary'
 
@@ -139,6 +140,12 @@ export async function saveDiary(
 
   if (error) {
     return { status: 'save_error', message: 'บันทึกไม่สำเร็จ ลองใหม่อีกครั้งนะ' }
+  }
+
+  // C1: after first diary save, if rules not yet confirmed → open rules screen
+  const eduState = await loadEducationState()
+  if (!eduState?.rules_accepted) {
+    redirect('/education/rules')
   }
 
   redirect('/diary/done')
