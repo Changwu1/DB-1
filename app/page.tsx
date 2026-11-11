@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
-import { getNowServer, toDateString } from '@/lib/time'
+import { getNowServer, toDateString, daysBetween } from '@/lib/time'
 import { loadEducationState, rowToMythState, saveMythState } from '@/lib/education-db'
 import { loadProgrammeStart } from '@/lib/diary-db'
 import { pickMythOfDay } from '@/lib/education'
@@ -42,6 +42,11 @@ export default async function Home() {
 
   const rulesAccepted = eduState?.rules_accepted ?? false
 
+  // Show suggestion link when: rules accepted AND at least week 2 (day ≥ 8)
+  const startDate = toDateString(new Date(programme.started_at))
+  const dayOfProgramme = daysBetween(new Date(startDate), now) + 1
+  const showSuggestion = rulesAccepted && dayOfProgramme >= 8
+
   return (
     <main className="min-h-screen bg-white max-w-sm mx-auto flex flex-col">
       {/* Myth banner (D1) */}
@@ -58,6 +63,17 @@ export default async function Home() {
           <span className="font-semibold">บันทึกการนอน</span>
           <span className="text-indigo-200 text-sm">บันทึกการนอนเมื่อคืน</span>
         </Link>
+
+        {/* Suggestion link (visible from day 8, D3: requires rules_accepted) */}
+        {showSuggestion && (
+          <Link
+            href="/suggestion"
+            className="rounded-xl bg-teal-600 text-white p-4 flex flex-col gap-1"
+          >
+            <span className="font-semibold">คำแนะนำประจำสัปดาห์</span>
+            <span className="text-teal-200 text-sm">เลือกสิ่งที่อยากลองสัปดาห์นี้</span>
+          </Link>
+        )}
 
         {/* Education buttons */}
         <div className="flex gap-3">
