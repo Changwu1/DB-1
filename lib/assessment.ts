@@ -184,9 +184,9 @@ export function getAssessmentResult(a: AssessmentAnswers): AssessmentResultOutpu
   if (a.rlsQ1 && a.rlsQ2 && a.rlsQ3 && a.rlsQ4) referReasons.push('RLS')
   if (stopBangScore >= STOP_BANG_REFER_MIN) referReasons.push('STOP-Bang')
 
-  // Priority: REFER > NOT-FIT
+  // Priority: REFER > NOT-FIT (flags carries the refer reasons for the result page)
   if (referReasons.length > 0) {
-    return { result: 'REFER', flags: [], isiScore, q9Score, bmi, stopBangScore }
+    return { result: 'REFER', flags: referReasons, isiScore, q9Score, bmi, stopBangScore }
   }
   if (notFitReasons.length > 0) {
     return { result: 'NOT-FIT', flags: [], isiScore, q9Score, bmi, stopBangScore }

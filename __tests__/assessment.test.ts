@@ -342,4 +342,27 @@ describe('edge cases (spec section 6)', () => {
   it('adequate opportunity = false → NOT-FIT', () => {
     expect(getAssessmentResult(a({ adequateOpportunity: false })).result).toBe('NOT-FIT')
   })
+
+  // REFER reasons included in flags (for result page display)
+  it('REFER result includes reasons in flags — ISI', () => {
+    const r = getAssessmentResult(a({ isiQ1:4, isiQ2:3, isiQ3:3, isiQ4:3, isiQ5:3, isiQ6:3, isiQ7:3 }))
+    expect(r.result).toBe('REFER')
+    expect(r.flags).toContain('ISI')
+  })
+
+  it('REFER result includes reasons in flags — 9Q', () => {
+    const r = getAssessmentResult(a({
+      q2Q1: true,
+      q9Q3_3: 2, q9Q3_4: 2, q9Q3_5: 2, q9Q3_6: 2, q9Q3_7: 2, q9Q3_8: 2,
+      q9Q3_9: 1, q9Q3_10: 0, q9Q3_11: 0,
+    }))
+    expect(r.result).toBe('REFER')
+    expect(r.flags).toContain('9Q')
+  })
+
+  it('REFER result includes reasons in flags — contraindication', () => {
+    const r = getAssessmentResult(a({ contraEpilepsy: true }))
+    expect(r.result).toBe('REFER')
+    expect(r.flags).toContain('epilepsy')
+  })
 })
