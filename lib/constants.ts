@@ -150,5 +150,14 @@ export const COMPARE_SLEEP_TIME_IMPROVED_THRESHOLD = 15 // [?]
 /** Days from programme start (เริ่มสัปดาห์ที่ 1) before final ISI is offered */
 export const FINAL_ISI_OFFER_DAY = 28
 
+/** ISI score reduction required for "clinically significant improvement" [?] Surat */
+export const FINAL_ISI_SIGNIFICANT_CHANGE = 6 // [?] standard CBT-I research threshold (Bastien et al., 2001)
+
+// ── ISI severity thresholds ──────────────────────────────────────────────────
+// Source: Morin et al. standard ISI interpretation
+export const ISI_SEVERITY_NONE_MAX = 7           // 0–7: no clinically significant insomnia
+export const ISI_SEVERITY_SUBTHRESHOLD_MAX = 14  // 8–14: subthreshold insomnia
+export const ISI_SEVERITY_MODERATE_MAX = 21       // 15–21: clinical insomnia (moderate)
+
 /** Week boundaries (programme days) for each suggestion round */
 export const SUGGESTION_DAYS = [8, 15, 22, 29] // [?] Lunn + Washi

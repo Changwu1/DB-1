@@ -75,6 +75,38 @@ export async function saveAssessmentStep(
   return { error: error?.message ?? null }
 }
 
+/** Save the final ISI score (isi_score_end) collected at programme end. */
+export async function saveFinalISI(score: number): Promise<{ error: string | null }> {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) return { error: 'not-authenticated' }
+
+  const { error } = await supabase
+    .from('assessment_responses')
+    .update({ isi_score_end: score })
+    .eq('user_id', user.id)
+
+  return { error: error?.message ?? null }
+}
+
+/** Load initial and final ISI scores for comparison screen. */
+export async function loadISIScores(): Promise<{ initial: number | null; final: number | null }> {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) return { initial: null, final: null }
+
+  const { data } = await supabase
+    .from('assessment_responses')
+    .select('isi_score_start, isi_score_end')
+    .eq('user_id', user.id)
+    .maybeSingle()
+
+  return {
+    initial: data?.isi_score_start ?? null,
+    final: data?.isi_score_end ?? null,
+  }
+}
+
 /** Mark assessment complete with final result + scores. */
 export async function completeAssessment(
   fields: Record<string, unknown>
