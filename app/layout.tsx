@@ -1,11 +1,13 @@
 import type { Metadata } from 'next'
-import { Geist } from 'next/font/google'
+import { Sarabun } from 'next/font/google'
 import './globals.css'
 import DevPanel from '@/components/DevPanel'
 
-const geist = Geist({
-  variable: '--font-geist',
-  subsets: ['latin'],
+const sarabun = Sarabun({
+  weight: ['300', '400', '500', '600', '700'],
+  subsets: ['thai', 'latin'],
+  variable: '--font-sarabun',
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
@@ -15,8 +17,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="th" className={`${geist.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-white">
+    <html lang="th" className={`${sarabun.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-stone-50">
         {/* 380px mobile-first container */}
         <div className="mx-auto w-full max-w-[380px] flex flex-col min-h-screen">
           {children}

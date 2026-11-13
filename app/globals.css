@@ -1,26 +1,73 @@
 @import "tailwindcss";
 
+/* ── Design tokens ──────────────────────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand */
+  --brand:        #4F46E5;   /* indigo-600  — primary actions */
+  --brand-dark:   #3730A3;   /* indigo-700  — pressed/hover  */
+  --brand-light:  #EEF2FF;   /* indigo-50   — subtle surfaces */
+  --brand-mid:    #C7D2FE;   /* indigo-200  — borders/rings  */
+
+  /* Neutrals */
+  --bg:           #FAFAF9;   /* stone-50    — page background */
+  --surface:      #FFFFFF;   /* white       — card/input surface */
+  --text:         #1C1917;   /* stone-900   — primary text */
+  --text-muted:   #78716C;   /* stone-500   — secondary text */
+  --border:       #E7E5E4;   /* stone-200   — default borders */
+
+  /* Semantic */
+  --success:      #059669;   /* emerald-600 */
+  --error:        #DC2626;   /* red-600 */
+  --warning:      #D97706;   /* amber-600 */
 }
 
+/* ── Tailwind theme extensions ──────────────────────────────────────────────── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sarabun), system-ui, sans-serif;
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* ── Base styles ────────────────────────────────────────────────────────────── */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sarabun), system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Thai text renders better with slightly more letter-spacing */
+:lang(th) {
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+/* Inherit font in all form elements */
+input, select, textarea, button {
+  font-family: inherit;
+}
+
+/* Smooth focus rings — visible but not jarring */
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+/* Remove focus ring for mouse users */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Pointer cursor on interactive elements */
+button, [role="button"], label[for], select {
+  cursor: pointer;
+}
+
+/* Smooth transitions on interactive states */
+button, a, input, select {
+  transition-property: color, background-color, border-color, box-shadow, opacity;
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
 }
