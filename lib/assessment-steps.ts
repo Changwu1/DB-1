@@ -24,6 +24,21 @@ export function getNextStep(
   return STEPS[idx + 1]
 }
 
+/** Previous step before `step`. Returns 'consent' for account, null for consent itself. */
+export function getPreviousStep(
+  step: AssessmentStep,
+  opts?: { q2Q1?: boolean | null; q2Q2?: boolean | null }
+): AssessmentStep | 'consent' | null {
+  if (step === 'consent') return null
+  if (step === 'account') return 'consent'
+  if (step === '9q') return '2q'
+  // contraindications: if 9q was shown, back to 9q; otherwise back to 2q
+  if (step === 'contraindications') return (opts?.q2Q1 || opts?.q2Q2) ? '9q' : '2q'
+  const idx = STEPS.indexOf(step)
+  if (idx <= 0) return null
+  return STEPS[idx - 1]
+}
+
 /** First step the user hasn't completed, based on `last_completed_step` from DB. */
 export function resumeFromStep(
   lastCompleted: AssessmentStep | null | undefined,

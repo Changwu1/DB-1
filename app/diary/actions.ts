@@ -51,7 +51,13 @@ export async function saveDiary(
   const wakeupDurationMin = wakeupCount === 0 ? 0 : (intField(fd, 'wakeup_duration_min') ?? 0)
 
   if (!bedtimeStr || !lightsOutStr || !finalWakeupStr || !outOfBedStr || sleepQuality === null) {
-    return { status: 'error', rule: 'D3', message: 'ยังขาดอีกนิด ช่วยกรอกช่องที่ไฮไลต์ไว้นะ' }
+    const missingFields: string[] = []
+    if (!bedtimeStr) missingFields.push('bedtime')
+    if (!lightsOutStr) missingFields.push('lights_out')
+    if (!finalWakeupStr) missingFields.push('final_wakeup')
+    if (!outOfBedStr) missingFields.push('out_of_bed')
+    if (sleepQuality === null) missingFields.push('sleep_quality')
+    return { status: 'error', rule: 'D3', message: 'ยังขาดอีกนิด ช่วยกรอกช่องที่ไฮไลต์ไว้นะ', fields: missingFields }
   }
 
   const now = await getNowServer()

@@ -18,7 +18,6 @@ export default async function DiaryPage() {
   const nightDate = toDateString(yesterday)
   const displayDate = formatThaiDate(yesterday)
 
-  // D11: pre-fill if entry already exists for this night
   const prefill = await loadDiaryEntry(nightDate)
 
   return (

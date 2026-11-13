@@ -1,7 +1,6 @@
 import {
   TARGET_WAKEUP_TOLERANCE_MIN,
   MIN_DIARY_NIGHTS,
-  MAX_HOURS_BEDTIME_TO_LIGHTS_OUT,
   MAX_HOURS_WAKEUP_TO_OUT_OF_BED,
   TIME_IN_BED_CONFIRMATION_THRESHOLD_MIN,
   CHECKLIST_DAYS_HIGH_THRESHOLD,
@@ -109,11 +108,6 @@ export function validateDiary(input: DiaryInput, nowMins?: number): DiaryValidat
   // D3: required fields
   if (sleepQuality < 1 || sleepQuality > 5) {
     return { ok: false, rule: 'D3', error: 'ยังขาดอีกนิด ช่วยกรอกช่องที่ไฮไลต์ไว้นะ', fields: ['sleep_quality'] }
-  }
-
-  // D4: lights_out within 12h forward from bedtime
-  if (minutesDiff(bedtimeMins, lightsOutMins) > MAX_HOURS_BEDTIME_TO_LIGHTS_OUT * 60) {
-    return { ok: false, rule: 'D4', error: 'เวลาตั้งใจนอนอยู่ก่อนเวลาขึ้นเตียง ลองเช็กอีกครั้ง', fields: ['lights_out'] }
   }
 
   // D5: final_wakeup cannot equal lights_out

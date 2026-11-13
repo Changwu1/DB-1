@@ -46,6 +46,12 @@ export interface ProgrammeStartRow {
 
 // ─── Diary entries ────────────────────────────────────────────────────────────
 
+/** Strip PostgreSQL HH:MM:SS → HH:MM so <input type="time"> never sees seconds. */
+function trimTime(t: string | null | undefined): string | undefined {
+  if (!t) return undefined
+  return t.slice(0, 5)
+}
+
 /** Load the diary entry for a specific night date (D11). */
 export async function loadDiaryEntry(nightDate: string): Promise<DiaryRow | null> {
   const supabase = await createClient()
@@ -59,7 +65,14 @@ export async function loadDiaryEntry(nightDate: string): Promise<DiaryRow | null
     .eq('night_date', nightDate)
     .maybeSingle()
 
-  return data
+  if (!data) return null
+  return {
+    ...data,
+    bedtime: trimTime(data.bedtime),
+    lights_out: trimTime(data.lights_out),
+    final_wakeup: trimTime(data.final_wakeup),
+    out_of_bed: trimTime(data.out_of_bed),
+  }
 }
 
 /** Upsert a diary entry (D11: one entry per night_date per user). */

@@ -3,7 +3,7 @@ export const instant = false
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { loadAssessment } from '@/lib/assessment-db'
-import { beginProgramme } from './actions'
+import { beginProgramme, optInAndBegin } from './actions'
 
 export default async function ResultPage() {
   const row = await loadAssessment()
@@ -85,6 +85,20 @@ function ReferResult({ flags }: { flags: string[] }) {
       <p className="text-sm text-zinc-600 leading-relaxed">
         เราแนะนำให้คุยกับหมอ Surat หรือแพทย์ที่ดูแลคุณก่อน แล้วค่อยตัดสินใจว่าจะทำโปรแกรมนี้ไหม
       </p>
+
+      <div className="border-t border-zinc-100 pt-6 space-y-3">
+        <p className="text-sm text-zinc-500 leading-relaxed">
+          คุณสามารถใช้โปรแกรมนี้ควบคู่ไปกับการพบแพทย์ได้
+        </p>
+        <form action={optInAndBegin}>
+          <button
+            type="submit"
+            className="w-full rounded-lg border border-zinc-300 py-3 text-sm font-medium text-zinc-700 text-center"
+          >
+            ลองใช้โปรแกรมนี้ต่อ
+          </button>
+        </form>
+      </div>
     </div>
   )
 }
@@ -107,6 +121,20 @@ function NotFitResult() {
       >
         ดูเคล็ดลับการนอน
       </Link>
+
+      <div className="border-t border-zinc-100 pt-2 space-y-3">
+        <p className="text-sm text-zinc-500 leading-relaxed">
+          คุณสามารถลองใช้โปรแกรมนี้ได้เลย
+        </p>
+        <form action={optInAndBegin}>
+          <button
+            type="submit"
+            className="w-full rounded-lg border border-zinc-300 py-3 text-sm font-medium text-zinc-700 text-center"
+          >
+            ลองใช้โปรแกรมต่อ
+          </button>
+        </form>
+      </div>
     </div>
   )
 }

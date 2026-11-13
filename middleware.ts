@@ -62,7 +62,7 @@ export async function middleware(request: NextRequest) {
   if (needsResultCheck) {
     const { data: assessment, error: assessErr } = await supabase
       .from('assessment_responses')
-      .select('result')
+      .select('result, opted_in')
       .eq('user_id', user.id)
       .maybeSingle()
 
@@ -82,7 +82,11 @@ export async function middleware(request: NextRequest) {
         : null
 
     if (result) {
-      const blocked = BLOCKED_FEATURE_PREFIXES[result]
+      // STOP is permanently locked — opted_in has no effect
+      // NOT-FIT and REFER: if user chose to try anyway, treat as GO
+      const optedIn = assessment?.opted_in === true
+      const effectiveResult = (optedIn && result !== 'STOP') ? 'GO' : result
+      const blocked = BLOCKED_FEATURE_PREFIXES[effectiveResult]
       if (blocked.some(prefix => path.startsWith(prefix))) {
         const resultUrl = request.nextUrl.clone()
         resultUrl.pathname = '/assessment/result'
