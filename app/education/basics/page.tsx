@@ -1,3 +1,5 @@
+export const instant = false
+
 import { loadEducationState } from '@/lib/education-db'
 import BasicsViewer from './_components/BasicsViewer'
 

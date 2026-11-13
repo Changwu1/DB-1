@@ -1,3 +1,5 @@
+export const instant = false
+
 import { getNowServer, toDateString, addDays } from '@/lib/time'
 import { loadDiaryEntry } from '@/lib/diary-db'
 import DiaryForm from './_components/DiaryForm'

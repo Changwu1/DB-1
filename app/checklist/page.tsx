@@ -1,3 +1,5 @@
+export const instant = false
+
 import { loadProgrammeStart, loadChecklist } from '@/lib/diary-db'
 import { getNowServer, daysBetween } from '@/lib/time'
 import { notFound } from 'next/navigation'

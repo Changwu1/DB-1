@@ -35,6 +35,8 @@ export async function getNowServer(): Promise<Date> {
     const override = (await cookies()).get('__dev_date__')?.value
     return getNowWithOverride(override)
   }
+  const { connection } = await import('next/server')
+  await connection()
   return new Date()
 }
 

@@ -1,3 +1,5 @@
+export const instant = false
+
 import { redirect } from 'next/navigation'
 import { loadAssessment } from '@/lib/assessment-db'
 import { resumeFromStep } from '@/lib/assessment-steps'

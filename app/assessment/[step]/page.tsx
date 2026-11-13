@@ -1,3 +1,5 @@
+export const instant = false
+
 import { notFound, redirect } from 'next/navigation'
 import { loadAssessment } from '@/lib/assessment-db'
 import { isValidStep, resumeFromStep } from '@/lib/assessment-steps'

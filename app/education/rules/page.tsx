@@ -1,3 +1,5 @@
+export const instant = false
+
 import { loadEducationState } from '@/lib/education-db'
 import { loadTargetWakeupTime } from '@/lib/diary-db'
 import { nextUnconfirmedRule } from '@/lib/education'
