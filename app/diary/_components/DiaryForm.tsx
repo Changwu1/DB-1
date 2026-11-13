@@ -1,6 +1,6 @@
 'use client'
 
-import { useActionState, useState } from 'react'
+import { useTransition, useRef, useState, useEffect } from 'react'
 import { saveDiary, type DiaryActionState } from '@/app/diary/actions'
 import type { DiaryRow } from '@/lib/diary-db'
 
@@ -11,10 +11,45 @@ interface Props {
 }
 
 export default function DiaryForm({ nightDate, displayDate, prefill }: Props) {
-  const [state, action, pending] = useActionState<DiaryActionState, FormData>(saveDiary, null)
+  // Time values in state — updated via native DOM event listeners attached in useEffect.
+  // React's synthetic onChange misses the native `change` event that desktop browsers fire
+  // for type="time" inputs (they fire `change`, not `input`, when the value is committed).
+  const [bedtime, setBedtime] = useState<string>((prefill?.bedtime ?? '').slice(0, 5))
+  const [lightsOut, setLightsOut] = useState<string>((prefill?.lights_out ?? '').slice(0, 5))
+  const [finalWakeup, setFinalWakeup] = useState<string>((prefill?.final_wakeup ?? '').slice(0, 5))
+  const [outOfBed, setOutOfBed] = useState<string>((prefill?.out_of_bed ?? '').slice(0, 5))
+
+  const bedtimeRef = useRef<HTMLInputElement>(null)
+  const lightsOutRef = useRef<HTMLInputElement>(null)
+  const finalWakeupRef = useRef<HTMLInputElement>(null)
+  const outOfBedRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    const pairs: [React.RefObject<HTMLInputElement | null>, (v: string) => void][] = [
+      [bedtimeRef, setBedtime],
+      [lightsOutRef, setLightsOut],
+      [finalWakeupRef, setFinalWakeup],
+      [outOfBedRef, setOutOfBed],
+    ]
+    const cleanups = pairs.map(([ref, setter]) => {
+      const el = ref.current
+      if (!el) return () => {}
+      const handler = () => { if (el.value) setter(el.value) }
+      el.addEventListener('change', handler)
+      el.addEventListener('input', handler)
+      return () => { el.removeEventListener('change', handler); el.removeEventListener('input', handler) }
+    })
+    return () => cleanups.forEach(fn => fn())
+  }, [])
 
   const [wakeupCount, setWakeupCount] = useState<number>(prefill?.wakeup_count ?? 0)
+  const [sleepOnset, setSleepOnset] = useState<number>(prefill?.sleep_onset_min ?? 0)
+  const [wakeupDuration, setWakeupDuration] = useState<number>(prefill?.wakeup_duration_min ?? 0)
+  const [sleepQuality, setSleepQuality] = useState<number | null>(prefill?.sleep_quality ?? null)
   const [confirmed, setConfirmed] = useState<'D8' | 'D16' | null>(null)
+
+  const [state, setState] = useState<DiaryActionState>(null)
+  const [pending, startTransition] = useTransition()
 
   const errorFields = state?.status === 'error' ? (state.fields ?? []) : []
   const isConfirm = state?.status === 'confirm'
@@ -25,10 +60,28 @@ export default function DiaryForm({ nightDate, displayDate, prefill }: Props) {
       : 'border-gray-300'
   }
 
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    const fd = new FormData()
+    fd.set('night_date', nightDate)
+    fd.set('bedtime', bedtimeRef.current?.value ?? bedtime)
+    fd.set('lights_out', lightsOutRef.current?.value ?? lightsOut)
+    fd.set('sleep_onset_min', String(sleepOnset))
+    fd.set('wakeup_count', String(wakeupCount))
+    fd.set('wakeup_duration_min', String(wakeupDuration))
+    fd.set('final_wakeup', finalWakeupRef.current?.value ?? finalWakeup)
+    fd.set('out_of_bed', outOfBedRef.current?.value ?? outOfBed)
+    if (sleepQuality !== null) fd.set('sleep_quality', String(sleepQuality))
+    if (confirmed) fd.set('confirmed', confirmed)
+
+    startTransition(async () => {
+      const result = await saveDiary(state, fd)
+      setState(result)
+    })
+  }
+
   return (
-    <form action={action} className="flex flex-col gap-6 p-4">
-      <input type="hidden" name="night_date" value={nightDate} />
-      {confirmed && <input type="hidden" name="confirmed" value={confirmed} />}
+    <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-6 p-4">
 
       {/* Header */}
       <div className="text-center">
@@ -71,10 +124,10 @@ export default function DiaryForm({ nightDate, displayDate, prefill }: Props) {
         <span className="text-sm font-medium">เมื่อคืนคุณขึ้นเตียงกี่โมง?</span>
         <input
           type="time"
-          name="bedtime"
-          defaultValue={prefill?.bedtime ?? ''}
+          ref={bedtimeRef}
+          defaultValue={(prefill?.bedtime ?? '').slice(0, 5)}
+          onChange={e => setBedtime(e.target.value)}
           className={`rounded-lg border p-3 text-base ${fieldError('bedtime')}`}
-          required
         />
       </label>
 
@@ -83,33 +136,31 @@ export default function DiaryForm({ nightDate, displayDate, prefill }: Props) {
         <span className="text-sm font-medium">ตั้งใจเริ่มนอน (ปิดไฟ วางมือถือ) กี่โมง?</span>
         <input
           type="time"
-          name="lights_out"
-          defaultValue={prefill?.lights_out ?? ''}
+          ref={lightsOutRef}
+          defaultValue={(prefill?.lights_out ?? '').slice(0, 5)}
+          onChange={e => setLightsOut(e.target.value)}
           className={`rounded-lg border p-3 text-base ${fieldError('lights_out')}`}
-          required
         />
       </label>
 
       {/* Q3: Sleep onset */}
       <div className="flex flex-col gap-1">
-        <span className="text-sm font-medium">หลังจากนั้น กว่าจะหลับประมาณกี่นาที?</span>
-        <div className="flex items-center gap-3">
-          <input
-            type="range"
-            name="sleep_onset_min"
-            min={0}
-            max={120}
-            step={5}
-            defaultValue={prefill?.sleep_onset_min ?? 0}
-            className="flex-1 accent-indigo-600"
-          />
+        <div className="flex justify-between items-baseline">
+          <span className="text-sm font-medium">หลังจากนั้น กว่าจะหลับประมาณกี่นาที?</span>
+          <span className="text-sm font-semibold text-indigo-600 tabular-nums">{sleepOnset === 120 ? '120+ นาที' : `${sleepOnset} นาที`}</span>
         </div>
+        <input
+          type="range"
+          min={0} max={120} step={5}
+          value={sleepOnset}
+          onChange={e => setSleepOnset(Number(e.target.value))}
+          className="w-full accent-indigo-600"
+        />
       </div>
 
       {/* Q4: Wakeup count */}
       <div className="flex flex-col gap-2">
         <span className="text-sm font-medium">ตื่นกลางดึกกี่ครั้ง (ไม่นับตอนตื่นเช้า)?</span>
-        <input type="hidden" name="wakeup_count" value={wakeupCount} />
         <div className="flex gap-2">
           {[0, 1, 2, 3].map(n => (
             <button
@@ -127,21 +178,20 @@ export default function DiaryForm({ nightDate, displayDate, prefill }: Props) {
         </div>
       </div>
 
-      {/* Q5: Wakeup duration (shown only when wakeupCount > 0, D1) */}
+      {/* Q5: Wakeup duration (shown only when wakeupCount > 0) */}
       {wakeupCount > 0 && (
         <div className="flex flex-col gap-1">
-          <span className="text-sm font-medium">รวมแล้วตื่นอยู่ประมาณกี่นาที?</span>
-          <div className="flex items-center gap-3">
-            <input
-              type="range"
-              name="wakeup_duration_min"
-              min={0}
-              max={600}
-              step={5}
-              defaultValue={prefill?.wakeup_duration_min ?? 0}
-              className="flex-1 accent-indigo-600"
-            />
+          <div className="flex justify-between items-baseline">
+            <span className="text-sm font-medium">รวมแล้วตื่นอยู่ประมาณกี่นาที?</span>
+            <span className="text-sm font-semibold text-indigo-600 tabular-nums">{wakeupDuration === 120 ? '120+ นาที' : `${wakeupDuration} นาที`}</span>
           </div>
+          <input
+            type="range"
+            min={0} max={120} step={5}
+            value={wakeupDuration}
+            onChange={e => setWakeupDuration(Number(e.target.value))}
+            className="w-full accent-indigo-600"
+          />
         </div>
       )}
 
@@ -150,10 +200,10 @@ export default function DiaryForm({ nightDate, displayDate, prefill }: Props) {
         <span className="text-sm font-medium">เช้านี้ตื่นครั้งสุดท้ายกี่โมง?</span>
         <input
           type="time"
-          name="final_wakeup"
-          defaultValue={prefill?.final_wakeup ?? ''}
+          ref={finalWakeupRef}
+          defaultValue={(prefill?.final_wakeup ?? '').slice(0, 5)}
+          onChange={e => setFinalWakeup(e.target.value)}
           className={`rounded-lg border p-3 text-base ${fieldError('final_wakeup')}`}
-          required
         />
       </label>
 
@@ -162,10 +212,10 @@ export default function DiaryForm({ nightDate, displayDate, prefill }: Props) {
         <span className="text-sm font-medium">แล้วลุกจากเตียงกี่โมง?</span>
         <input
           type="time"
-          name="out_of_bed"
-          defaultValue={prefill?.out_of_bed ?? ''}
+          ref={outOfBedRef}
+          defaultValue={(prefill?.out_of_bed ?? '').slice(0, 5)}
+          onChange={e => setOutOfBed(e.target.value)}
           className={`rounded-lg border p-3 text-base ${fieldError('out_of_bed')}`}
-          required
         />
       </label>
 
@@ -180,22 +230,20 @@ export default function DiaryForm({ nightDate, displayDate, prefill }: Props) {
             { v: 4, label: 'ดี' },
             { v: 5, label: 'ดีมาก' },
           ].map(({ v, label }) => (
-            <label
+            <button
               key={v}
-              className={`flex-1 flex flex-col items-center gap-1 rounded-lg border py-2 text-xs cursor-pointer
-                has-[:checked]:bg-indigo-600 has-[:checked]:border-indigo-600 has-[:checked]:text-white
-                ${fieldError('sleep_quality')}`}
+              type="button"
+              onClick={() => setSleepQuality(v)}
+              className={`flex-1 flex flex-col items-center gap-1 rounded-lg border py-2 text-xs font-medium transition-colors
+                ${sleepQuality === v
+                  ? 'bg-indigo-600 border-indigo-600 text-white'
+                  : errorFields.includes('sleep_quality')
+                    ? 'border-red-500 bg-red-50 text-gray-700'
+                    : 'border-gray-300 text-gray-700'}`}
             >
-              <input
-                type="radio"
-                name="sleep_quality"
-                value={v}
-                defaultChecked={prefill?.sleep_quality === v}
-                className="sr-only"
-              />
               <span className="font-semibold">{v}</span>
               <span>{label}</span>
-            </label>
+            </button>
           ))}
         </div>
       </div>
