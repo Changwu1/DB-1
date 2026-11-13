@@ -1,6 +1,6 @@
 'use client'
 
-import { useTransition, useRef, useState, useEffect } from 'react'
+import { useTransition, useState } from 'react'
 import { saveDiary, type DiaryActionState } from '@/app/diary/actions'
 import type { DiaryRow } from '@/lib/diary-db'
 
@@ -11,37 +11,6 @@ interface Props {
 }
 
 export default function DiaryForm({ nightDate, displayDate, prefill }: Props) {
-  // Time values in state — updated via native DOM event listeners attached in useEffect.
-  // React's synthetic onChange misses the native `change` event that desktop browsers fire
-  // for type="time" inputs (they fire `change`, not `input`, when the value is committed).
-  const [bedtime, setBedtime] = useState<string>((prefill?.bedtime ?? '').slice(0, 5))
-  const [lightsOut, setLightsOut] = useState<string>((prefill?.lights_out ?? '').slice(0, 5))
-  const [finalWakeup, setFinalWakeup] = useState<string>((prefill?.final_wakeup ?? '').slice(0, 5))
-  const [outOfBed, setOutOfBed] = useState<string>((prefill?.out_of_bed ?? '').slice(0, 5))
-
-  const bedtimeRef = useRef<HTMLInputElement>(null)
-  const lightsOutRef = useRef<HTMLInputElement>(null)
-  const finalWakeupRef = useRef<HTMLInputElement>(null)
-  const outOfBedRef = useRef<HTMLInputElement>(null)
-
-  useEffect(() => {
-    const pairs: [React.RefObject<HTMLInputElement | null>, (v: string) => void][] = [
-      [bedtimeRef, setBedtime],
-      [lightsOutRef, setLightsOut],
-      [finalWakeupRef, setFinalWakeup],
-      [outOfBedRef, setOutOfBed],
-    ]
-    const cleanups = pairs.map(([ref, setter]) => {
-      const el = ref.current
-      if (!el) return () => {}
-      const handler = () => { if (el.value) setter(el.value) }
-      el.addEventListener('change', handler)
-      el.addEventListener('input', handler)
-      return () => { el.removeEventListener('change', handler); el.removeEventListener('input', handler) }
-    })
-    return () => cleanups.forEach(fn => fn())
-  }, [])
-
   const [wakeupCount, setWakeupCount] = useState<number>(prefill?.wakeup_count ?? 0)
   const [sleepOnset, setSleepOnset] = useState<number>(prefill?.sleep_onset_min ?? 0)
   const [wakeupDuration, setWakeupDuration] = useState<number>(prefill?.wakeup_duration_min ?? 0)
@@ -62,15 +31,13 @@ export default function DiaryForm({ nightDate, displayDate, prefill }: Props) {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    const fd = new FormData()
+    // Read time inputs directly from the DOM via the form element —
+    // the most reliable method across all browsers and mobile pickers.
+    const fd = new FormData(e.currentTarget)
     fd.set('night_date', nightDate)
-    fd.set('bedtime', bedtimeRef.current?.value ?? bedtime)
-    fd.set('lights_out', lightsOutRef.current?.value ?? lightsOut)
     fd.set('sleep_onset_min', String(sleepOnset))
     fd.set('wakeup_count', String(wakeupCount))
     fd.set('wakeup_duration_min', String(wakeupDuration))
-    fd.set('final_wakeup', finalWakeupRef.current?.value ?? finalWakeup)
-    fd.set('out_of_bed', outOfBedRef.current?.value ?? outOfBed)
     if (sleepQuality !== null) fd.set('sleep_quality', String(sleepQuality))
     if (confirmed) fd.set('confirmed', confirmed)
 
@@ -124,9 +91,8 @@ export default function DiaryForm({ nightDate, displayDate, prefill }: Props) {
         <span className="text-sm font-medium">เมื่อคืนคุณขึ้นเตียงกี่โมง?</span>
         <input
           type="time"
-          ref={bedtimeRef}
+          name="bedtime"
           defaultValue={(prefill?.bedtime ?? '').slice(0, 5)}
-          onChange={e => setBedtime(e.target.value)}
           className={`rounded-lg border p-3 text-base ${fieldError('bedtime')}`}
         />
       </label>
@@ -136,9 +102,8 @@ export default function DiaryForm({ nightDate, displayDate, prefill }: Props) {
         <span className="text-sm font-medium">ตั้งใจเริ่มนอน (ปิดไฟ วางมือถือ) กี่โมง?</span>
         <input
           type="time"
-          ref={lightsOutRef}
+          name="lights_out"
           defaultValue={(prefill?.lights_out ?? '').slice(0, 5)}
-          onChange={e => setLightsOut(e.target.value)}
           className={`rounded-lg border p-3 text-base ${fieldError('lights_out')}`}
         />
       </label>
@@ -200,9 +165,8 @@ export default function DiaryForm({ nightDate, displayDate, prefill }: Props) {
         <span className="text-sm font-medium">เช้านี้ตื่นครั้งสุดท้ายกี่โมง?</span>
         <input
           type="time"
-          ref={finalWakeupRef}
+          name="final_wakeup"
           defaultValue={(prefill?.final_wakeup ?? '').slice(0, 5)}
-          onChange={e => setFinalWakeup(e.target.value)}
           className={`rounded-lg border p-3 text-base ${fieldError('final_wakeup')}`}
         />
       </label>
@@ -212,9 +176,8 @@ export default function DiaryForm({ nightDate, displayDate, prefill }: Props) {
         <span className="text-sm font-medium">แล้วลุกจากเตียงกี่โมง?</span>
         <input
           type="time"
-          ref={outOfBedRef}
+          name="out_of_bed"
           defaultValue={(prefill?.out_of_bed ?? '').slice(0, 5)}
-          onChange={e => setOutOfBed(e.target.value)}
           className={`rounded-lg border p-3 text-base ${fieldError('out_of_bed')}`}
         />
       </label>
