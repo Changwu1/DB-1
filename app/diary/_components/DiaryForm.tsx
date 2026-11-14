@@ -40,6 +40,10 @@ export default function DiaryForm({ nightDate, displayDate, prefill }: Props) {
     fd.set('wakeup_duration_min', String(wakeupDuration))
     if (sleepQuality !== null) fd.set('sleep_quality', String(sleepQuality))
     if (confirmed) fd.set('confirmed', confirmed)
+    // Pass client's local time for D15 — server runs UTC, only the browser
+    // knows the user's actual local wall-clock time.
+    const localNow = new Date()
+    fd.set('now_mins', String(localNow.getHours() * 60 + localNow.getMinutes()))
 
     startTransition(async () => {
       const result = await saveDiary(state, fd)

@@ -61,9 +61,10 @@ export async function saveDiary(
   }
 
   const now = await getNowServer()
-  const nowMins = parseTime(
-    `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`
-  )
+  // D15 needs the user's local wall-clock time, not the server's UTC time.
+  // The client passes now_mins (minutes since midnight, local time) for this purpose.
+  const clientNowMins = intField(fd, 'now_mins')
+  const nowMins = clientNowMins ?? (now.getHours() * 60 + now.getMinutes())
 
   const input: DiaryInput = {
     bedtimeMins: parseTime(bedtimeStr),
