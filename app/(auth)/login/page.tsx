@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
+import { Moon } from 'lucide-react'
 
 type Mode = 'login' | 'signup'
 
@@ -42,28 +43,47 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex flex-1 flex-col justify-center gap-6 px-6 py-12">
+    <div className="flex flex-1 flex-col justify-center gap-6 px-6 py-10">
+      {/* Brand header */}
+      <div className="flex flex-col items-center gap-3 mb-2">
+        <div className="w-14 h-14 rounded-2xl bg-indigo-600 flex items-center justify-center">
+          <Moon className="w-7 h-7 text-white" strokeWidth={1.5} />
+        </div>
+        <div className="text-center">
+          <h1 className="text-xl font-semibold text-stone-900">โปรแกรมปรับการนอน</h1>
+          <p className="text-sm text-stone-500 mt-0.5">CBT-I สำหรับผู้มีปัญหานอนไม่หลับ</p>
+        </div>
+      </div>
+
       {/* Tab toggle */}
-      <div className="flex rounded-xl border border-zinc-200 overflow-hidden">
+      <div className="flex rounded-xl border border-stone-200 overflow-hidden p-1 bg-stone-100 gap-1">
         <button
           type="button"
           onClick={() => { setMode('login'); setError('') }}
-          className={`flex-1 py-2.5 text-sm font-medium transition-colors ${mode === 'login' ? 'bg-zinc-900 text-white' : 'text-zinc-500 hover:text-zinc-800'}`}
+          className={`flex-1 py-2 text-sm font-medium rounded-lg transition-colors ${
+            mode === 'login'
+              ? 'bg-white text-indigo-600 shadow-sm'
+              : 'text-stone-500'
+          }`}
         >
           เข้าสู่ระบบ
         </button>
         <button
           type="button"
           onClick={() => { setMode('signup'); setError('') }}
-          className={`flex-1 py-2.5 text-sm font-medium transition-colors ${mode === 'signup' ? 'bg-zinc-900 text-white' : 'text-zinc-500 hover:text-zinc-800'}`}
+          className={`flex-1 py-2 text-sm font-medium rounded-lg transition-colors ${
+            mode === 'signup'
+              ? 'bg-white text-indigo-600 shadow-sm'
+              : 'text-stone-500'
+          }`}
         >
           สมัครสมาชิก
         </button>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="space-y-1">
-          <label htmlFor="email" className="text-sm font-medium">อีเมล</label>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <div className="flex flex-col gap-1.5">
+          <label htmlFor="email" className="text-sm font-medium text-stone-700">อีเมล</label>
           <input
             id="email"
             type="email"
@@ -71,12 +91,12 @@ export default function LoginPage() {
             onChange={e => setEmail(e.target.value)}
             placeholder="you@example.com"
             required
-            className="w-full rounded-lg border border-zinc-200 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-zinc-900"
+            className="w-full rounded-xl border border-stone-200 bg-white px-4 py-3 text-base outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
           />
         </div>
 
-        <div className="space-y-1">
-          <label htmlFor="password" className="text-sm font-medium">รหัสผ่าน</label>
+        <div className="flex flex-col gap-1.5">
+          <label htmlFor="password" className="text-sm font-medium text-stone-700">รหัสผ่าน</label>
           <input
             id="password"
             type="password"
@@ -85,16 +105,20 @@ export default function LoginPage() {
             placeholder="อย่างน้อย 6 ตัวอักษร"
             required
             minLength={6}
-            className="w-full rounded-lg border border-zinc-200 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-zinc-900"
+            className="w-full rounded-xl border border-stone-200 bg-white px-4 py-3 text-base outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
           />
         </div>
 
-        {error && <p className="text-sm text-red-600">{error}</p>}
+        {error && (
+          <p className="text-sm text-red-600 bg-red-50 border border-red-100 rounded-lg px-3 py-2">
+            {error}
+          </p>
+        )}
 
         <button
           type="submit"
           disabled={loading}
-          className="w-full rounded-lg bg-zinc-900 py-3 text-sm font-medium text-white disabled:opacity-50"
+          className="w-full rounded-xl bg-indigo-600 py-3 text-base font-semibold text-white disabled:opacity-50 mt-1"
         >
           {loading ? 'กำลังดำเนินการ…' : mode === 'login' ? 'เข้าสู่ระบบ' : 'สมัครสมาชิก'}
         </button>
