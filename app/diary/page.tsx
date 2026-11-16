@@ -24,7 +24,7 @@ export default async function DiaryPage() {
     <main className="min-h-screen bg-white max-w-sm mx-auto">
       {prefill && (
         <div className="bg-blue-50 border-b border-blue-200 p-3 text-sm text-blue-700 text-center">
-          คืนนี้บันทึกไว้แล้ว แก้ได้เลย
+          เมื่อคืนบันทึกไว้แล้ว แก้ได้เลย
         </div>
       )}
       <DiaryForm

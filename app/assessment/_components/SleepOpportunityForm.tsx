@@ -11,18 +11,18 @@ export default function SleepOpportunityForm({ saved }: { saved?: boolean | null
       <div className="space-y-1">
         <p className="text-xs font-medium text-zinc-400 uppercase tracking-wide">ข้อที่ 4</p>
         <h1 className="text-xl font-semibold text-zinc-900">
-          คุณมีโอกาสและเวลาเพียงพอสำหรับการนอนหลับไหม?
+          ปกติคุณมีเวลานอนเพียงพอไหม?
         </h1>
         <p className="text-sm text-zinc-500">
-          เช่น คุณมีเวลานอนได้อย่างน้อย 7–8 ชั่วโมงถ้าต้องการ
+          เช่น ถ้าอยากนอน คุณนอนได้อย่างน้อย 7–8 ชั่วโมง
         </p>
       </div>
 
       <form action={action} className="space-y-4">
         <div className="space-y-2">
           {[
-            { value: 'yes', label: 'ใช่ มีโอกาสนอนเพียงพอ' },
-            { value: 'no', label: 'ไม่ใช่ ไม่ค่อยมีโอกาสนอน' },
+            { value: 'yes', label: 'ใช่ มีเวลานอนเพียงพอ' },
+            { value: 'no', label: 'ไม่ใช่ ไม่ค่อยมีเวลานอน' },
           ].map(({ value, label }) => (
             <label
               key={value}

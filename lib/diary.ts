@@ -126,7 +126,7 @@ export function validateDiary(input: DiaryInput, nowMins?: number): DiaryValidat
   if (totalAwake > sleepWindow) {
     return {
       ok: false, rule: 'D7',
-      error: `กว่าจะหลับรวมกับตื่นกลางดึก (${totalAwake} นาที) มากกว่าช่วงตั้งแต่ตั้งใจนอนถึงตื่น (${sleepWindow} นาที) ลองแก้สองช่องที่ไฮไลต์`,
+      error: `เวลาที่ตื่นอยู่รวม (${totalAwake} นาที) นานกว่าช่วงตั้งแต่ปิดไฟถึงตื่นเช้า (${sleepWindow} นาที) ลองเช็กตัวเลขอีกครั้งนะ`,
       fields: ['sleep_onset_min', 'wakeup_duration_min'],
     }
   }

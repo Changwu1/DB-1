@@ -10,7 +10,7 @@ export default function SleepNightsForm({ saved }: { saved?: number | null }) {
     <div className="flex flex-1 flex-col gap-6 px-6 py-10 max-w-md mx-auto">
       <div className="space-y-1">
         <p className="text-xs font-medium text-zinc-400 uppercase tracking-wide">ข้อที่ 2</p>
-        <h1 className="text-xl font-semibold text-zinc-900">ใน 1 เดือนที่ผ่านมา มีกี่คืน/สัปดาห์ที่มีปัญหาการนอน?</h1>
+        <h1 className="text-xl font-semibold text-zinc-900">ใน 1 เดือนที่ผ่านมา นอนไม่หลับประมาณกี่คืนต่อสัปดาห์?</h1>
       </div>
 
       <form action={action} className="space-y-4">
