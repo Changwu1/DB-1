@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation'
 import { loadAssessment } from '@/lib/assessment-db'
 import { resumeFromStep } from '@/lib/assessment-steps'
 import ConsentForm from './_components/ConsentForm'
+import ProgressBar from './_components/ProgressBar'
 
 export default async function AssessmentPage() {
   const row = await loadAssessment()
@@ -21,5 +22,10 @@ export default async function AssessmentPage() {
     redirect(`/assessment/${next}`)
   }
 
-  return <ConsentForm />
+  return (
+    <>
+      <ProgressBar step={0} total={14} />
+      <ConsentForm />
+    </>
+  )
 }

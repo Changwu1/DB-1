@@ -18,6 +18,14 @@ import RLSForm from '../_components/RLSForm'
 import StopBangForm from '../_components/StopBangForm'
 import SleepAidsForm from '../_components/SleepAidsForm'
 import type { AssessmentStep } from '@/lib/assessment'
+import ProgressBar from '../_components/ProgressBar'
+
+const STEP_INDEX: Partial<Record<AssessmentStep, number>> = {
+  consent: 0, account: 1, 'sleep-type': 2, 'sleep-nights': 3,
+  'sleep-duration': 4, 'sleep-opportunity': 5, isi: 6, '2q': 7,
+  '9q': 8, contraindications: 9, 'shift-work': 10, pregnant: 11,
+  rls: 12, 'stop-bang': 13, 'sleep-aids': 14,
+}
 
 type Props = { params: Promise<{ step: string }> }
 
@@ -44,62 +52,63 @@ export default async function AssessmentStepPage({ params }: Props) {
   }
 
   const s = step as AssessmentStep
+  const bar = <ProgressBar step={STEP_INDEX[s] ?? 0} total={14} />
 
   switch (s) {
     case 'account':
-      return <AccountForm />
+      return <>{bar}<AccountForm /></>
     case 'sleep-type':
-      return <SleepTypeForm saved={{ age: row?.age, types: row?.sleep_problem_types }} />
+      return <>{bar}<SleepTypeForm saved={{ age: row?.age, types: row?.sleep_problem_types }} /></>
     case 'sleep-nights':
-      return <SleepNightsForm saved={row?.nights_per_week} />
+      return <>{bar}<SleepNightsForm saved={row?.nights_per_week} /></>
     case 'sleep-duration':
-      return <SleepDurationForm saved={row?.problem_duration} />
+      return <>{bar}<SleepDurationForm saved={row?.problem_duration} /></>
     case 'sleep-opportunity':
-      return <SleepOpportunityForm saved={row?.adequate_opportunity} />
+      return <>{bar}<SleepOpportunityForm saved={row?.adequate_opportunity} /></>
     case 'isi':
-      return <ISIForm saved={row ? {
+      return <>{bar}<ISIForm saved={row ? {
         q1: row.isi_q1, q2: row.isi_q2, q3: row.isi_q3, q4: row.isi_q4,
         q5: row.isi_q5, q6: row.isi_q6, q7: row.isi_q7,
-      } : undefined} />
+      } : undefined} /></>
     case '2q':
-      return <TwoQForm saved={{ q1: row?.q2_q1, q2: row?.q2_q2 }} />
+      return <>{bar}<TwoQForm saved={{ q1: row?.q2_q1, q2: row?.q2_q2 }} /></>
     case '9q':
-      return <NineQForm saved={row ? {
+      return <>{bar}<NineQForm saved={row ? {
         q3: row.q9_q3_3, q4: row.q9_q3_4, q5: row.q9_q3_5,
         q6: row.q9_q3_6, q7: row.q9_q3_7, q8: row.q9_q3_8,
         q9: row.q9_q3_9, q10: row.q9_q3_10, q11: row.q9_q3_11,
-      } : undefined} />
+      } : undefined} /></>
     case 'contraindications':
-      return <ContraindicationsForm saved={row ? {
+      return <>{bar}<ContraindicationsForm saved={row ? {
         bipolar: row.contraindication_bipolar,
         psychosis: row.contraindication_psychosis,
         epilepsy: row.contraindication_epilepsy,
         parasomnia: row.contraindication_parasomnia,
         machinery: row.contraindication_machinery,
-      } : undefined} />
+      } : undefined} /></>
     case 'shift-work':
-      return <ShiftWorkForm saved={row?.shift_work} />
+      return <>{bar}<ShiftWorkForm saved={row?.shift_work} /></>
     case 'pregnant':
-      return <PregnantForm saved={row?.pregnant_postnatal} />
+      return <>{bar}<PregnantForm saved={row?.pregnant_postnatal} /></>
     case 'rls':
-      return <RLSForm saved={row ? {
+      return <>{bar}<RLSForm saved={row ? {
         q1: row.rls_q1, q2: row.rls_q2, q3: row.rls_q3, q4: row.rls_q4,
-      } : undefined} />
+      } : undefined} /></>
     case 'stop-bang':
-      return <StopBangForm saved={row ? {
+      return <>{bar}<StopBangForm saved={row ? {
         snore: row.stop_bang_snore, tired: row.stop_bang_tired,
         observed: row.stop_bang_observed, hypertension: row.hypertension,
         heightCm: row.height_cm, weightKg: row.weight_kg,
         neckIn: row.neck_circumference_in, sex: row.biological_sex,
         age: row.age,
-      } : undefined} />
+      } : undefined} /></>
     case 'sleep-aids':
-      return <SleepAidsForm saved={row ? {
+      return <>{bar}<SleepAidsForm saved={row ? {
         prescription: row.sleep_aid_prescription,
         otc: row.sleep_aid_otc,
         alcohol: row.sleep_aid_alcohol,
         supplement: row.sleep_aid_supplement,
-      } : undefined} />
+      } : undefined} /></>
     default:
       notFound()
   }
