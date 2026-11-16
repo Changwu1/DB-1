@@ -1,4 +1,5 @@
 'use client'
+import SubmitButton from './SubmitButton'
 
 import { useActionState, useState } from 'react'
 import { submitSleepType } from '../actions'
@@ -91,13 +92,7 @@ export default function SleepTypeForm({ saved }: Props) {
           <p className="text-sm text-red-600">{state.error}</p>
         )}
 
-        <button
-          type="submit"
-          disabled={pending}
-          className="w-full rounded-lg bg-indigo-600 py-3 text-sm font-medium text-white disabled:opacity-50"
-        >
-          {pending ? 'กำลังบันทึก…' : 'ถัดไป'}
-        </button>
+        <SubmitButton pending={pending} label="ถัดไป" />
       </form>
     </div>
   )

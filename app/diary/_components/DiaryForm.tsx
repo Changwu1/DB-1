@@ -1,6 +1,7 @@
 'use client'
 
 import { useTransition, useState } from 'react'
+import SubmitButton from '@/app/assessment/_components/SubmitButton'
 import { saveDiary, type DiaryActionState } from '@/app/diary/actions'
 import type { DiaryRow } from '@/lib/diary-db'
 
@@ -215,13 +216,11 @@ export default function DiaryForm({ nightDate, displayDate, prefill }: Props) {
         </div>
       </div>
 
-      <button
-        type="submit"
-        disabled={pending}
+      <SubmitButton
+        pending={pending}
+        label="บันทึก"
         className="rounded-xl bg-indigo-600 text-white py-3 font-semibold text-base disabled:opacity-60"
-      >
-        {pending ? 'กำลังบันทึก…' : 'บันทึก'}
-      </button>
+      />
     </form>
   )
 }

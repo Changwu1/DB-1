@@ -1,6 +1,7 @@
 'use client'
 
 import { useActionState, useState } from 'react'
+import SubmitButton from './SubmitButton'
 import { submitConsent } from '../actions'
 
 export default function ConsentForm() {
@@ -75,13 +76,7 @@ export default function ConsentForm() {
           <p className="text-sm text-zinc-700 bg-zinc-100 rounded-lg px-4 py-3">{state.error}</p>
         )}
 
-        <button
-          type="submit"
-          disabled={pending}
-          className="w-full rounded-lg bg-indigo-600 py-3 text-sm font-medium text-white disabled:opacity-50"
-        >
-          {pending ? 'กำลังโหลด…' : 'เริ่มแบบประเมิน'}
-        </button>
+        <SubmitButton pending={pending} label="เริ่มแบบประเมิน" loadingLabel="กำลังโหลด…" />
       </form>
     </div>
   )

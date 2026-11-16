@@ -1,6 +1,7 @@
 'use client'
 
 import { useActionState } from 'react'
+import SubmitButton from './SubmitButton'
 import { submitSleepAids } from '../actions'
 
 type Saved = {
@@ -64,13 +65,7 @@ export default function SleepAidsForm({ saved }: { saved?: Saved }) {
 
         {state?.error && <p className="text-sm text-red-600">{state.error}</p>}
 
-        <button
-          type="submit"
-          disabled={pending}
-          className="w-full rounded-lg bg-indigo-600 py-3 text-sm font-medium text-white disabled:opacity-50"
-        >
-          {pending ? 'กำลังคำนวณผล…' : 'ดูผลลัพธ์'}
-        </button>
+        <SubmitButton pending={pending} label="ดูผลลัพธ์" loadingLabel="กำลังคำนวณผล…" />
       </form>
     </div>
   )

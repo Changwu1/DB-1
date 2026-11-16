@@ -1,6 +1,7 @@
 'use client'
 
 import { useActionState } from 'react'
+import SubmitButton from '@/app/assessment/_components/SubmitButton'
 import { submitChecklist, type ChecklistActionState } from '@/app/checklist/actions'
 import type { ChecklistRow } from '@/lib/diary-db'
 
@@ -106,13 +107,11 @@ export default function ChecklistForm({ weekNumber, prefill }: Props) {
         </div>
       </div>
 
-      <button
-        type="submit"
-        disabled={pending}
+      <SubmitButton
+        pending={pending}
+        label="ส่ง"
         className="rounded-xl bg-indigo-600 text-white py-3 font-semibold text-base disabled:opacity-60"
-      >
-        {pending ? 'กำลังบันทึก…' : 'ส่ง'}
-      </button>
+      />
     </form>
   )
 }
