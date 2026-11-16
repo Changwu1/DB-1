@@ -73,7 +73,7 @@ export default async function RecapPage() {
           <h2 className="text-sm font-semibold text-zinc-700">สัปดาห์นี้ต่างจากสัปดาห์แรกอย่างไร</h2>
 
           {!data.comparison && (
-            <p className="text-sm text-zinc-500">ยังเทียบไม่ได้ เพราะข้อมูลในสัปดาห์ใดสัปดาห์หนึ่งยังไม่พอ</p>
+            <p className="text-sm text-zinc-500">ยังเทียบไม่ได้ เพราะข้อมูลบางสัปดาห์ยังไม่ครบ</p>
           )}
 
           {data.comparison && (
@@ -109,7 +109,7 @@ export default async function RecapPage() {
           )}
 
           <p className="text-xs text-zinc-400">
-            ตัวเลขเป็นการเทียบก่อน-หลัง ไม่ได้บอกว่าเป็นผลจากคำแนะนำ
+            ตัวเลขนี้เป็นการเทียบก่อน-หลัง ไม่ได้บอกว่าดีขึ้นเพราะโปรแกรมอย่างเดียว
           </p>
         </section>
       )}

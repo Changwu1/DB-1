@@ -44,7 +44,7 @@ export default function ISIForm({ saved }: { saved?: Saved }) {
                       name={q.key}
                       value={score}
                       defaultChecked={savedVals[i] === score}
-                      className="h-4 w-4 accent-zinc-900"
+                      className="h-4 w-4 accent-indigo-600"
                     />
                     <span className="text-[10px] text-zinc-500 text-center leading-tight">{label}</span>
                   </label>
@@ -59,7 +59,7 @@ export default function ISIForm({ saved }: { saved?: Saved }) {
         <button
           type="submit"
           disabled={pending}
-          className="w-full rounded-lg bg-zinc-900 py-3 text-sm font-medium text-white disabled:opacity-50"
+          className="w-full rounded-lg bg-indigo-600 py-3 text-sm font-medium text-white disabled:opacity-50"
         >
           {pending ? 'กำลังบันทึก…' : 'ถัดไป'}
         </button>

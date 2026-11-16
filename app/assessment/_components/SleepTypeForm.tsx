@@ -59,7 +59,7 @@ export default function SleepTypeForm({ saved }: Props) {
             max={100}
             defaultValue={saved?.age ?? ''}
             placeholder="เช่น 30"
-            className="w-full rounded-lg border border-zinc-200 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-zinc-900"
+            className="w-full rounded-lg border border-zinc-200 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-indigo-500"
           />
         </div>
 
@@ -71,7 +71,7 @@ export default function SleepTypeForm({ saved }: Props) {
             {SLEEP_TYPES.map(t => (
               <label
                 key={t}
-                className="flex items-center gap-3 rounded-xl border border-zinc-200 px-4 py-3 cursor-pointer has-[:checked]:border-zinc-900 has-[:checked]:bg-zinc-50"
+                className="flex items-center gap-3 rounded-xl border border-zinc-200 px-4 py-3 cursor-pointer has-[:checked]:border-indigo-500 has-[:checked]:bg-indigo-50"
               >
                 <input
                   type="checkbox"
@@ -79,7 +79,7 @@ export default function SleepTypeForm({ saved }: Props) {
                   value={t}
                   checked={selected.includes(t)}
                   onChange={() => toggle(t)}
-                  className="h-4 w-4 rounded border-zinc-300 accent-zinc-900"
+                  className="h-4 w-4 rounded border-zinc-300 accent-indigo-600"
                 />
                 <span className="text-sm text-zinc-700">{t}</span>
               </label>
@@ -94,7 +94,7 @@ export default function SleepTypeForm({ saved }: Props) {
         <button
           type="submit"
           disabled={pending}
-          className="w-full rounded-lg bg-zinc-900 py-3 text-sm font-medium text-white disabled:opacity-50"
+          className="w-full rounded-lg bg-indigo-600 py-3 text-sm font-medium text-white disabled:opacity-50"
         >
           {pending ? 'กำลังบันทึก…' : 'ถัดไป'}
         </button>

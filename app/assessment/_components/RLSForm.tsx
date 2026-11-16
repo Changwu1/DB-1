@@ -32,7 +32,7 @@ export default function RLSForm({ saved }: { saved?: Saved }) {
             {[{ value: 'yes', label: 'ใช่' }, { value: 'no', label: 'ไม่ใช่' }].map(({ value, label }) => (
               <label
                 key={value}
-                className="flex-1 flex items-center justify-center gap-2 rounded-xl border border-zinc-200 px-4 py-2.5 cursor-pointer has-[:checked]:border-zinc-900 has-[:checked]:bg-zinc-50"
+                className="flex-1 flex items-center justify-center gap-2 rounded-xl border border-zinc-200 px-4 py-2.5 cursor-pointer has-[:checked]:border-indigo-500 has-[:checked]:bg-indigo-50"
               >
                 <input
                   type="radio"
@@ -40,7 +40,7 @@ export default function RLSForm({ saved }: { saved?: Saved }) {
                   value={value}
                   defaultChecked={saved?.q1 === (value === 'yes')}
                   onChange={() => setQ1(value === 'yes')}
-                  className="h-4 w-4 accent-zinc-900"
+                  className="h-4 w-4 accent-indigo-600"
                 />
                 <span className="text-sm text-zinc-700">{label}</span>
               </label>
@@ -58,14 +58,14 @@ export default function RLSForm({ saved }: { saved?: Saved }) {
                 return (
                   <label
                     key={value}
-                    className="flex-1 flex items-center justify-center gap-2 rounded-xl border border-zinc-200 px-4 py-2.5 cursor-pointer has-[:checked]:border-zinc-900 has-[:checked]:bg-zinc-50"
+                    className="flex-1 flex items-center justify-center gap-2 rounded-xl border border-zinc-200 px-4 py-2.5 cursor-pointer has-[:checked]:border-indigo-500 has-[:checked]:bg-indigo-50"
                   >
                     <input
                       type="radio"
                       name={q.name}
                       value={value}
                       defaultChecked={sv === (value === 'yes')}
-                      className="h-4 w-4 accent-zinc-900"
+                      className="h-4 w-4 accent-indigo-600"
                     />
                     <span className="text-sm text-zinc-700">{label}</span>
                   </label>
@@ -80,7 +80,7 @@ export default function RLSForm({ saved }: { saved?: Saved }) {
         <button
           type="submit"
           disabled={pending}
-          className="w-full rounded-lg bg-zinc-900 py-3 text-sm font-medium text-white disabled:opacity-50"
+          className="w-full rounded-lg bg-indigo-600 py-3 text-sm font-medium text-white disabled:opacity-50"
         >
           {pending ? 'กำลังบันทึก…' : 'ถัดไป'}
         </button>

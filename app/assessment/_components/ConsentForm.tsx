@@ -64,7 +64,7 @@ export default function ConsentForm() {
           <input
             type="checkbox"
             name="consent"
-            className="mt-0.5 h-4 w-4 rounded border-zinc-300 accent-zinc-900"
+            className="mt-0.5 h-4 w-4 rounded border-zinc-300 accent-indigo-600"
           />
           <span className="text-sm text-zinc-700 leading-relaxed">
             ฉันอ่านรายละเอียดแล้ว เข้าใจ และยินยอมให้เก็บและใช้ข้อมูลตามนั้น รวมถึงข้อมูลสุขภาพ
@@ -78,7 +78,7 @@ export default function ConsentForm() {
         <button
           type="submit"
           disabled={pending}
-          className="w-full rounded-lg bg-zinc-900 py-3 text-sm font-medium text-white disabled:opacity-50"
+          className="w-full rounded-lg bg-indigo-600 py-3 text-sm font-medium text-white disabled:opacity-50"
         >
           {pending ? 'กำลังโหลด…' : 'เริ่มแบบประเมิน'}
         </button>

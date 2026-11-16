@@ -117,7 +117,7 @@ function NotFitResult() {
       </p>
       <Link
         href="/education/basics"
-        className="rounded-lg bg-zinc-900 py-3 text-sm font-medium text-white text-center"
+        className="rounded-lg bg-indigo-600 py-3 text-sm font-medium text-white text-center"
       >
         ดูเคล็ดลับการนอน
       </Link>
@@ -142,7 +142,7 @@ function NotFitResult() {
 const FLAG_MESSAGES: Record<string, { title: string; body: string }> = {
   'อารมณ์เศร้าระดับเล็กน้อย': {
     title: 'อารมณ์เศร้าระดับเล็กน้อย',
-    body: 'คุณมีอาการด้านอารมณ์ระดับเล็กน้อย ถ้ารู้สึกแย่ลงระหว่างโปรแกรม บอกแพทย์ นะ',
+    body: 'คุณมีอาการด้านอารมณ์ระดับเล็กน้อย ถ้ารู้สึกแย่ลงระหว่างโปรแกรม บอกแพทย์นะ',
   },
   'เสี่ยงหยุดหายใจขณะหลับ': {
     title: 'เสี่ยงหยุดหายใจขณะหลับ',
@@ -158,11 +158,11 @@ const FLAG_MESSAGES: Record<string, { title: string; body: string }> = {
   },
   'ตั้งครรภ์/หลังคลอด': {
     title: 'ตั้งครรภ์/หลังคลอด',
-    body: 'คุณอยู่ในช่วงตั้งครรภ์หรือหลังคลอด ควรปรึกษาแพทย์ ก่อนปรับการนอน',
+    body: 'คุณอยู่ในช่วงตั้งครรภ์หรือหลังคลอด ควรปรึกษาแพทย์ก่อนปรับการนอน',
   },
   'สิ่งช่วยหลับ': {
     title: 'สิ่งช่วยหลับ',
-    body: 'คุณใช้ตัวช่วยให้หลับเป็นประจำ อย่าหยุดหรือเปลี่ยนเอง ปรึกษาแพทย์ ก่อน',
+    body: 'คุณใช้ตัวช่วยให้หลับเป็นประจำ อย่าหยุดหรือเปลี่ยนเอง ปรึกษาแพทย์ก่อน',
   },
 }
 
@@ -171,7 +171,7 @@ function GoResult({ flags }: { flags: string[] }) {
     <div className="flex flex-1 flex-col gap-6 px-6 py-10 max-w-md mx-auto">
       <h1 className="text-xl font-semibold text-zinc-900">คุณเหมาะกับโปรแกรมนี้ มาเริ่มกันเลย</h1>
       <p className="text-sm text-zinc-600 leading-relaxed">
-        สัปดาห์แรก คุณจะจดบันทึกการนอนทุกเช้า (Sleep Diary) และอ่านเรื่องการนอนสั้น ๆ
+        สัปดาห์แรก คุณจะบันทึกการนอนทุกเช้า และอ่านเรื่องการนอนสั้น ๆ
         คำแนะนำปรับพฤติกรรมจะเริ่มในสัปดาห์ที่ 2 หลังเรามีข้อมูลการนอนของคุณแล้ว
       </p>
       {flags.length > 0 && (
@@ -192,7 +192,7 @@ function GoResult({ flags }: { flags: string[] }) {
       <form action={beginProgramme}>
         <button
           type="submit"
-          className="w-full rounded-lg bg-zinc-900 py-3 text-sm font-medium text-white text-center"
+          className="w-full rounded-lg bg-indigo-600 py-3 text-sm font-medium text-white text-center"
         >
           เริ่มสัปดาห์ที่ 1
         </button>

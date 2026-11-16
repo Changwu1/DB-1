@@ -24,7 +24,7 @@ export default function AccountForm() {
             maxLength={30}
             placeholder="เช่น น้องนอน"
             required
-            className="w-full rounded-lg border border-zinc-200 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-zinc-900"
+            className="w-full rounded-lg border border-zinc-200 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-indigo-500"
           />
           <p className="text-xs text-zinc-400">1–30 ตัวอักษร</p>
         </div>
@@ -34,7 +34,7 @@ export default function AccountForm() {
         <button
           type="submit"
           disabled={pending}
-          className="w-full rounded-lg bg-zinc-900 py-3 text-sm font-medium text-white disabled:opacity-50"
+          className="w-full rounded-lg bg-indigo-600 py-3 text-sm font-medium text-white disabled:opacity-50"
         >
           {pending ? 'กำลังบันทึก…' : 'ถัดไป'}
         </button>

@@ -6,8 +6,8 @@ import { loadISIScores } from '@/lib/assessment-db'
 import { calcISIChange, calcISIInterpretation } from '@/lib/final-isi'
 
 const SEVERITY_LABEL: Record<string, string> = {
-  none: 'ไม่มีอาการนอนไม่หลับที่มีนัยสำคัญ',
-  subthreshold: 'นอนไม่หลับระดับต่ำกว่าเกณฑ์',
+  none: 'แทบไม่มีอาการนอนไม่หลับ',
+  subthreshold: 'นอนไม่หลับระดับเล็กน้อย',
   moderate: 'นอนไม่หลับระดับปานกลาง',
   severe: 'นอนไม่หลับระดับรุนแรง',
 }
@@ -68,12 +68,12 @@ export default async function FinalISIResultPage() {
             </p>
             {result.clinicallySignificant && (
               <p className="text-sm text-indigo-700">
-                การเปลี่ยนแปลงนี้มีนัยสำคัญทางคลินิก — นั่นหมายความว่าการนอนของคุณดีขึ้นอย่างแท้จริง
+                การนอนของคุณดีขึ้นอย่างชัดเจน
               </p>
             )}
             {!result.clinicallySignificant && (
               <p className="text-sm text-indigo-700">
-                มีการปรับปรุงแต่ยังไม่ถึงเกณฑ์นัยสำคัญทางคลินิก — ทำต่อไปนะ
+                มีการปรับปรุง แต่ยังทำต่อได้อีก
               </p>
             )}
           </>
