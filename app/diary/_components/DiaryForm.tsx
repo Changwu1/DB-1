@@ -166,7 +166,7 @@ export default function DiaryForm({ nightDate, displayDate, prefill }: Props) {
 
       {/* Q6: Final wakeup */}
       <label className="flex flex-col gap-1">
-        <span className="text-sm font-medium">เช้านี้ตื่นสุดท้ายตอนกี่โมง?</span>
+        <span className="text-sm font-medium">เช้านี้ตื่นนอนจริง ๆ ตอนกี่โมง?</span>
         <input
           type="time"
           name="final_wakeup"
