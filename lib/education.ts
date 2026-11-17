@@ -123,6 +123,41 @@ export function nextUnconfirmedRule(confirmedRules: number[]): number | null {
   return null
 }
 
+// ─── Rule sections ────────────────────────────────────────────────────────────
+
+export const RULE_SECTIONS = [
+  {
+    id: 1,
+    title: 'จัดเวลานอน',
+    description: 'กฎเกี่ยวกับเวลาเข้านอนและตื่น',
+    ruleNumbers: [1, 2],
+  },
+  {
+    id: 2,
+    title: 'เมื่อนอนไม่หลับ',
+    description: 'สิ่งที่ต้องทำเมื่อนอนไม่หลับ',
+    ruleNumbers: [3],
+  },
+  {
+    id: 3,
+    title: 'นิสัยระหว่างวัน',
+    description: 'นิสัยที่ส่งผลต่อการนอนช่วงกลางวัน',
+    ruleNumbers: [4, 5, 6],
+  },
+] as const
+
+export type RuleSection = typeof RULE_SECTIONS[number]
+
+/** Returns the section id of the first incomplete section, or null if all done. */
+export function nextUnconfirmedSection(confirmedRules: number[]): number | null {
+  for (const section of RULE_SECTIONS) {
+    if (!(section.ruleNumbers as readonly number[]).every(n => confirmedRules.includes(n))) {
+      return section.id
+    }
+  }
+  return null
+}
+
 // ─── Why? link map (A4) ──────────────────────────────────────────────────────
 
 const RULE_WHY_LINK: Record<number, { tab: 1; card: number }> = {
