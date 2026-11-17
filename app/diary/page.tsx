@@ -1,7 +1,7 @@
 export const instant = false
 
 import { getNowServer, toDateString, addDays } from '@/lib/time'
-import { loadDiaryEntry, loadNightStatusMap, loadProgrammeStart } from '@/lib/diary-db'
+import { loadDiaryEntry, loadNightStatusMap } from '@/lib/diary-db'
 import { skipDiaryDay } from './actions'
 import DiaryForm from './_components/DiaryForm'
 import WeekStrip from './_components/WeekStrip'
@@ -42,14 +42,8 @@ export default async function DiaryPage({ searchParams }: PageProps) {
     isBackfillMode = true
   }
 
-  // Strip range: [max(programmeStart, 7 days ago), yesterday]
-  const programme = await loadProgrammeStart()
-  const programmeStartStr = programme?.started_at
-    ? toDateString(new Date(programme.started_at))
-    : null
-  const stripStart = programmeStartStr && programmeStartStr > sevenDaysAgoStr
-    ? programmeStartStr
-    : sevenDaysAgoStr
+  // Strip always shows the last 7 nights regardless of programme start
+  const stripStart = sevenDaysAgoStr
 
   // Load statuses for all nights in the strip range
   const statusMap = await loadNightStatusMap(stripStart, yesterdayStr)
