@@ -95,24 +95,30 @@ export async function saveDiaryEntry(
 }
 
 /**
- * Returns the set of night_dates (YYYY-MM-DD) within [start, end] that are
- * already filled (submitted_at IS NOT NULL) or explicitly skipped.
- * Used to compute which past nights still need to be filled.
+ * Returns a map of night_date → status for all nights in [start, end].
+ * Nights not present in the map have no entry and are considered 'unfilled'.
  */
-export async function loadFilledOrSkippedNights(start: string, end: string): Promise<string[]> {
+export async function loadNightStatusMap(
+  start: string,
+  end: string,
+): Promise<Record<string, 'filled' | 'skipped'>> {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
-  if (!user) return []
+  if (!user) return {}
 
   const { data } = await supabase
     .from('diary_entries')
-    .select('night_date')
+    .select('night_date, submitted_at, skipped')
     .eq('user_id', user.id)
     .gte('night_date', start)
     .lte('night_date', end)
-    .or('submitted_at.not.is.null,skipped.eq.true')
 
-  return (data ?? []).map(r => r.night_date as string)
+  const map: Record<string, 'filled' | 'skipped'> = {}
+  for (const row of data ?? []) {
+    if (row.skipped) map[row.night_date] = 'skipped'
+    else if (row.submitted_at) map[row.night_date] = 'filled'
+  }
+  return map
 }
 
 /** Mark a night as skipped — user chose not to fill it in. */
