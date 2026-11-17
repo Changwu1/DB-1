@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 import { saveLastCardAction } from '@/app/education/basics/actions'
 
 const TAB1_CARDS = [
@@ -80,6 +81,12 @@ export default function BasicsViewer({ initialTab, initialCard, savedCard1, save
 
   return (
     <div className="flex flex-col h-dvh bg-white max-w-sm mx-auto">
+      {/* Back link */}
+      <div className="px-4 pt-4 pb-1">
+        <Link href="/" className="inline-flex items-center gap-1 text-sm text-stone-500">
+          ← กลับหน้าหลัก
+        </Link>
+      </div>
       {/* Tab bar */}
       <div className="flex border-b border-gray-200">
         {(['การนอนทำงานยังไง', 'นอนไม่หลับคืออะไร'] as const).map((label, i) => {

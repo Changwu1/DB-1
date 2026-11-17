@@ -1,5 +1,6 @@
 export const instant = false
 
+import Link from 'next/link'
 import { loadProgrammeStart, loadChecklist } from '@/lib/diary-db'
 import { getNowServer, daysBetween } from '@/lib/time'
 import { notFound } from 'next/navigation'
@@ -22,6 +23,11 @@ export default async function ChecklistPage() {
 
   return (
     <main className="min-h-screen bg-white max-w-sm mx-auto">
+      <div className="px-4 pt-4">
+        <Link href="/" className="inline-flex items-center gap-1 text-sm text-stone-500">
+          ← กลับหน้าหลัก
+        </Link>
+      </div>
       <ChecklistForm weekNumber={weekNumber} prefill={prefill} />
     </main>
   )

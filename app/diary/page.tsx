@@ -1,5 +1,6 @@
 export const instant = false
 
+import Link from 'next/link'
 import { getNowServer, toDateString, addDays } from '@/lib/time'
 import { loadDiaryEntry, loadNightStatusMap } from '@/lib/diary-db'
 import { skipDiaryDay } from './actions'
@@ -74,6 +75,11 @@ export default async function DiaryPage({ searchParams }: PageProps) {
 
   return (
     <main className="min-h-screen bg-white max-w-sm mx-auto">
+      <div className="px-4 pt-4">
+        <Link href="/" className="inline-flex items-center gap-1 text-sm text-stone-500">
+          ← กลับหน้าหลัก
+        </Link>
+      </div>
       <WeekStrip nights={stripNights} />
 
       {/* Skipped night notice */}
