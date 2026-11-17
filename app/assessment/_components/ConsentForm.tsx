@@ -3,6 +3,7 @@
 import { useActionState, useState } from 'react'
 import SubmitButton from './SubmitButton'
 import { submitConsent } from '../actions'
+import { CBTIContent } from '@/app/_components/CBTICard'
 
 export default function ConsentForm() {
   const [state, action, pending] = useActionState(submitConsent, undefined)
@@ -18,6 +19,11 @@ export default function ConsentForm() {
         แบบประเมินนี้ใช้ดูว่าโปรแกรมปรับพฤติกรรมการนอน (CBT-I) แบบทำเองที่บ้าน
         เหมาะกับคุณไหม ไม่ใช่การวินิจฉัยโรค ใช้เวลาประมาณ 8–10 นาที
       </p>
+
+      {/* CBT-I explainer */}
+      <div className="rounded-xl bg-stone-50 border border-stone-200 p-4">
+        <CBTIContent />
+      </div>
       <p className="text-sm text-zinc-700 leading-relaxed">
         คำตอบของคุณจะผูกกับชื่อบัญชีและอีเมลที่คุณให้ไว้ มีแค่ทีมผู้พัฒนาเท่านั้นที่เห็น
         ใช้เพื่อติดตามผลการนอนของคุณ ไม่ส่งให้แพทย์โดยอัตโนมัติ คุณหยุดได้ทุกเมื่อ

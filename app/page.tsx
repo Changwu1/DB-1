@@ -11,6 +11,7 @@ import { FINAL_ISI_OFFER_DAY } from '@/lib/constants'
 import MythBanner from './_components/MythBanner'
 import { Moon, BarChart2, Lightbulb, BookOpen, CheckSquare, ClipboardList } from 'lucide-react'
 import { createClient } from '@/lib/supabase/server'
+import CBTICard from './_components/CBTICard'
 
 export default async function Home() {
   let programme = await loadProgrammeStart()
@@ -187,6 +188,9 @@ export default async function Home() {
             </span>
           </Link>
         </div>
+
+        {/* CBT-I explainer card */}
+        <CBTICard />
       </div>
     </main>
   )
