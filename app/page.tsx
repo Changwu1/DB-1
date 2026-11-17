@@ -4,18 +4,49 @@ import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { getNowServer, toDateString, daysBetween } from '@/lib/time'
 import { loadEducationState, rowToMythState, saveMythState } from '@/lib/education-db'
-import { loadProgrammeStart } from '@/lib/diary-db'
-import { loadISIScores } from '@/lib/assessment-db'
+import { loadProgrammeStart, startProgramme } from '@/lib/diary-db'
+import { loadAssessment, loadISIScores } from '@/lib/assessment-db'
 import { pickMythOfDay } from '@/lib/education'
 import { FINAL_ISI_OFFER_DAY } from '@/lib/constants'
 import MythBanner from './_components/MythBanner'
 import { Moon, BarChart2, Lightbulb, BookOpen, CheckSquare, ClipboardList } from 'lucide-react'
+import { createClient } from '@/lib/supabase/server'
 
 export default async function Home() {
-  const programme = await loadProgrammeStart()
+  let programme = await loadProgrammeStart()
 
   if (!programme?.started_at) {
-    redirect('/assessment')
+    const assessment = await loadAssessment()
+
+    // No assessment started yet — go through onboarding
+    if (!assessment?.completed_at) {
+      redirect('/assessment')
+    }
+
+    // STOP is permanent — keep them on the result page
+    if (assessment.result === 'STOP') {
+      redirect('/assessment/result')
+    }
+
+    // GO — user hasn't clicked "เริ่มสัปดาห์ที่ 1" yet
+    if (assessment.result === 'GO') {
+      redirect('/assessment/result')
+    }
+
+    // NOT-FIT / REFER — auto-enroll so they reach the home page
+    // (they already saw the warning on first login)
+    const supabase = await createClient()
+    const { data: { user } } = await supabase.auth.getUser()
+    if (user) {
+      await supabase
+        .from('assessment_responses')
+        .update({ opted_in: true })
+        .eq('user_id', user.id)
+    }
+    const now = await getNowServer()
+    await startProgramme(now.toISOString())
+    programme = await loadProgrammeStart()
+    if (!programme?.started_at) redirect('/assessment/result')
   }
 
   const eduState = await loadEducationState()
