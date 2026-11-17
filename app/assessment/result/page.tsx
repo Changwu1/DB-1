@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { loadAssessment } from '@/lib/assessment-db'
 import { beginProgramme, optInAndBegin } from './actions'
+import FormSubmitButton from '@/app/_components/FormSubmitButton'
 
 export default async function ResultPage() {
   const row = await loadAssessment()
@@ -91,12 +92,10 @@ function ReferResult({ flags }: { flags: string[] }) {
           คุณสามารถใช้โปรแกรมนี้ควบคู่ไปกับการพบแพทย์ได้
         </p>
         <form action={optInAndBegin}>
-          <button
-            type="submit"
-            className="w-full rounded-lg border border-zinc-300 py-3 text-sm font-medium text-zinc-700 text-center"
-          >
-            ลองใช้โปรแกรมนี้ต่อ
-          </button>
+          <FormSubmitButton
+            label="ลองใช้โปรแกรมนี้ต่อ"
+            className="w-full rounded-lg border border-zinc-300 py-3 text-sm font-medium text-zinc-700 text-center flex items-center justify-center gap-2 disabled:opacity-50"
+          />
         </form>
       </div>
     </div>
@@ -127,12 +126,10 @@ function NotFitResult() {
           คุณสามารถลองใช้โปรแกรมนี้ได้เลย
         </p>
         <form action={optInAndBegin}>
-          <button
-            type="submit"
-            className="w-full rounded-lg border border-zinc-300 py-3 text-sm font-medium text-zinc-700 text-center"
-          >
-            ลองใช้โปรแกรมต่อ
-          </button>
+          <FormSubmitButton
+            label="ลองใช้โปรแกรมต่อ"
+            className="w-full rounded-lg border border-zinc-300 py-3 text-sm font-medium text-zinc-700 text-center flex items-center justify-center gap-2 disabled:opacity-50"
+          />
         </form>
       </div>
     </div>
@@ -190,12 +187,10 @@ function GoResult({ flags }: { flags: string[] }) {
         </div>
       )}
       <form action={beginProgramme}>
-        <button
-          type="submit"
-          className="w-full rounded-lg bg-indigo-600 py-3 text-sm font-medium text-white text-center"
-        >
-          เริ่มสัปดาห์ที่ 1
-        </button>
+        <FormSubmitButton
+          label="เริ่มสัปดาห์ที่ 1"
+          className="w-full rounded-lg bg-indigo-600 py-3 text-sm font-medium text-white text-center flex items-center justify-center gap-2 disabled:opacity-50"
+        />
       </form>
     </div>
   )

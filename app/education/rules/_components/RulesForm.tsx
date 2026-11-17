@@ -3,6 +3,7 @@
 import { useActionState } from 'react'
 import Link from 'next/link'
 import { confirmRuleAction } from '@/app/education/rules/actions'
+import SubmitButton from '@/app/assessment/_components/SubmitButton'
 
 const RULES = [
   {
@@ -140,13 +141,11 @@ export default function RulesForm({ currentRule, confirmedCount, existingTargetT
       ) : (
         <form id="rules-form" action={action} className="mt-auto">
           <input type="hidden" name="rule_number" value={currentRule} />
-          <button
-            type="submit"
-            disabled={pending}
+          <SubmitButton
+            pending={pending}
+            label="ฉันจะทำตามนี้"
             className="w-full rounded-xl bg-indigo-600 text-white py-3 font-semibold text-base disabled:opacity-60"
-          >
-            {pending ? 'กำลังบันทึก…' : 'ฉันจะทำตามนี้'}
-          </button>
+          />
         </form>
       )}
     </div>

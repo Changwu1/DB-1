@@ -4,6 +4,7 @@ import { useActionState, useState } from 'react'
 import { selectSuggestionsAction, type SelectSuggestionsState } from '@/app/suggestion/actions'
 import type { SuggestionRenderStats } from '@/lib/suggestion-db'
 import Link from 'next/link'
+import SubmitButton from '@/app/assessment/_components/SubmitButton'
 
 // ─── Message builders ─────────────────────────────────────────────────────────
 
@@ -183,13 +184,11 @@ export default function SuggestionPicker({
           {state.error && (
             <p className="text-xs text-red-600 mb-2">{state.error}</p>
           )}
-          <button
-            type="submit"
-            disabled={selected.length === 0 || pending}
+          <SubmitButton
+            pending={pending || selected.length === 0}
+            label="เริ่มลองข้อนี้"
             className="w-full rounded-xl bg-indigo-600 text-white py-3 font-semibold text-sm disabled:opacity-40"
-          >
-            เริ่มลองข้อนี้
-          </button>
+          />
         </form>
       )}
     </div>

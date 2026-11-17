@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { dismissMythAction } from '@/app/actions'
+import FormSubmitButton from './FormSubmitButton'
 
 const MYTH_HEADLINES: Record<number, string> = {
   1: 'ทุกคนต้องนอน 8 ชั่วโมง',
@@ -35,13 +36,12 @@ export default function MythBanner({ mythNumber }: Props) {
         </Link>
       </div>
       <form action={dismissMythAction}>
-        <button
-          type="submit"
-          aria-label="ปิด"
-          className="text-amber-500 p-1 rounded flex-shrink-0"
-        >
-          ✕
-        </button>
+        <FormSubmitButton
+          label="✕"
+          loadingLabel="…"
+          ariaLabel="ปิด"
+          className="text-amber-500 p-1 rounded flex-shrink-0 flex items-center justify-center disabled:opacity-40"
+        />
       </form>
     </div>
   )
