@@ -2,7 +2,7 @@ import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
 // Routes accessible without auth (Supabase magic-link callback also needs to be public)
-const PUBLIC_PATHS = ['/login', '/auth/callback']
+const PUBLIC_PATHS = ['/login', '/auth/callback', '/reset-password']
 
 // D8: known result values — anything outside this list is treated as unknown → fail closed
 const VALID_RESULTS = ['STOP', 'REFER', 'NOT-FIT', 'GO'] as const
