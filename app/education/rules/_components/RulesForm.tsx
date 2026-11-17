@@ -71,7 +71,7 @@ export default function RulesForm({ currentRule, confirmedCount, existingTargetT
       </div>
 
       <div className="text-xs text-gray-500 text-center">
-        {isReadOnly ? 'กฎของโปรแกรม' : `ข้อ ${currentRule} จาก 6`}
+        {isReadOnly ? 'กฎ CBT-I ที่ต้องทำตาม' : `ข้อ ${currentRule} จาก 6`}
       </div>
 
       {/* Intro (shown only on first rule and not read-only) */}

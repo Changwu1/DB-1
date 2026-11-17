@@ -184,7 +184,7 @@ export default async function Home() {
           >
             <CheckSquare className="w-5 h-5 text-stone-500" strokeWidth={1.5} />
             <span className="text-sm font-medium text-stone-700 text-center">
-              {rulesAccepted ? 'กฎของฉัน' : 'ยืนยันกฎ'}
+              กฎ CBT-I ที่ต้องทำตาม
             </span>
           </Link>
         </div>

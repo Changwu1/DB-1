@@ -52,6 +52,21 @@ export function CBTIContent() {
         </p>
       </section>
 
+      <section className="rounded-xl bg-indigo-50 border border-indigo-200 p-4 space-y-2">
+        <h3 className="font-semibold text-indigo-900">เพื่อให้โปรแกรมนี้ได้ผล</h3>
+        <p className="text-indigo-800">คุณต้องทำ 2 สิ่งอย่างสม่ำเสมอตลอดโปรแกรม</p>
+        <ul className="space-y-1.5 text-indigo-800">
+          <li className="flex gap-2">
+            <span className="font-medium shrink-0">1.</span>
+            <span><span className="font-medium">ทำตามกฎ CBT-I</span> ที่อยู่ในส่วน "กฎ CBT-I ที่ต้องทำตาม" ของแอป กฎเหล่านี้คือแก่นหลักของโปรแกรม ถ้าข้ามกฎ ผลจะไม่เกิด</span>
+          </li>
+          <li className="flex gap-2">
+            <span className="font-medium shrink-0">2.</span>
+            <span><span className="font-medium">บันทึกไดอารีการนอนทุกเช้า</span> เพื่อให้แอปติดตามและปรับคำแนะนำให้ตรงกับการนอนจริงของคุณ</span>
+          </li>
+        </ul>
+      </section>
+
       <section className="rounded-xl bg-amber-50 border border-amber-200 p-4 space-y-1.5">
         <h3 className="font-semibold text-amber-900">ควรปรึกษาแพทย์ก่อน ถ้าคุณ…</h3>
         <ul className="space-y-1 text-amber-800">
