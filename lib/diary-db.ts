@@ -16,6 +16,7 @@ export interface DiaryRow {
   sleep_quality?: number     // คุณภาพการนอน 1–5
   submitted_at?: string      // ISO timestamp — เวลาที่ส่งบันทึก
   is_backfill?: boolean      // กรอกย้อนหลัง
+  skipped?: boolean          // ผู้ใช้กดข้าม (ไม่แน่ใจข้อมูล)
   time_in_bed_min?: number   // คำนวณ: เวลาบนเตียง
   sleep_time_min?: number    // คำนวณ: เวลาหลับจริง
   sleep_efficiency_pct?: number // คำนวณ: ประสิทธิภาพการนอน
@@ -87,6 +88,43 @@ export async function saveDiaryEntry(
     .from('diary_entries')
     .upsert(
       { user_id: user.id, ...row },
+      { onConflict: 'user_id,night_date' }
+    )
+
+  return { error: error?.message ?? null }
+}
+
+/**
+ * Returns the set of night_dates (YYYY-MM-DD) within [start, end] that are
+ * already filled (submitted_at IS NOT NULL) or explicitly skipped.
+ * Used to compute which past nights still need to be filled.
+ */
+export async function loadFilledOrSkippedNights(start: string, end: string): Promise<string[]> {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) return []
+
+  const { data } = await supabase
+    .from('diary_entries')
+    .select('night_date')
+    .eq('user_id', user.id)
+    .gte('night_date', start)
+    .lte('night_date', end)
+    .or('submitted_at.not.is.null,skipped.eq.true')
+
+  return (data ?? []).map(r => r.night_date as string)
+}
+
+/** Mark a night as skipped — user chose not to fill it in. */
+export async function skipDiaryEntry(nightDate: string): Promise<{ error: string | null }> {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) return { error: 'not-authenticated' }
+
+  const { error } = await supabase
+    .from('diary_entries')
+    .upsert(
+      { user_id: user.id, night_date: nightDate, skipped: true },
       { onConflict: 'user_id,night_date' }
     )
 

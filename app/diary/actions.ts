@@ -1,9 +1,9 @@
 'use server'
 
 import { redirect } from 'next/navigation'
-import { getNowServer } from '@/lib/time'
+import { getNowServer, toDateString, addDays } from '@/lib/time'
 import { parseTime, formatTime, validateDiary } from '@/lib/diary'
-import { saveDiaryEntry, loadDiaryEntry, loadTargetWakeupTime } from '@/lib/diary-db'
+import { saveDiaryEntry, loadDiaryEntry, loadTargetWakeupTime, skipDiaryEntry } from '@/lib/diary-db'
 import { loadEducationState } from '@/lib/education-db'
 import { BACKFILL_ALLOWED_HOURS, BACKFILL_LATE_LABEL_HOURS } from '@/lib/constants'
 import type { DiaryInput } from '@/lib/diary'
@@ -102,24 +102,30 @@ export async function saveDiary(
     : { timeInBed: validation.computed.timeInBed, sleepTime: 0, efficiency: 0 }
 
   // D12: check submission timing (backfill rules)
+  // Explicit past-date backfill (date < yesterday) skips the time-window check —
+  // user deliberately chose to fill an old night from the unfilled-days list.
   const submittedAt = now.toISOString()
-  const outOfBedDate = new Date(`${nightDate}T${outOfBedStr}:00`)
-  // Heuristic: if out_of_bed HH < 12, it's on the day after nightDate
-  if (parseTime(outOfBedStr) < 12 * 60) {
-    const nextDay = new Date(nightDate)
-    nextDay.setDate(nextDay.getDate() + 1)
-    outOfBedDate.setFullYear(nextDay.getFullYear(), nextDay.getMonth(), nextDay.getDate())
-  }
+  const yesterdayStr = toDateString(addDays(now, -1))
+  const isExplicitBackfill = nightDate < yesterdayStr
 
-  const diffHours = (now.getTime() - outOfBedDate.getTime()) / (1000 * 60 * 60)
-  if (diffHours > BACKFILL_ALLOWED_HOURS) {
-    return {
-      status: 'error',
-      rule: 'D12',
-      message: 'คืนนั้นผ่านมานานแล้ว ไม่เป็นไร มาบันทึกคืนล่าสุดกันดีกว่า',
+  let isBackfill = isExplicitBackfill
+  if (!isExplicitBackfill) {
+    const outOfBedDate = new Date(`${nightDate}T${outOfBedStr}:00`)
+    if (parseTime(outOfBedStr) < 12 * 60) {
+      const nextDay = new Date(nightDate)
+      nextDay.setDate(nextDay.getDate() + 1)
+      outOfBedDate.setFullYear(nextDay.getFullYear(), nextDay.getMonth(), nextDay.getDate())
     }
+    const diffHours = (now.getTime() - outOfBedDate.getTime()) / (1000 * 60 * 60)
+    if (diffHours > BACKFILL_ALLOWED_HOURS) {
+      return {
+        status: 'error',
+        rule: 'D12',
+        message: 'คืนนั้นผ่านมานานแล้ว ไม่เป็นไร มาบันทึกคืนล่าสุดกันดีกว่า',
+      }
+    }
+    isBackfill = diffHours > BACKFILL_LATE_LABEL_HOURS
   }
-  const isBackfill = diffHours > BACKFILL_LATE_LABEL_HOURS
 
   // Load target wakeup time for on_target_wakeup calculation
   const targetTimeStr = await loadTargetWakeupTime()
@@ -155,5 +161,19 @@ export async function saveDiary(
     redirect('/education/rules')
   }
 
+  // Backfill entries return to diary page (the unfilled-days list); current-day goes to done
+  if (isExplicitBackfill) {
+    redirect('/diary')
+  }
   redirect('/diary/done')
+}
+
+// ─── Skip action ──────────────────────────────────────────────────────────────
+
+export async function skipDiaryDay(fd: FormData) {
+  const nightDate = (fd.get('night_date') as string | null)?.trim()
+  if (nightDate) {
+    await skipDiaryEntry(nightDate)
+  }
+  redirect('/diary')
 }
