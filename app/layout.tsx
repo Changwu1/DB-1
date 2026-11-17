@@ -3,6 +3,7 @@ import { Sarabun } from 'next/font/google'
 import NextTopLoader from 'nextjs-toploader'
 import './globals.css'
 import DevPanel from '@/components/DevPanel'
+import SplashScreen from './_components/SplashScreen'
 
 const sarabun = Sarabun({
   weight: ['300', '400', '500', '600', '700'],
@@ -23,6 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <NextTopLoader color="#4F46E5" height={3} showSpinner={false} />
         {/* 380px mobile-first container */}
         <div className="mx-auto w-full max-w-[380px] flex flex-col min-h-screen">
+          <SplashScreen />
           {children}
         </div>
         <DevPanel />
