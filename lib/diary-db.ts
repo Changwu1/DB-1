@@ -233,7 +233,7 @@ export async function startProgramme(
 
   const { error } = await supabase
     .from('programme_starts')
-    .insert({ user_id: user.id, started_at: startedAt })
+    .upsert({ user_id: user.id, started_at: startedAt }, { onConflict: 'user_id' })
 
   return { error: error?.message ?? null }
 }
