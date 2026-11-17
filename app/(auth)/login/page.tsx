@@ -23,8 +23,9 @@ export default function LoginPage() {
     const supabase = createClient()
 
     if (mode === 'forgot') {
-      const { error: authError } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: `${window.location.origin}/reset-password`,
+      const { error: authError } = await supabase.auth.signInWithOtp({
+        email,
+        options: { emailRedirectTo: `${window.location.origin}/auth/callback` },
       })
       if (authError) {
         setError(authError.message)
@@ -101,8 +102,8 @@ export default function LoginPage() {
       {mode === 'forgot' && resetSent ? (
         <div className="flex flex-col gap-4">
           <div className="rounded-xl bg-green-50 border border-green-200 px-4 py-4 text-sm text-green-800 text-center">
-            ส่งลิงก์ตั้งรหัสผ่านใหม่ไปที่ <span className="font-medium">{email}</span> แล้ว<br />
-            ตรวจสอบกล่องจดหมายของคุณ
+            ส่งลิงก์เข้าสู่ระบบไปที่ <span className="font-medium">{email}</span> แล้ว<br />
+            กดลิงก์ในอีเมลเพื่อเข้าสู่ระบบโดยตรง
           </div>
           <button
             type="button"
@@ -116,7 +117,7 @@ export default function LoginPage() {
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           {mode === 'forgot' && (
             <p className="text-sm text-stone-600 text-center">
-              กรอกอีเมลที่ใช้สมัครสมาชิก เราจะส่งลิงก์ตั้งรหัสผ่านใหม่ให้
+              กรอกอีเมลที่ใช้สมัครสมาชิก เราจะส่งลิงก์สำหรับเข้าสู่ระบบโดยตรงให้
             </p>
           )}
 
@@ -177,7 +178,7 @@ export default function LoginPage() {
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
               </svg>
             )}
-            {loading ? 'กำลังดำเนินการ…' : mode === 'login' ? 'เข้าสู่ระบบ' : mode === 'signup' ? 'สมัครสมาชิก' : 'ส่งลิงก์ตั้งรหัสผ่านใหม่'}
+            {loading ? 'กำลังดำเนินการ…' : mode === 'login' ? 'เข้าสู่ระบบ' : mode === 'signup' ? 'สมัครสมาชิก' : 'ส่งลิงก์เข้าสู่ระบบ'}
           </button>
 
           {mode === 'forgot' && (
