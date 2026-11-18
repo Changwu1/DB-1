@@ -53,6 +53,7 @@ export default async function RecapPage() {
   const data = await loadRecapStats(startDate, currentWeek)
 
   // ─── Suggestion ───────────────────────────────────────────────────────────
+  const effectiveWeek = Math.max(1, evaluationWeek)
   let suggestionSection: SuggestionSection = 'F1'
   let topThree: string[] = []
   let safetyFlags: string[] = []
@@ -64,7 +65,6 @@ export default async function RecapPage() {
   if (!eduState?.rules_accepted) {
     suggestionSection = 'no_rules'
   } else {
-    const effectiveWeek = Math.max(1, evaluationWeek)
     const existingState = await loadSuggestionState()
     const isNewWeek = !existingState?.eval_week_number || existingState.eval_week_number !== effectiveWeek
 
