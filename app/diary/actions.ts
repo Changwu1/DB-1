@@ -66,6 +66,11 @@ export async function saveDiary(
   const clientNowMins = intField(fd, 'now_mins')
   const nowMins = clientNowMins ?? (now.getHours() * 60 + now.getMinutes())
 
+  // Calculate this early — D15 must be skipped for explicit backfills because
+  // those out_of_bed times are always in the past; the minutes-only check has no date context.
+  const yesterdayStr = toDateString(addDays(now, -1))
+  const isExplicitBackfill = nightDate < yesterdayStr
+
   const input: DiaryInput = {
     bedtimeMins: parseTime(bedtimeStr),
     lightsOutMins: parseTime(lightsOutStr),
@@ -79,7 +84,7 @@ export async function saveDiary(
 
   const confirmed = fd.get('confirmed') as 'D8' | 'D16' | null
 
-  const validation = validateDiary(input, nowMins)
+  const validation = validateDiary(input, isExplicitBackfill ? undefined : nowMins)
 
   if (validation.ok === false) {
     return { status: 'error', rule: validation.rule, message: validation.error, fields: validation.fields }
@@ -105,8 +110,6 @@ export async function saveDiary(
   // Explicit past-date backfill (date < yesterday) skips the time-window check —
   // user deliberately chose to fill an old night from the unfilled-days list.
   const submittedAt = now.toISOString()
-  const yesterdayStr = toDateString(addDays(now, -1))
-  const isExplicitBackfill = nightDate < yesterdayStr
 
   let isBackfill = isExplicitBackfill
   if (!isExplicitBackfill) {
