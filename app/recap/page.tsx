@@ -24,7 +24,7 @@ function fmt(value: number, unit: 'pct' | 'min'): string {
   return h > 0 ? `${h} ชม. ${m} นาที` : `${m} นาที`
 }
 
-type SuggestionSection = 'not_ready' | 'no_rules' | 'F1' | 'F2_clean' | 'show'
+type SuggestionSection = 'no_rules' | 'F1' | 'F2_clean' | 'show'
 
 const EMPTY_RENDER_STATS: SuggestionRenderStats = {
   outOfBedRangeMins: 0,
@@ -53,7 +53,7 @@ export default async function RecapPage() {
   const data = await loadRecapStats(startDate, currentWeek)
 
   // ─── Suggestion ───────────────────────────────────────────────────────────
-  let suggestionSection: SuggestionSection = 'not_ready'
+  let suggestionSection: SuggestionSection = 'F1'
   let topThree: string[] = []
   let safetyFlags: string[] = []
   let s2AddScreen = false
@@ -61,16 +61,15 @@ export default async function RecapPage() {
   let renderStats: SuggestionRenderStats = EMPTY_RENDER_STATS
   let alreadySelected: string[] = []
 
-  if (evaluationWeek === 0) {
-    suggestionSection = 'not_ready'
-  } else if (!eduState?.rules_accepted) {
+  if (!eduState?.rules_accepted) {
     suggestionSection = 'no_rules'
   } else {
+    const effectiveWeek = Math.max(1, evaluationWeek)
     const existingState = await loadSuggestionState()
-    const isNewWeek = !existingState?.eval_week_number || existingState.eval_week_number !== evaluationWeek
+    const isNewWeek = !existingState?.eval_week_number || existingState.eval_week_number !== effectiveWeek
 
     if (isNewWeek) {
-      const input = await loadSuggestionInput(startDate, evaluationWeek, today)
+      const input = await loadSuggestionInput(startDate, Math.max(1, evaluationWeek), today)
       if (!input) {
         suggestionSection = 'F1'
       } else {
@@ -83,7 +82,7 @@ export default async function RecapPage() {
         alreadySelected = []
 
         await saveSuggestionState({
-          eval_week_number: evaluationWeek,
+          eval_week_number: effectiveWeek,
           queue: result.queue,
           top_three: topThree,
           safety_flags: safetyFlags,
@@ -234,13 +233,6 @@ export default async function RecapPage() {
       <section className="flex flex-col gap-3">
         <h2 className="text-sm font-semibold text-zinc-700">คำแนะนำส่วนตัว</h2>
 
-        {suggestionSection === 'not_ready' && (
-          <div className="rounded-xl border border-gray-200 p-4 flex flex-col gap-2">
-            <p className="text-sm text-zinc-500">ยังไม่มีข้อมูลเพียงพอ</p>
-            <p className="text-xs text-zinc-400">คำแนะนำจะพร้อมหลังจากบันทึกการนอนครบ 7 คืนแรก</p>
-          </div>
-        )}
-
         {suggestionSection === 'no_rules' && (
           <div className="rounded-xl border border-gray-200 p-4 flex flex-col gap-3">
             <p className="text-sm text-zinc-500">ยังไม่มีข้อมูลเพียงพอ</p>
@@ -271,7 +263,7 @@ export default async function RecapPage() {
             s2AddScreen={s2AddScreen}
             s2AddClock={s2AddClock}
             stats={renderStats}
-            weekNumber={evaluationWeek}
+            weekNumber={effectiveWeek}
             alreadySelected={alreadySelected}
           />
         )}
