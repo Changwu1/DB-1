@@ -9,7 +9,7 @@ import { loadAssessment, loadISIScores } from '@/lib/assessment-db'
 import { pickMythOfDay } from '@/lib/education'
 import { FINAL_ISI_OFFER_DAY } from '@/lib/constants'
 import MythBanner from './_components/MythBanner'
-import { Moon, BarChart2, Lightbulb, BookOpen, CheckSquare, ClipboardList } from 'lucide-react'
+import { Moon, BarChart2, BookOpen, CheckSquare, ClipboardList } from 'lucide-react'
 import { createClient } from '@/lib/supabase/server'
 import CBTICard from './_components/CBTICard'
 
@@ -68,7 +68,6 @@ export default async function Home() {
   const startDate = toDateString(new Date(programme.started_at))
   const dayOfProgramme = daysBetween(new Date(startDate), now) + 1
   const weekNumber = Math.ceil(dayOfProgramme / 7)
-  const showSuggestion = rulesAccepted && dayOfProgramme >= 8
 
   // D9: show final ISI prompt from day 28
   const showFinalISI = dayOfProgramme >= FINAL_ISI_OFFER_DAY
@@ -109,21 +108,6 @@ export default async function Home() {
           </div>
         </Link>
 
-        {/* Suggestion (day ≥ 8) */}
-        {showSuggestion && (
-          <Link
-            href="/suggestion"
-            className="rounded-2xl bg-teal-600 text-white p-5 flex items-center gap-4"
-          >
-            <div className="w-11 h-11 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
-              <Lightbulb className="w-5 h-5 text-white" strokeWidth={1.5} />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-semibold text-base">คำแนะนำประจำสัปดาห์</span>
-              <span className="text-teal-200 text-sm">เลือกสิ่งที่อยากลองสัปดาห์นี้</span>
-            </div>
-          </Link>
-        )}
 
         {/* Final ISI (day ≥ 28) */}
         {showFinalISI && !finalISICompleted && (
@@ -155,7 +139,7 @@ export default async function Home() {
           </Link>
         )}
 
-        {/* Recap */}
+        {/* Recap + Suggestions (merged) */}
         <Link
           href="/recap"
           className="rounded-2xl border border-stone-200 bg-white p-5 flex items-center gap-4"
@@ -164,8 +148,8 @@ export default async function Home() {
             <BarChart2 className="w-5 h-5 text-stone-600" strokeWidth={1.5} />
           </div>
           <div className="flex flex-col">
-            <span className="font-semibold text-base text-stone-800">สรุปประจำสัปดาห์</span>
-            <span className="text-stone-400 text-sm">ดูผลการนอนช่วงนี้</span>
+            <span className="font-semibold text-base text-stone-800">สรุปและคำแนะนำ</span>
+            <span className="text-stone-400 text-sm">ผลการนอนและคำแนะนำส่วนตัว</span>
           </div>
         </Link>
 
