@@ -164,11 +164,8 @@ export async function saveDiary(
     redirect('/education/rules')
   }
 
-  // Backfill entries return to diary page (the unfilled-days list); current-day goes to done
-  if (isExplicitBackfill) {
-    redirect('/diary')
-  }
-  redirect('/diary/done')
+  // Always return to diary page — user taps "เสร็จแล้ว" when ready to leave
+  redirect('/diary')
 }
 
 // ─── Skip action ──────────────────────────────────────────────────────────────

@@ -1,6 +1,7 @@
 export const instant = false
 
 import Link from 'next/link'
+import { CheckCircle } from 'lucide-react'
 import { getNowServer, toDateString, addDays } from '@/lib/time'
 import { loadDiaryEntry, loadNightStatusMap } from '@/lib/diary-db'
 import { skipDiaryDay } from './actions'
@@ -97,7 +98,7 @@ export default async function DiaryPage({ searchParams }: PageProps) {
 
       {/* Skip button — only for past nights not yet submitted */}
       {isBackfillMode && !isAlreadySubmitted && (
-        <div className="px-4 pb-8">
+        <div className="px-4">
           <form action={skipDiaryDay}>
             <input type="hidden" name="night_date" value={nightDate} />
             <FormSubmitButton
@@ -108,6 +109,17 @@ export default async function DiaryPage({ searchParams }: PageProps) {
           </form>
         </div>
       )}
+
+      {/* Done button — user taps when finished filling all days they want */}
+      <div className="px-4 pt-4 pb-8">
+        <Link
+          href="/diary/done"
+          className="flex items-center justify-center gap-2 w-full rounded-xl bg-indigo-600 text-white py-3 text-sm font-semibold"
+        >
+          <CheckCircle className="w-4 h-4" strokeWidth={2} />
+          เสร็จแล้ว
+        </Link>
+      </div>
     </main>
   )
 }
